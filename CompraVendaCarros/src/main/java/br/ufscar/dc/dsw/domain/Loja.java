@@ -31,11 +31,11 @@ public class Loja {
 		this.id = id;
 	}
 
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setLogin(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -63,11 +63,12 @@ public class Loja {
 		this.CNPJ = CNPJ;
 	}
 
-	public String getTelefone() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setTelefone(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 }
