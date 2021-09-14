@@ -8,7 +8,18 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <a href="clientes">CRUD Clientes</a>
-        <a href="lojas">CRUD Lojas</a>
+        <div class="topbar">
+            <ul>
+                <li class="linkTopoEsquerda">
+                    <span>LataVelhaInc.</span>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="clientes">CRUD Clientes</a>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="lojas">CRUD Lojas</a>
+                </li>
+            </ul>
+        </div>
     </body>
 </html>
