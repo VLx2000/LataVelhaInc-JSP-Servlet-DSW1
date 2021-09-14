@@ -1,3 +1,43 @@
+body {
+	margin: 0;
+}
+
 a {
 	display: block;
+	text-decoration: none;
+	color: white;
+	font: bold 14pt Verdana;
+}
+
+span {
+	display: block;
+	color: red;
+	font: bold 20pt Verdana;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(43, 43, 43);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
+}
+
+.linkTopoDireita {
+	float: right;
+	text-align: center;
+	padding: 20px 16px;
+}
+
+.linkTopoEsquerda {
+	float: left;
+	padding: 14px 16px;
+}
+
+.linkTopoDireita:hover {
+	background-color: rgba(175, 0, 0, 0.349);
 }

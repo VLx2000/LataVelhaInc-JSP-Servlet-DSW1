@@ -12,12 +12,9 @@ public class Cliente {
 	private String telefone;
 	private String sexo;
 	private Date nascimento;
+	private Boolean admin;
 
-	public Cliente(Long id) {
-		this.id = id;
-	}
-
-	public Cliente(Long id, String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento) {
+	public Cliente(Long id, String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, Boolean admin) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -27,6 +24,7 @@ public class Cliente {
 		this.telefone = telefone;
 		this.sexo = sexo;
 		this.nascimento = nascimento;
+		this.admin = admin;
 	}
 
 	public Long getId() {
@@ -37,11 +35,11 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setLogin(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -91,5 +89,13 @@ public class Cliente {
 
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
+	}
+
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 }
