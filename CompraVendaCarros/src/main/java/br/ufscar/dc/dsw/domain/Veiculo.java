@@ -2,17 +2,17 @@ package br.ufscar.dc.dsw.domain;
 
 public class Veiculo {
 
-    private Loja loja;
+    private String cnpj_loja;
     private String placa;
     private String modelo;
     private String chassi;
     private Integer ano;
-    private Float quilometragem;
+    private Integer quilometragem;
     private String descricao;
     private Float valor;
     private byte[] imagens;
 
-    public Veiculo(String placa, String modelo, String chassi, Integer ano, Float quilometragem, String descricao, Float valor, byte[] imagens, Loja loja) {
+    public Veiculo(String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, byte[] imagens, String cnpj_loja) {
         this.placa = placa;
         this.modelo = modelo;
         this.chassi = chassi;
@@ -21,7 +21,7 @@ public class Veiculo {
         this.descricao = descricao;
         this.valor = valor;
         this.imagens = imagens;
-        this.loja = loja;
+        this.cnpj_loja = cnpj_loja;
     }
 
     public String getPlaca() {
@@ -56,11 +56,11 @@ public class Veiculo {
         this.ano = ano;
     }
 
-    public Float getQuilometragem() {
+    public Integer getQuilometragem() {
         return quilometragem;
     }
 
-    public void setQuilometragem(Float quilometragem) {
+    public void setQuilometragem(Integer quilometragem) {
         this.quilometragem = quilometragem;
     }
 
@@ -80,12 +80,12 @@ public class Veiculo {
         this.valor = valor;
     }
 
-    public Loja getLojaCNPJ() {
-        return loja;
+    public String getLojaCNPJ() {
+        return cnpj_loja;
     }
 
-    public void setLoja(Loja loja) {
-        this.loja = loja;
+    public void setLoja(String cnpj_loja) {
+        this.cnpj_loja = cnpj_loja;
     }
 
     public byte[] getImagens() {
