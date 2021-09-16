@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Cliente {
 
-	private Long id;
+	//private Long id;
 	private String email;
 	private String senha;
 	private String CPF;
@@ -14,9 +14,9 @@ public class Cliente {
 	private Date nascimento;
 	private Boolean admin;
 
-	public Cliente(Long id, String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, Boolean admin) {
+	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, Boolean admin) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.CPF = CPF;
@@ -27,13 +27,13 @@ public class Cliente {
 		this.admin = admin;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	//public Long getId() {
+		//return id;
+	//}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	//public void setId(Long id) {
+		//this.id = id;
+	//}
 
 	public String getEmail() {
 		return email;

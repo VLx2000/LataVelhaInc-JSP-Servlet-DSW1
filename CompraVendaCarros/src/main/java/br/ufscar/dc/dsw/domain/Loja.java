@@ -2,20 +2,20 @@ package br.ufscar.dc.dsw.domain;
 
 public class Loja {
 
-	private Long id;
+	//private Long id;
 	private String email;
 	private String senha;
 	private String CNPJ;
 	private String nome;
 	private String descricao;
 
-	public Loja(Long id) {
-		this.id = id;
-	}
+	//public Loja(Long id) {
+		//this.id = id;
+	//}
 
-	public Loja(Long id, String email, String senha, String CNPJ, String nome, String descricao) {
+	public Loja(String email, String senha, String CNPJ, String nome, String descricao) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.CNPJ = CNPJ;
@@ -23,13 +23,13 @@ public class Loja {
 		this.descricao = descricao;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	//public Long getId() {
+		//return id;
+	//}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	//public void setId(Long id) {
+		//this.id = id;
+	//}
 
 	public String getEmail() {
 		return email;

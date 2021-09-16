@@ -42,7 +42,7 @@ public class ClienteDAO extends GenericDAO {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                long id = resultSet.getLong("id");
+                //long id = resultSet.getLong("id");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
                 String CPF = resultSet.getString("CPF");
@@ -51,7 +51,7 @@ public class ClienteDAO extends GenericDAO {
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
                 Boolean admin = resultSet.getBoolean("admin");
-                Cliente cliente = new Cliente(id, email, senha, CPF, nome, telefone, sexo, nascimento, admin);
+                Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, admin);
                 listaClientes.add(cliente);
             }
             resultSet.close();
@@ -68,7 +68,7 @@ public class ClienteDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setLong(1, cliente.getId());
+            statement.setString(1, cliente.getCPF());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -77,7 +77,7 @@ public class ClienteDAO extends GenericDAO {
     }
     
     public void update(Cliente cliente) {
-        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, admin = ? WHERE id = ?";
+        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, admin = ? WHERE CPF = ?";
     
         try {
             Connection conn = this.getConnection();
@@ -98,24 +98,24 @@ public class ClienteDAO extends GenericDAO {
         }
     }
     
-    public Cliente getbyID(Long id) {
+    public Cliente getbyCPF(String CPF) {
         Cliente cliente = null;
-        String sql = "SELECT * from Cliente WHERE id = ?";
+        String sql = "SELECT * from Cliente WHERE CPF = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setLong(1, id);
+            statement.setString(1, CPF);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
-                String CPF = resultSet.getString("CPF");
+                //String CPF = resultSet.getString("CPF");
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
                 Boolean admin = resultSet.getBoolean("admin");
-                cliente = new Cliente(id, email, senha, CPF, nome, telefone, sexo, nascimento, admin);
+                cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, admin);
             }
             resultSet.close();
             statement.close();
