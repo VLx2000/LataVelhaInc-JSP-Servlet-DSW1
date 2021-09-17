@@ -36,7 +36,7 @@ public class LojaDAO extends GenericDAO{
     }
 	
 
-	public List<Loja> getall() {
+	public List<Loja> getAll() {
 		
 		List<Loja> listaLojas = new ArrayList<>();
 		
