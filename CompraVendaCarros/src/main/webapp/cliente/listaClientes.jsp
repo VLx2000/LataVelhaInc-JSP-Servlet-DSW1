@@ -8,6 +8,7 @@
 	<head>	
 		<title>Lista de clientes</title>
 		<link rel="stylesheet" href="cliente/listaClientes.css">
+		<link rel="stylesheet" href="../global.css">
 	</head>
 
 	<body>
