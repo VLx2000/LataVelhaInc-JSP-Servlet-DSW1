@@ -1,7 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,10 +14,20 @@
                     <span>LataVelhaInc.</span>
                 </li>
                 <li class="linkTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
-                    <a href="login.jsp">Login</a>
+                    <a href="logout">Sair</a>
                 </li>
             </ul>
         </div>
+        <section class="principal">
+            <div class="links">
+                <a href="clientes">CRUD Clientes</a>
+            </div>
+            <div class="links">
+                <a href="lojas">CRUD Lojas</a>
+            </div>
+            <div class="links">
+                <a href="veiculos">CRUD Veiculos</a>
+            </div>
+        </section>
     </body>
 </html>
