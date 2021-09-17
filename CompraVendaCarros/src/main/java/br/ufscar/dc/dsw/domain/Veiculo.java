@@ -2,7 +2,7 @@ package br.ufscar.dc.dsw.domain;
 
 public class Veiculo {
 
-    private String cnpj_loja;
+    
     private String placa;
     private String modelo;
     private String chassi;
@@ -11,6 +11,7 @@ public class Veiculo {
     private String descricao;
     private Float valor;
     private byte[] imagens;
+    private String cnpj_loja;
 
     public Veiculo(String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, byte[] imagens, String cnpj_loja) {
         this.placa = placa;

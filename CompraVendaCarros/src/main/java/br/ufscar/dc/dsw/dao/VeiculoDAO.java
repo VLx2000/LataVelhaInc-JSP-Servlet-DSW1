@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import br.ufscar.dc.dsw.domain.Veiculo;
 
 public class VeiculoDAO extends GenericDAO {
@@ -34,8 +35,8 @@ public class VeiculoDAO extends GenericDAO {
     }
     
     public List<Veiculo> getAll() {   
-        List<Veiculo> listaClientes = new ArrayList<>();
-        String sql = "SELECT * from Veiculo u";
+        List<Veiculo> listaVeiculos = new ArrayList<>();
+        String sql = "SELECT * from Veiculo";
         try {
             Connection conn = this.getConnection();
             Statement statement = conn.createStatement();
@@ -49,10 +50,11 @@ public class VeiculoDAO extends GenericDAO {
                 String descricao = resultSet.getString("descricao");
                 float valor = resultSet.getFloat("valor");
                 String cnpj_loja = resultSet.getString("cnpj_loja");
-                byte[] imagens = resultSet.getBytes("imagens");
+                //byte[] imagens = resultSet.getBytes("imagens");
+                
                 //Boolean admin = resultSet.getBoolean("admin");
-                Veiculo veiculo = new Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,imagens,cnpj_loja);
-                listaClientes.add(veiculo);
+                Veiculo veiculo = new Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,null,cnpj_loja);
+                listaVeiculos.add(veiculo);
             }
             resultSet.close();
             statement.close();
@@ -60,7 +62,7 @@ public class VeiculoDAO extends GenericDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return listaClientes;
+        return listaVeiculos;
     }
     
     public void delete(Veiculo veiculo) {
