@@ -25,7 +25,7 @@ public class VeiculoDAO extends GenericDAO {
             statement.setInt(5, veiculo.getQuilometragem());
             statement.setString(6, veiculo.getDescricao());
             statement.setFloat(7, veiculo.getValor());
-            statement.setString(8, veiculo.getLojaCNPJ());
+            statement.setString(8, veiculo.getCnpj_loja());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -90,7 +90,7 @@ public class VeiculoDAO extends GenericDAO {
             statement.setInt(4, veiculo.getAno());
             statement.setInt(5, veiculo.getQuilometragem());
             statement.setFloat(6, veiculo.getValor());
-            statement.setString(7, veiculo.getLojaCNPJ());
+            statement.setString(7, veiculo.getCnpj_loja());
             statement.executeUpdate();
             statement.close();
             conn.close();
