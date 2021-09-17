@@ -4,7 +4,7 @@ create database Aluguel_Veiculos;
 use Aluguel_Veiculos;
 
 create table Cliente(email varchar(30) not null, senha varchar(50) not null, cpf varchar(20) not null, nome varchar (50) not null,
-telefone varchar(20) not null, sexo varchar(10) not null, data_de_nasc date not null, primary key(cpf));
+telefone varchar(20) not null, sexo varchar(10) not null, nascimento date not null, papel varchar(10) not null, primary key(cpf));
 
 create table Loja(email varchar(30) not null, senha varchar(50) not null, cnpj varchar(20), nome varchar (50) not null, 
 descricao varchar(120),primary key(cnpj));
@@ -18,8 +18,8 @@ valor float not null, data date not null, primary key(cpf_cliente,cnpj_loja,plac
 foreign key(cpf_cliente) references Cliente(cpf),foreign key(cnpj_loja) references Loja(cnpj),
 foreign key(placa_veiculo) references Veiculo(placa));
 
-insert into Cliente(email,senha,cpf,nome,telefone,sexo,data_de_nasc) values ('cliente1@cliente1','cliente1','111.111.111-11',
-'cliente1','1111111111','M','2000-01-01');
+insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('cliente1@cliente1','cliente1','111.111.111-11',
+'cliente1','1111111111','M','2000-01-01','USER');
 
 insert into Loja(email,senha,cnpj,nome,descricao) values ('loja@loja1','loja1','111.111.111/0001-11','loja1','primeira loja');
 

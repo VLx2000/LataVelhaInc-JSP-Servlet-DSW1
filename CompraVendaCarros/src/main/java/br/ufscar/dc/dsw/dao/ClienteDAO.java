@@ -13,7 +13,7 @@ import br.ufscar.dc.dsw.domain.Cliente;
 public class ClienteDAO extends GenericDAO {
 
     public void insert(Cliente cliente) {    
-        String sql = "INSERT INTO Cliente (email, senha, CPF, nome, telefone, sexo, nascimento, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Cliente (email, senha, CPF, nome, telefone, sexo, nascimento, papel) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);;    
@@ -25,7 +25,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
             statement.setDate(7, cliente.getNascimento());
-            statement.setBoolean(8, cliente.getAdmin());
+            statement.setString(8, cliente.getPapel());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -50,8 +50,8 @@ public class ClienteDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
-                Boolean admin = resultSet.getBoolean("admin");
-                Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, admin);
+                String papel = resultSet.getString("papel");
+                Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
                 listaClientes.add(cliente);
             }
             resultSet.close();
@@ -77,7 +77,7 @@ public class ClienteDAO extends GenericDAO {
     }
     
     public void update(Cliente cliente) {
-        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, admin = ? WHERE CPF = ?";
+        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, papel = ? WHERE CPF = ?";
     
         try {
             Connection conn = this.getConnection();
@@ -89,7 +89,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
             statement.setDate(7, cliente.getNascimento());
-            statement.setBoolean(8, cliente.getAdmin());
+            statement.setString(8, cliente.getPapel());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -114,8 +114,8 @@ public class ClienteDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
-                Boolean admin = resultSet.getBoolean("admin");
-                cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, admin);
+                String papel = resultSet.getString("papel");
+                cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
             }
             resultSet.close();
             statement.close();

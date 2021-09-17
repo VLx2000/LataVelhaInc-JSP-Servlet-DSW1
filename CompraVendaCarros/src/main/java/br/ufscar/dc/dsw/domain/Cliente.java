@@ -12,9 +12,9 @@ public class Cliente {
 	private String telefone;
 	private String sexo;
 	private Date nascimento;
-	private Boolean admin;
+	private String papel;
 
-	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, Boolean admin) {
+	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, String papel) {
 		super();
 		//this.id = id;
 		this.email = email;
@@ -24,7 +24,7 @@ public class Cliente {
 		this.telefone = telefone;
 		this.sexo = sexo;
 		this.nascimento = nascimento;
-		this.admin = admin;
+		this.papel = papel;
 	}
 
 	//public Long getId() {
@@ -91,11 +91,11 @@ public class Cliente {
 		this.nascimento = nascimento;
 	}
 
-	public Boolean getAdmin() {
-		return admin;
+	public String getPapel() {
+		return papel;
 	}
 
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setPapel(String papel) {
+		this.papel = papel;
 	}
 }
