@@ -1,6 +1,6 @@
 package br.ufscar.dc.dsw.domain;
 
-import java.sql.Date;
+//import java.sql.Date;
 
 public class Cliente {
 

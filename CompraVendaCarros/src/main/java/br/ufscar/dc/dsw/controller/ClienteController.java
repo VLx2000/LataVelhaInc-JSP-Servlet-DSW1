@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
-import java.sql.Date;
+//import java.sql.Date;
 
 //import br.ufscar.dc.dsw.util.Erro;
 
