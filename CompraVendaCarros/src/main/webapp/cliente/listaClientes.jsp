@@ -16,7 +16,7 @@
 
 		<div align="center">
 			<h1>Gerenciamento de clientes</h1>
-			<a href="/<%=contextPath%>/cliente/cadastro">Adicionar Nova Cliente</a>
+			<a href="/<%=contextPath%>/clientes/cadastro">Adicionar Nova Cliente</a>
 		</div>
 		<div align="center">
 			<h2>Lista de clientes</h2>
@@ -46,6 +46,9 @@
                             <td>${cliente.sexo}</td>
                             <td>${cliente.nascimento}</td>
                             <td>${cliente.papel}</td>
+							<td>
+								<a href="/<%=contextPath%>/clientes/remocao?CPF=${cliente.CPF}">Remover</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

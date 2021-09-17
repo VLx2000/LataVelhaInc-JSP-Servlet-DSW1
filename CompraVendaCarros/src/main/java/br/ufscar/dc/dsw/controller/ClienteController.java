@@ -15,7 +15,7 @@ import java.sql.Date;
 
 //import br.ufscar.dc.dsw.util.Erro;
 
-@WebServlet(urlPatterns = "/cliente/*")
+@WebServlet(urlPatterns = "/clientes/*")
 public class ClienteController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +50,9 @@ public class ClienteController extends HttpServlet {
                 case "/insercao":
                     insere(request, response);
                     break;
+                case "/remocao":
+                	remove(request, response);
+                	break;
                 default:
                     lista(request, response);
                     break;
@@ -88,5 +91,16 @@ public class ClienteController extends HttpServlet {
 
         dao.insert(cliente);
         response.sendRedirect("listaClientes");
+    }
+
+    private void remove(HttpServletRequest request, HttpServletResponse response)
+    		throws IOException {
+    	String CPF = request.getParameter("CPF");
+    	
+    	Cliente cliente = new Cliente(CPF);
+    	dao.delete(cliente);
+    	
+    	// Retorna para a página do CRUD:
+    	response.sendRedirect("listaClientes");
     }
 }

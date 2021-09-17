@@ -14,10 +14,13 @@
                     <span>LataVelhaInc.</span>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="cliente">CRUD Clientes</a>
+                    <a href="clientes">CRUD Clientes</a>
                 </li>
                 <li class="linkTopoDireita">
                     <a href="lojas">CRUD Lojas</a>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="veiculos">CRUD Veiculos</a>
                 </li>
             </ul>
         </div>

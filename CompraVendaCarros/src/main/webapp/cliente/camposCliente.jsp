@@ -52,13 +52,12 @@
 		<td><label for="papel">papel</label></td>
 		<td>
 			<select name="papel">
-				<option value="ADMIN" ${usuario.papel == "ADMIN" ? 'selected="selected"' : ''}>ADMIN</option>
-				<option value="USER" ${usuario.papel == "USER" ? 'selected="selected"' : ''}>USER</option>
+				<option value="ADMIN" ${cliente.papel == "ADMIN" ? 'selected="selected"' : ''}>ADMIN</option>
+				<option value="USER" ${cliente.papel == "USER" ? 'selected="selected"' : ''}>USER</option>
 			</select>			
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit"
-			value="<fmt:message key="save.link" />" /></td>
+		<td colspan="2" align="center"><input type="submit" value="save.link" /></td>
 	</tr>
 </table>

@@ -14,6 +14,10 @@ public class Cliente {
 	private String nascimento;
 	private String papel;
 
+	public Cliente (String CPF) {
+		this.CPF = CPF;
+	}
+
 	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, String nascimento, String papel) {
 		super();
 		//this.id = id;
