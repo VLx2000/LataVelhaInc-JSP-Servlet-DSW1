@@ -13,6 +13,10 @@ public class Loja {
 		//this.id = id;
 	//}
 
+	public Loja (String cnpj) {
+		this.CNPJ = cnpj;
+	}
+	
 	public Loja(String email, String senha, String CNPJ, String nome, String descricao) {
 		super();
 		//this.id = id;

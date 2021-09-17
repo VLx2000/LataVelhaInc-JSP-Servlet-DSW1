@@ -7,7 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de Lojas</title>
-		<link rel="stylesheet" href="loja/listaLojas.css">
+		<link rel="stylesheet" type="text/css" href="loja/lojas.css">
 	</head>
 	
 	<body>
@@ -16,10 +16,11 @@
 		
 		<div align="center">
 			<h1>Gerenciamento de Lojas</h1>
+			<a href="/<%=contextPath%>/lojas/cadastro">Adicionar Nova Loja</a>
 		</div>
 		
 		<div align="center">
-			<h2>Lista de Lojas</h2>
+			<h3>Lista de Lojas</h3>
 			
 			<table>
 				<thead>
@@ -29,6 +30,7 @@
 						<th>Senha</th>
 						<th>CNPJ</th>
 						<th>Descrição</th>
+						<th>Ações</th>
 					</tr>
 				</thead>
 				
@@ -40,6 +42,9 @@
 							<td>${loja.senha}</td>
 							<td>${loja.CNPJ}</td>
 							<td>${loja.descricao}</td>
+							<td>
+								<a href="/<%=contextPath%>/lojas/remocao?cnpj=${loja.CNPJ}">Remover</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -43,8 +43,15 @@ public class LojaController extends HttpServlet {
 
         try {
             switch (action) {
-                case "/insere":
+            	case "/cadastro":
+            		apresentaFormCadastroLojas(request, response);
+            		break;
+                case "/insercao":
+                	insere(request, response);
                     break;
+                case "/remocao":
+                	remove(request, response);
+                	break;
                 default:
                     lista(request, response);
                     break;
@@ -61,4 +68,39 @@ public class LojaController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/loja/listaLojas.jsp");
         dispatcher.forward(request, response);
     }
+
+    private void apresentaFormCadastroLojas(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {	
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/loja/formularioLojas.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void insere(HttpServletRequest request, HttpServletResponse response) 
+    		throws ServletException, IOException {
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	String email = request.getParameter("email");
+    	String senha = request.getParameter("senha");
+    	String cnpj = request.getParameter("cnpj");
+    	String nome = request.getParameter("nome");
+    	String descricao = request.getParameter("descricao");
+    	
+    	Loja loja = new Loja(email, senha, cnpj, nome, descricao);
+    	dao.insert(loja);
+    	
+    	// Retorna para a página do CRUD:
+    	response.sendRedirect("listaLojas");
+    }
+    
+    private void remove(HttpServletRequest request, HttpServletResponse response)
+    		throws IOException {
+    	String cnpj = request.getParameter("cnpj");
+    	
+    	Loja loja = new Loja(cnpj);
+    	dao.delete(loja);
+    	
+    	// Retorna para a página do CRUD:
+    	response.sendRedirect("listaLojas");
+    }
+    
 }
