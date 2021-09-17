@@ -81,11 +81,11 @@ public class Veiculo {
         this.valor = valor;
     }
 
-    public String getLojaCNPJ() {
+    public String getCnpj_loja() {
         return cnpj_loja;
     }
 
-    public void setLoja(String cnpj_loja) {
+    public void setCnpj_loja(String cnpj_loja) {
         this.cnpj_loja = cnpj_loja;
     }
 
