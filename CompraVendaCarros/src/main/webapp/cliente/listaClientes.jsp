@@ -7,7 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de clientes</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="cliente/listaClientes.css">
 	</head>
 
 	<body>

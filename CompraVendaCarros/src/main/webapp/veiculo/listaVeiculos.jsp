@@ -7,7 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de Veiculos</title>
-		<link rel="stylesheet" href="veiculos/listaVeiculos.css">
+		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
 	</head>
 	
 	<body>
@@ -43,7 +43,6 @@
 							<td>${veiculo.quilometragem}</td>
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
-							<td>${veiculo.imagens}</td>
 							<td>${veiculo.cnpj_loja}</td>
 						</tr>
 					</c:forEach>

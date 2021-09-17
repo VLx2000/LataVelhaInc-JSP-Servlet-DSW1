@@ -13,7 +13,7 @@ import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.dao.VeiculoDAO;
 //import br.ufscar.dc.dsw.util.Erro;
 
-@WebServlet(urlPatterns = "/veiculos/")
+@WebServlet(urlPatterns = "/veiculos/*")
 public class VeiculoController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class VeiculoController extends HttpServlet {
             throws ServletException, IOException {
         List<Veiculo> listaVeiculos = dao.getAll();
         request.setAttribute("listaVeiculos", listaVeiculos);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculos/listaVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/listaVeiculos.jsp");
         dispatcher.forward(request, response);
     }
 }
