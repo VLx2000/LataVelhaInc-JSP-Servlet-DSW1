@@ -7,7 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de Veiculos</title>
-		<link rel="stylesheet" href="veiculos/listaVeiculos.css">
+		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
 	</head>
 	
 	<body>

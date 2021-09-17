@@ -17,6 +17,6 @@ abstract public class GenericDAO {
     protected Connection getConnection() throws SQLException {
     	/* Conexão banco de dados MySQL */
     	String url = "jdbc:mysql://localhost:3306/Aluguel_Veiculos";
-    	return DriverManager.getConnection(url, "root", /*"digite aqui a sua senha"*/);
+    	return DriverManager.getConnection(url, "root", "root");
     }
 }
