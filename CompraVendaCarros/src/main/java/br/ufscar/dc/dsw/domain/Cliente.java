@@ -11,10 +11,10 @@ public class Cliente {
 	private String nome;
 	private String telefone;
 	private String sexo;
-	private Date nascimento;
+	private String nascimento;
 	private String papel;
 
-	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, Date nascimento, String papel) {
+	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, String nascimento, String papel) {
 		super();
 		//this.id = id;
 		this.email = email;
@@ -83,11 +83,11 @@ public class Cliente {
 		this.sexo= sexo;
 	}
 
-	public Date getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 

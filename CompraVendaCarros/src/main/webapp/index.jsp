@@ -14,7 +14,7 @@
                     <span>LataVelhaInc.</span>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="clientes">CRUD Clientes</a>
+                    <a href="cliente">CRUD Clientes</a>
                 </li>
                 <li class="linkTopoDireita">
                     <a href="lojas">CRUD Lojas</a>

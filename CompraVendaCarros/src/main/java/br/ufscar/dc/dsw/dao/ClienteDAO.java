@@ -24,7 +24,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
-            statement.setDate(7, cliente.getNascimento());
+            statement.setString(7, cliente.getNascimento());
             statement.setString(8, cliente.getPapel());
             statement.executeUpdate();
             statement.close();
@@ -36,7 +36,7 @@ public class ClienteDAO extends GenericDAO {
     
     public List<Cliente> getAll() {   
         List<Cliente> listaClientes = new ArrayList<>();
-        String sql = "SELECT * from Cliente u";
+        String sql = "SELECT * from Cliente";
         try {
             Connection conn = this.getConnection();
             Statement statement = conn.createStatement();
@@ -49,7 +49,8 @@ public class ClienteDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
+                String nascimento = resultSet.getString("nascimento");
+                //Date nascimento = new Date(30,8,2000)/*resultSet.getDate("nascimento")*/;
                 String papel = resultSet.getString("papel");
                 Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
                 listaClientes.add(cliente);
@@ -88,7 +89,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
-            statement.setDate(7, cliente.getNascimento());
+            statement.setString(7, cliente.getNascimento());
             statement.setString(8, cliente.getPapel());
             statement.executeUpdate();
             statement.close();
@@ -113,7 +114,7 @@ public class ClienteDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
+                String nascimento = resultSet.getString("nascimento");
                 String papel = resultSet.getString("papel");
                 cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
             }

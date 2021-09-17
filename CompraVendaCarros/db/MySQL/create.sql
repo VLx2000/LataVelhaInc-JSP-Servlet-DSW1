@@ -4,7 +4,7 @@ create database Aluguel_Veiculos;
 use Aluguel_Veiculos;
 
 create table Cliente(email varchar(30) not null, senha varchar(50) not null, cpf varchar(20) not null, nome varchar (50) not null,
-telefone varchar(20) not null, sexo varchar(10) not null, nascimento date not null, papel varchar(10) not null, primary key(cpf));
+telefone varchar(20) not null, sexo varchar(10) not null, nascimento varchar(10) not null, papel varchar(10) not null, primary key(cpf));
 
 create table Loja(email varchar(30) not null, senha varchar(50) not null, cnpj varchar(20), nome varchar (50) not null, 
 descricao varchar(120),primary key(cnpj));
