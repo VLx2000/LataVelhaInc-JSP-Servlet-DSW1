@@ -65,7 +65,7 @@ public class ClienteDAO extends GenericDAO {
     }
     
     public void delete(Cliente cliente) {
-        String sql = "DELETE FROM Cliente where id = ?";
+        String sql = "DELETE FROM Cliente where CPF = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
