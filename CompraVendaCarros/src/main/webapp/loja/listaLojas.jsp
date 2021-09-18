@@ -8,7 +8,6 @@
 	<head>	
 		<title>Lista de Lojas</title>
 		<link rel="stylesheet" type="text/css" href="../global.css">
-		<link rel="stylesheet" type="text/css" href="lojas.css">
 	</head>
 	
 	<body>

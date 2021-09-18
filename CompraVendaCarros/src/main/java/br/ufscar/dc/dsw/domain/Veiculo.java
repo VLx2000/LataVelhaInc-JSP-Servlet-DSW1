@@ -11,6 +11,20 @@ public class Veiculo {
     private String descricao;
     private Float valor;
     private Long id_loja;
+    
+    public Veiculo(Long id) {
+    	this.id = id;
+    }
+    public Veiculo(String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Long id_loja) {
+    	this.placa = placa;
+        this.modelo = modelo;
+        this.chassi = chassi;
+        this.ano = ano;
+        this.quilometragem = quilometragem;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.id_loja = id_loja;
+    }
 
     public Veiculo(Long id, String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Long id_loja) {
         this.id = id;

@@ -16,6 +16,7 @@
 		
 		<div align="center">
 			<h1>Gerenciamento de Veiculos</h1>
+			<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
 		</div>
 		
 		<div align="center">
@@ -44,6 +45,9 @@
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
 							<td>${veiculo.id_loja}</td>
+							<td>
+								<a href="/<%=contextPath%>/veiculos/remocao?id=${veiculo.id}">Remover</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
