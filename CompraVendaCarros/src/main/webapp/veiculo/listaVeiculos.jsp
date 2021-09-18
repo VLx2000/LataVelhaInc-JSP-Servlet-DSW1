@@ -8,6 +8,7 @@
 	<head>	
 		<title>Lista de Veiculos</title>
 		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
+		<link rel="stylesheet" type="text/css" href="../global.css">
 	</head>
 	
 	<body>
@@ -31,7 +32,7 @@
 						<th>Quilometragem</th>
 						<th>Descricao</th>
 						<th>valor</th>
-						<th>cnpj_loja</th>
+						<th>Id da Loja</th>
 					</tr>
 				</thead>
 				

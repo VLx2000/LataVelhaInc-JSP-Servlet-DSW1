@@ -7,6 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de Lojas</title>
+				<link rel="stylesheet" href="loja/lojas.css">
 		<link rel="stylesheet" type="text/css" href="../global.css">
 	</head>
 	

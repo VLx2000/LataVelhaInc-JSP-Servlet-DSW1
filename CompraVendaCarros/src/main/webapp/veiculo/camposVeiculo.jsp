@@ -49,6 +49,11 @@
 		<td><input type="number" id="valor" name="valor" required
 			value="${veiculo.valor}" /></td>
 	</tr>
+		<tr>
+		<td><label for="id_loja">Id da Loja</label></td>
+		<td><input type="number" id="id_loja" name="id_loja" required
+			value="${veiculo.id_loja}" /></td>
+	</tr>
 	
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
