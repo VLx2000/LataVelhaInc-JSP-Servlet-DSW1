@@ -94,11 +94,11 @@ public class LojaController extends HttpServlet {
     
     private void remove(HttpServletRequest request, HttpServletResponse response)
     		throws IOException {
-    	String cnpj = request.getParameter("cnpj");
-    	
-    	Loja loja = new Loja(cnpj);
+    	String id_s = request.getParameter("id");
+    	Long id = Long.parseLong( id_s );
+    	Loja loja = new Loja(id);
     	dao.delete(loja);
-    	
+   
     	// Retorna para a página do CRUD:
     	response.sendRedirect("listaLojas");
     }

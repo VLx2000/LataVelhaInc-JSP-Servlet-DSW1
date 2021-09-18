@@ -95,9 +95,10 @@ public class ClienteController extends HttpServlet {
 
     private void remove(HttpServletRequest request, HttpServletResponse response)
     		throws IOException {
-    	String CPF = request.getParameter("CPF");
+    	String id_s = request.getParameter("id");
+    	Long id = Long.parseLong( id_s );  
     	
-    	Cliente cliente = new Cliente(CPF);
+    	Cliente cliente = new Cliente(id);
     	dao.delete(cliente);
     	
     	// Retorna para a página do CRUD:

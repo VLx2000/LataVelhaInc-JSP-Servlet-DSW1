@@ -25,6 +25,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Email</th>
 						<th>senha</th>
 						<th>cpf</th>
@@ -39,6 +40,7 @@
 				<tbody>
 					<c:forEach var="cliente" items="${requestScope.listaClientes}">
 						<tr>
+							<td>${cliente.id}</td>
 							<td>${cliente.email}</td>
                             <td>${cliente.senha}</td>
                             <td>${cliente.CPF}</td>
@@ -48,7 +50,7 @@
                             <td>${cliente.nascimento}</td>
                             <td>${cliente.papel}</td>
 							<td>
-								<a href="/<%=contextPath%>/clientes/remocao?CPF=${cliente.CPF}">Remover</a>
+								<a href="/<%=contextPath%>/clientes/remocao?id=${cliente.id}">Remover</a>
 							</td>
 						</tr>
 					</c:forEach>

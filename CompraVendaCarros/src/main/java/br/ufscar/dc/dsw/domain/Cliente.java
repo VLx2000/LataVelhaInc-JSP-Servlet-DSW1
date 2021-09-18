@@ -4,7 +4,7 @@ package br.ufscar.dc.dsw.domain;
 
 public class Cliente {
 
-	//private Long id;
+	private Long id;
 	private String email;
 	private String senha;
 	private String CPF;
@@ -14,13 +14,10 @@ public class Cliente {
 	private String nascimento;
 	private String papel;
 
-	public Cliente (String CPF) {
-		this.CPF = CPF;
+	public Cliente (Long id) {
+		this.id = id;
 	}
-
 	public Cliente(String email, String senha, String CPF, String nome, String telefone, String sexo, String nascimento, String papel) {
-		super();
-		//this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.CPF = CPF;
@@ -31,13 +28,26 @@ public class Cliente {
 		this.papel = papel;
 	}
 
-	//public Long getId() {
-		//return id;
-	//}
+	public Cliente(Long id,String email, String senha, String CPF, String nome, String telefone, String sexo, String nascimento, String papel) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.senha = senha;
+		this.CPF = CPF;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.sexo = sexo;
+		this.nascimento = nascimento;
+		this.papel = papel;
+	}
 
-	//public void setId(Long id) {
-		//this.id = id;
-	//}
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;

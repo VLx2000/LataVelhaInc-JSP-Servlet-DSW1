@@ -26,6 +26,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Nome</th>
 						<th>Email</th>
 						<th>Senha</th>
@@ -38,13 +39,14 @@
 				<tbody>
 					<c:forEach var="loja" items="${requestScope.listaLojas}">
 						<tr>
+							<td>${loja.id}</td>
 							<td>${loja.nome}</td>
 							<td>${loja.email}</td>
 							<td>${loja.senha}</td>
 							<td>${loja.CNPJ}</td>
 							<td>${loja.descricao}</td>
 							<td>
-								<a href="/<%=contextPath%>/lojas/remocao?cnpj=${loja.CNPJ}">Remover</a>
+								<a href="/<%=contextPath%>/lojas/remocao?id=${loja.id}">Remover</a>
 							</td>
 						</tr>
 					</c:forEach>

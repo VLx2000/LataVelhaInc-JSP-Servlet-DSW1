@@ -43,7 +43,7 @@
 							<td>${veiculo.quilometragem}</td>
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
-							<td>${veiculo.cnpj_loja}</td>
+							<td>${veiculo.id_loja}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
