@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Cliente;
-import br.ufscar.dc.dsw.domain.Loja;
-import br.ufscar.dc.dsw.domain.Veiculo;
+
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 //import java.sql.Date;
-import br.ufscar.dc.dsw.dao.LojaDAO;
 
 //import br.ufscar.dc.dsw.util.Erro;
 
@@ -111,9 +109,7 @@ public class ClienteController extends HttpServlet {
     
     private void atualiza(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	System.out.println("AQUI1111");
         Long id = Long.parseLong(request.getParameter("id"));
-        System.out.println("AQUI22222");
     	String email = request.getParameter("email");
     	String senha = request.getParameter("senha");
     	String CPF = request.getParameter("CPF");

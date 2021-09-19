@@ -87,7 +87,6 @@ public class LojaDAO extends GenericDAO{
 	 public void update(Loja loja) {
 	        String sql = "UPDATE Loja SET email = ?, senha = ?, CNPJ = ?, nome = ?";
 	        sql += ", descricao = ? WHERE id = ?";
-	        System.out.println("ATUALIZANDO");
 	        try {
 	            Connection conn = this.getConnection();
 	            PreparedStatement statement = conn.prepareStatement(sql);

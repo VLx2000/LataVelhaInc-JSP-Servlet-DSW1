@@ -14,7 +14,7 @@
             </c:otherwise>
 		</c:choose>
 	</caption>
-		<c:if test="${cliente != null}">
+	<c:if test="${cliente != null}">
 		<input type="hidden" name="id" value="${cliente.id}" />
 	</c:if>
 	<tr>
@@ -61,6 +61,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="save.link" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salvar" /></td>
 	</tr>
 </table>

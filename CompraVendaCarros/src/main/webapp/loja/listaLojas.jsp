@@ -45,8 +45,11 @@
 							<td>${loja.senha}</td>
 							<td>${loja.CNPJ}</td>
 							<td>${loja.descricao}</td>
-							<td>
-								<a href="/<%=contextPath%>/lojas/remocao?id=${loja.id}">Remover</a>
+							<td><a href="/<%= contextPath%>/lojas/edicao?id=${loja.id}">Edição</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; <a
+								href="/<%= contextPath%>/lojas/remocao?id=${loja.id}"
+								onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+									Remoção </a>
 							</td>
 						</tr>
 					</c:forEach>
