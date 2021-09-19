@@ -32,7 +32,8 @@
 						<th>Quilometragem</th>
 						<th>Descricao</th>
 						<th>valor</th>
-						<th>Id da Loja</th>
+						<th>Nome da Loja</th>
+						<th>Ações</th>
 					</tr>
 				</thead>
 				
@@ -45,10 +46,14 @@
 							<td>${veiculo.quilometragem}</td>
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
-							<td>${veiculo.id_loja}</td>
-							<td>
-								<a href="/<%=contextPath%>/veiculos/remocao?id=${veiculo.id}">Remover</a>
-							</td>
+							<td>${veiculo.loja.nome}</td>
+
+						<td><a href="/<%= contextPath%>/veiculos/edicao?id=${veiculo.id}">Edição</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a
+							href="/<%= contextPath%>/veiculos/remocao?id=${veiculo.id}"
+							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+								Remoção </a>
+						</td>
 						</tr>
 					</c:forEach>
 				</tbody>

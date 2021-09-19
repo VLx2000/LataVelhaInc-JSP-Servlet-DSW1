@@ -83,9 +83,9 @@ public class LojaController extends HttpServlet {
     	String senha = request.getParameter("senha");
     	String cnpj = request.getParameter("cnpj");
     	String nome = request.getParameter("nome");
-    	String descricao = request.getParameter("descricao");
+    	String descricao_loja = request.getParameter("descricao");
     	
-    	Loja loja = new Loja(email, senha, cnpj, nome, descricao);
+    	Loja loja = new Loja(email, senha, cnpj, nome, descricao_loja);
     	dao.insert(loja);
     	
     	// Retorna para a página do CRUD:

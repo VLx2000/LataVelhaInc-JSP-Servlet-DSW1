@@ -10,12 +10,12 @@ public class Veiculo {
     private Integer quilometragem;
     private String descricao;
     private Float valor;
-    private Long id_loja;
+    private Loja loja;
     
     public Veiculo(Long id) {
     	this.id = id;
     }
-    public Veiculo(String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Long id_loja) {
+    public Veiculo(String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Loja loja) {
     	this.placa = placa;
         this.modelo = modelo;
         this.chassi = chassi;
@@ -23,10 +23,10 @@ public class Veiculo {
         this.quilometragem = quilometragem;
         this.descricao = descricao;
         this.valor = valor;
-        this.id_loja = id_loja;
+        this.loja = loja;
     }
 
-    public Veiculo(Long id, String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Long id_loja) {
+    public Veiculo(Long id, String placa, String modelo, String chassi, Integer ano, Integer quilometragem, String descricao, Float valor, Loja loja) {
         this.id = id;
     	this.placa = placa;
         this.modelo = modelo;
@@ -35,7 +35,7 @@ public class Veiculo {
         this.quilometragem = quilometragem;
         this.descricao = descricao;
         this.valor = valor;
-        this.id_loja = id_loja;
+        this.loja = loja;
     }
 
     public Long getId() {
@@ -101,12 +101,12 @@ public class Veiculo {
         this.valor = valor;
     }
 
-    public Long getId_loja() {
-        return id_loja;
+    public Loja getLoja() {
+        return loja;
     }
 
-    public void setId_loja(Long id_loja) {
-        this.id_loja = id_loja;
+    public void setLoja(Loja loja) {
+        this.loja = loja;
     }
 
 

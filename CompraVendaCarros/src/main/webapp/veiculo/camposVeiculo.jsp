@@ -14,6 +14,9 @@
             </c:otherwise>
 		</c:choose>
 	</caption>
+	<c:if test="${veiculo != null}">
+		<input type="hidden" name="id" value="${veiculo.id}" />
+	</c:if>
 	<tr>
 		<td><label for="placa">Placa</label></td>
 		<td><input type="text" id="placa" name="placa" size="20"
@@ -49,11 +52,17 @@
 		<td><input type="number" id="valor" name="valor" required
 			value="${veiculo.valor}" /></td>
 	</tr>
-		<tr>
-		<td><label for="id_loja">Id da Loja</label></td>
-		<td><input type="number" id="id_loja" name="id_loja" required
-			value="${veiculo.id_loja}" /></td>
+	<tr>
+		<td><label for="id_loja">Loja</label></td>
+		<td><select id="id_loja" name="id_loja">
+				<c:forEach items="${lojas}" var="loja">
+					<option value="${loja.key}"
+						${veiculo.loja.nome==loja.value ? 'selected' : '' }>
+						${loja.value}</option>
+				</c:forEach>
+		</select></td>
 	</tr>
+
 	
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
