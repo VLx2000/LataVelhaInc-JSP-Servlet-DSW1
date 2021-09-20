@@ -11,7 +11,7 @@
         <div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    <span>LataVelhaInc.</span>
+                    <a href="/CompraVendaCarros/">LataVelhaInc.</a>
                 </li>
                 <li class="linkTopoDireita">
                     <a href="logout">Sair</a>

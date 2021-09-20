@@ -14,7 +14,17 @@
 	<body>
 
 		<%String contextPath = request.getContextPath().replace("/", ""); %>
-
+		<div class="topbar">
+            <ul>
+                <li class="linkTopoEsquerda">
+                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
+                </li>
+                <li class="linkTopoDireita">
+                    <!--<a href="login.jsp">Login</a>--> 
+                    <a href="crudLinks.jsp">Login</a>
+                </li>
+            </ul>
+        </div>
 		<div align="center">
 			<h1>Gerenciamento de clientes</h1>
 			<a href="/<%=contextPath%>/clientes/cadastro">Adicionar Nova Cliente</a>

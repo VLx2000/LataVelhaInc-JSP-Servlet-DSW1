@@ -8,6 +8,7 @@ body {
 	margin: 0;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	background-color: rgb(230, 230, 230);
+	font-size: 16px;
 }
 
 a {
@@ -83,13 +84,14 @@ th, td {
 
 #carros {
 	margin: auto;
-	width: 65%;
+	width: 70%;
 	height: 1000px;
 	margin-top: 100px;
 }
 
 .box {
 	border: 20px solid rgba(255, 255, 255, 0);
+	position: relative;
 }
 
 .card {
@@ -97,7 +99,6 @@ th, td {
 	background-color:rgb(250, 250, 250);
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
-	-webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 	position: relative;
 }
@@ -116,6 +117,8 @@ th, td {
 	background-color:rgba(250, 250, 250, 0.603);
 	border-radius: 2px;
 	border-color: rgba(0, 0, 0, 0);
+	height: 40px;
+	font-size: 1.1em;
 }
 
 #divFiltro {
@@ -136,31 +139,45 @@ th, td {
 }
 
 img {
-	background-color: aquamarine;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	padding: 0;
 	width: 100%;
 }
 
-@media (min-width: 1401px) {
+.container {
+	overflow: hidden;
+	height: 250px;
+}
+
+@media (min-width: 1301px) {
     .box {
         float: left;
         width: 25%;
     }
 }
 
-@media (min-width: 669px) and (max-width: 1400px) {
+@media (min-width: 901px) and (max-width: 1300px) {
     .box {
         float: left;
         width: 33.33%;
     }
 	#carros {
-		width: 85%;
+		width: 80%;
 	}
 }
 
-@media (max-width: 668px) {
+@media (min-width: 500px) and (max-width: 900px) {
+    .box{
+		float: left;
+        width: 50%;
+    }
+	#carros {
+		width: 95%;
+	}
+}
+
+@media (max-width: 499px) {
     .box{
 		clear: both;
         width: 100%;

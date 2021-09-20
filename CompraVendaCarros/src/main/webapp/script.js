@@ -1,45 +1,44 @@
-let TAM = 20
+/*let TAM = 5
 
 function cardCarros() {
-    for (let i = 1; i < TAM; i++) {
+    for (let i = 0; i < TAM; i++) {
         // Seleciona o elemento no DOM
         var cards = document.getElementById('carros'),
 
             // String de texto
             HTMLNovo =
-                '<section class="box">' +
-                '<div class="card">' +
-                '<img src="imagens/fiat.jpg" alt="fiat">' +
-                '<ul class="dadosCarro">' +
-                '<li class="modelo">' +
-                'Luigi' +
-                '</li>' +
-                '<li>' +
-                'Marca: Fiati' +
-                '</li>' +
-                '<li>' +
-                'Ano: 1800' +
-                '</li>' +
-                '<li>' +
-                'Estado: Velho' +
-                '</li>' +
-                '<li class="oferta">' +
-                '<br>$50.000' +
-                '</li>' +
-                '</ul>' +
-                '</div>' +
-                '</section>';
+                    '<section class="box">' +
+                        '<div class="card">' +
+                            '<div class="container">' +
+                                '<img src="imagens/fiat.jpg" alt="fiat">' +
+                            '</div>' +
+                            '<ul class="dadosCarro">' +
+                                '<li class="modelo">' +
+                                    '${veiculo.modelo}' +
+                                '</li>' +
+                                '<li>' +
+                                    'Loja: ${veiculo.loja.nome}' +
+                                '</li>' +
+                                '<li>' +
+                                    'Uso: ${veiculo.quilometragem}' +
+                                '</li>' +
+                                '<li class="oferta">' +
+                                    '${veiculo.valor}' +
+                                '</li>' +
+                            '</ul>' +
+                        '</div>' +
+                    '</section>';
 
-        // Insere o texto antes do conteúdo atual do elemento
+        // Insere o texto depois do conteúdo section do elemento (carros)
         cards.insertAdjacentHTML('beforeend', HTMLNovo);
     }
-}
+}*/
 
 setInterval(function filtro() {
     var filtrar = document.getElementById('filtro')
     var modelos = document.querySelectorAll('.modelo')
     var cards = document.querySelectorAll('.box')
-    for (let i = 0; i < TAM; i++) {
+    for (let i = 0; i < cards.length; i++) {
         if (filtrar.value == '') {
             cards[i].style = 'display: block;'
         }
@@ -54,6 +53,6 @@ setInterval(function filtro() {
             }
         }
     }
-}, 1000)
+}, 100)
 
-window.onload = cardCarros;
+//window.onload = cardCarros;

@@ -23,5 +23,26 @@
                 </li>
             </ul>
         </div>
+        <section id="carros">
+            <div id="divFiltro">
+                <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
+            </div>
+            <c:forEach var="veiculo" items="${requestScope.catalogo}"> <!--n sei pq raios não funciona :/-->
+                <section class="box">
+                    <div class="card">
+                        <div class="container">
+                            <img src="imagens/fusca.jpg" alt="fusca">
+                        </div>
+                        <ul class="dadosCarro">
+                            <li class="modelo">${veiculo.modelo}</li>
+                            <li>Loja: ${veiculo.loja.nome}</li>
+                            <li>${veiculo.quilometragem}km</li>
+                            <li class="oferta">$${veiculo.valor}</li>                    
+                        </ul>
+                    </div>
+                </section>
+            </c:forEach>
+        </section>
+        <script src="script.js"></script>
     </body>
 </html>
