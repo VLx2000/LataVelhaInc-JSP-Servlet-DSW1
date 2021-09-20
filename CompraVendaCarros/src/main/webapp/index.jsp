@@ -21,5 +21,30 @@
                 </li>
             </ul>
         </div>
+        <section id="carros">
+            <div id="divFiltro">
+                <input type="text" name="Filtro" placeholder="filtrar modelo..." id="filtro">
+            </div>
+            <section class="box" onclick="proposta.jsp">
+                <div class="card">
+                    <img src="imagens/fusca.jpg" alt="fusca">
+                    <ul class="dadosCarro">
+                        <li>
+                            Frusca Wolksvagen
+                        </li>
+                        <li>
+                            Ano: 2050
+                        </li>
+                        <li>
+                            Estado: Novo
+                        </li>
+                        <li id="oferta">
+                            <br>$200.000
+                        </li>                          
+                    </ul>
+                </div>
+            </section>
+        </section>
+        <script src="script.js"></script>
     </body>
 </html>
