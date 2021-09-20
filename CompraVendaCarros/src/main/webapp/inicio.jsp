@@ -31,7 +31,7 @@
                 <section class="box">
                     <div class="card">
                         <div class="container">
-                            <img src="imagens/fusca.jpg" alt="fusca">
+                            <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
                         </div>
                         <ul class="dadosCarro">
                             <li class="modelo">${veiculo.modelo}</li>

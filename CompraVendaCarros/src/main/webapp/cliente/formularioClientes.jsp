@@ -5,7 +5,8 @@
 <html>
 
 <head>
-<title>Lista de Lojas</title>
+	<title>Lista de Lojas</title>
+	<link rel="stylesheet" type="text/css" href="../global.css">
 </head>
 
 <body>
