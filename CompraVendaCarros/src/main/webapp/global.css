@@ -123,7 +123,7 @@ th, td {
 	margin: 20px;
 }
 
-#oferta {
+.oferta {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: red;

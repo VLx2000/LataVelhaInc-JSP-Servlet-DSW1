@@ -25,22 +25,14 @@
             <div id="divFiltro">
                 <input type="text" name="Filtro" placeholder="filtrar modelo..." id="filtro">
             </div>
-            <section class="box" onclick="proposta.jsp">
+            <section class="box">
                 <div class="card">
                     <img src="imagens/fusca.jpg" alt="fusca">
                     <ul class="dadosCarro">
-                        <li>
-                            Frusca Wolksvagen
-                        </li>
-                        <li>
-                            Ano: 2050
-                        </li>
-                        <li>
-                            Estado: Novo
-                        </li>
-                        <li id="oferta">
-                            <br>$200.000
-                        </li>                          
+                        <li class="modelo" value="teste">Frusca Wolksvagen</li>
+                        <li>Ano: 2050</li>
+                        <li>Estado: Novo</li>
+                        <li class="oferta"><br>$200.000</li>                    
                     </ul>
                 </div>
             </section>
