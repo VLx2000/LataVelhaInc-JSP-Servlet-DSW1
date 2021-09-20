@@ -29,7 +29,8 @@
                 <div class="card">
                     <img src="imagens/fusca.jpg" alt="fusca">
                     <ul class="dadosCarro">
-                        <li class="modelo" value="teste">Frusca Wolksvagen</li>
+                        <li class="modelo" value="teste">Frusca</li>
+                        <li>Marca: Wolksvagen</li>
                         <li>Ano: 2050</li>
                         <li>Estado: Novo</li>
                         <li class="oferta"><br>$200.000</li>                    

@@ -94,7 +94,7 @@ th, td {
 
 .card {
 	width: 100%;
-	height: 400px;
+	height: 450px;
 	background-color:rgb(250, 250, 250);
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
@@ -127,6 +127,11 @@ th, td {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: red;
+}
+
+.modelo {
+	font-size: 1.1em;
+	font-weight: 900;
 }
 
 img {

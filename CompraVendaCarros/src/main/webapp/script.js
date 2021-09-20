@@ -12,7 +12,10 @@ function cardCarros() {
                 '<img src="imagens/fiat.jpg" alt="fiat">' +
                 '<ul class="dadosCarro">' +
                 '<li class="modelo">' +
-                'Fiati Luigi' +
+                'Luigi' +
+                '</li>' +
+                '<li>' +
+                'Marca: Fiati' +
                 '</li>' +
                 '<li>' +
                 'Ano: 1800' +
