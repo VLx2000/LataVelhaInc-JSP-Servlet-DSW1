@@ -48,13 +48,13 @@ public class LojaDAO extends GenericDAO{
 			
 			ResultSet resultSet = statement.executeQuery(sql);
 			while (resultSet.next()) {
-				//Long id = resultSet.getLong("id");
+				Long id = resultSet.getLong("id");
 				String email = resultSet.getString("email");
 				String senha = resultSet.getString("senha");
 				String nome = resultSet.getString("nome");
 				String cnpj = resultSet.getString("CNPJ");
 				String descricao = resultSet.getString("descricao");
-				Loja loja = new Loja(email, senha, cnpj, nome, descricao);
+				Loja loja = new Loja(id,email, senha, cnpj, nome, descricao);
 				listaLojas.add(loja);
 			}
 			
@@ -68,13 +68,13 @@ public class LojaDAO extends GenericDAO{
 	}
 	
 	public void delete(Loja loja) {
-        String sql = "DELETE FROM Loja where CNPJ = ?";
+        String sql = "DELETE FROM Loja where id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setString(1, loja.getCNPJ());
+            statement.setLong(1, loja.getId());
             statement.executeUpdate();
 
             statement.close();
@@ -86,8 +86,7 @@ public class LojaDAO extends GenericDAO{
 	
 	 public void update(Loja loja) {
 	        String sql = "UPDATE Loja SET email = ?, senha = ?, CNPJ = ?, nome = ?";
-	        sql += ", descricao = ? WHERE CNPJ = ?";
-
+	        sql += ", descricao = ? WHERE id = ?";
 	        try {
 	            Connection conn = this.getConnection();
 	            PreparedStatement statement = conn.prepareStatement(sql);
@@ -97,7 +96,7 @@ public class LojaDAO extends GenericDAO{
 	            statement.setString(3, loja.getCNPJ());
 	            statement.setString(4, loja.getNome());
 	            statement.setString(5, loja.getDescricao());
-	            //statement.setLong(6, loja.getId());
+	            statement.setLong(6, loja.getId());
 	            statement.executeUpdate();
 
 	            statement.close();
@@ -107,16 +106,16 @@ public class LojaDAO extends GenericDAO{
 	        }
 	    }
 	 
-	 public Loja getByCNPJ(String CNPJ) {
+	 public Loja getById(Long id) {
 	        Loja loja = null;
 
-	        String sql = "SELECT * from Loja WHERE CNPJ = ?";
+	        String sql = "SELECT * from Loja WHERE id = ?";
 
 	        try {
 	            Connection conn = this.getConnection();
 	            PreparedStatement statement = conn.prepareStatement(sql);
 
-	            statement.setString(1, CNPJ);
+	            statement.setLong(1, id);
 	            ResultSet resultSet = statement.executeQuery();
 	            if (resultSet.next()) {
 	                String email = resultSet.getString("email");
@@ -124,7 +123,7 @@ public class LojaDAO extends GenericDAO{
 	                String cnpj = resultSet.getString("CNPJ");
 	                String nome = resultSet.getString("nome");
 	                String descricao = resultSet.getString("descricao");
-	                loja = new Loja(email, senha, cnpj, nome, descricao);
+	                loja = new Loja(id, email, senha, cnpj, nome, descricao);
 	            }
 
 	            resultSet.close();

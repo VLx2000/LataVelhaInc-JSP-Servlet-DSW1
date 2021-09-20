@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Cliente;
+
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 //import java.sql.Date;
 
@@ -50,6 +51,12 @@ public class ClienteController extends HttpServlet {
                 case "/insercao":
                     insere(request, response);
                     break;
+                case "/edicao":
+                	apresentaFormEdicaoClientes(request,response);
+                	break;
+                case "/atualizacao":
+                	atualiza(request,response);
+                	break;
                 case "/remocao":
                 	remove(request, response);
                 	break;
@@ -74,7 +81,14 @@ public class ClienteController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/formularioClientes.jsp");
         dispatcher.forward(request, response);
     }
-
+    private void apresentaFormEdicaoClientes(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Cliente cliente = dao.getbyId(id);
+        request.setAttribute("cliente", cliente);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/formularioClientes.jsp");
+        dispatcher.forward(request, response);
+    }
     private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
@@ -92,12 +106,33 @@ public class ClienteController extends HttpServlet {
         dao.insert(cliente);
         response.sendRedirect("listaClientes");
     }
+    
+    private void atualiza(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Long id = Long.parseLong(request.getParameter("id"));
+    	String email = request.getParameter("email");
+    	String senha = request.getParameter("senha");
+    	String CPF = request.getParameter("CPF");
+    	String nome = request.getParameter("nome");
+    	String telefone = request.getParameter("telefone");
+    	String sexo = request.getParameter("sexo");
+    	String nascimento = request.getParameter("nascimento");
+    	String papel = request.getParameter("papel");
+    	
+    	Cliente cliente = new Cliente(id,email,senha,CPF,nome,telefone,sexo, nascimento,papel);
+    	
+        dao.update(cliente);
+        
+        response.sendRedirect("listaClientes");
+    }
+    
 
     private void remove(HttpServletRequest request, HttpServletResponse response)
     		throws IOException {
-    	String CPF = request.getParameter("CPF");
+    	String id_s = request.getParameter("id");
+    	Long id = Long.parseLong( id_s );  
     	
-    	Cliente cliente = new Cliente(CPF);
+    	Cliente cliente = new Cliente(id);
     	dao.delete(cliente);
     	
     	// Retorna para a página do CRUD:

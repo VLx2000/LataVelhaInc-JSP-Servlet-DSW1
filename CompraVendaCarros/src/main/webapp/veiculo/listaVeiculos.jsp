@@ -8,6 +8,7 @@
 	<head>	
 		<title>Lista de Veiculos</title>
 		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
+		<link rel="stylesheet" type="text/css" href="../global.css">
 	</head>
 	
 	<body>
@@ -16,6 +17,7 @@
 		
 		<div align="center">
 			<h1>Gerenciamento de Veiculos</h1>
+			<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
 		</div>
 		
 		<div align="center">
@@ -30,7 +32,8 @@
 						<th>Quilometragem</th>
 						<th>Descricao</th>
 						<th>valor</th>
-						<th>cnpj_loja</th>
+						<th>Nome da Loja</th>
+						<th>Ações</th>
 					</tr>
 				</thead>
 				
@@ -43,7 +46,14 @@
 							<td>${veiculo.quilometragem}</td>
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
-							<td>${veiculo.cnpj_loja}</td>
+							<td>${veiculo.loja.nome}</td>
+
+						<td><a href="/<%= contextPath%>/veiculos/edicao?id=${veiculo.id}">Edição</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a
+							href="/<%= contextPath%>/veiculos/remocao?id=${veiculo.id}"
+							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+								Remoção </a>
+						</td>
 						</tr>
 					</c:forEach>
 				</tbody>

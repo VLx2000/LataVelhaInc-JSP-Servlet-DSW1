@@ -25,6 +25,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Email</th>
 						<th>senha</th>
 						<th>cpf</th>
@@ -33,12 +34,14 @@
                         <th>sexo</th>
 						<th>nascimento</th>
 						<th>papel</th>
+						<th>Ações</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<c:forEach var="cliente" items="${requestScope.listaClientes}">
 						<tr>
+							<td>${cliente.id}</td>
 							<td>${cliente.email}</td>
                             <td>${cliente.senha}</td>
                             <td>${cliente.CPF}</td>
@@ -47,8 +50,11 @@
                             <td>${cliente.sexo}</td>
                             <td>${cliente.nascimento}</td>
                             <td>${cliente.papel}</td>
-							<td>
-								<a href="/<%=contextPath%>/clientes/remocao?CPF=${cliente.CPF}">Remover</a>
+							<td><a href="/<%= contextPath%>/clientes/edicao?id=${cliente.id}">Edição</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a
+							href="/<%= contextPath%>/clientes/remocao?id=${cliente.id}"
+							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+								Remoção </a>
 							</td>
 						</tr>
 					</c:forEach>

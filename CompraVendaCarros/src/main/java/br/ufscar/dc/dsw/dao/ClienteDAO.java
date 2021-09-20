@@ -42,7 +42,7 @@ public class ClienteDAO extends GenericDAO {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                //long id = resultSet.getLong("id");
+                long id = resultSet.getLong("id");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
                 String CPF = resultSet.getString("CPF");
@@ -52,7 +52,7 @@ public class ClienteDAO extends GenericDAO {
                 String nascimento = resultSet.getString("nascimento");
                 //Date nascimento = new Date(30,8,2000)/*resultSet.getDate("nascimento")*/;
                 String papel = resultSet.getString("papel");
-                Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
+                Cliente cliente = new Cliente(id,email, senha, CPF, nome, telefone, sexo, nascimento, papel);
                 listaClientes.add(cliente);
             }
             resultSet.close();
@@ -65,11 +65,11 @@ public class ClienteDAO extends GenericDAO {
     }
     
     public void delete(Cliente cliente) {
-        String sql = "DELETE FROM Cliente where CPF = ?";
+        String sql = "DELETE FROM Cliente where id = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, cliente.getCPF());
+            statement.setLong(1, cliente.getId());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -78,7 +78,7 @@ public class ClienteDAO extends GenericDAO {
     }
     
     public void update(Cliente cliente) {
-        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, papel = ? WHERE CPF = ?";
+        String sql = "UPDATE Cliente SET email = ?, senha = ?, CPF = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ?, papel = ? WHERE id = ?";
     
         try {
             Connection conn = this.getConnection();
@@ -91,6 +91,7 @@ public class ClienteDAO extends GenericDAO {
             statement.setString(6, cliente.getSexo());
             statement.setString(7, cliente.getNascimento());
             statement.setString(8, cliente.getPapel());
+            statement.setLong(9, cliente.getId());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -99,24 +100,25 @@ public class ClienteDAO extends GenericDAO {
         }
     }
     
-    public Cliente getbyCPF(String CPF) {
+    public Cliente getbyId(Long id) {
         Cliente cliente = null;
-        String sql = "SELECT * from Cliente WHERE CPF = ?";
+        String sql = "SELECT * from Cliente WHERE id = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, CPF);
+            statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
-                //String CPF = resultSet.getString("CPF");
+                String CPF = resultSet.getString("CPF");
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 String nascimento = resultSet.getString("nascimento");
                 String papel = resultSet.getString("papel");
-                cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
+                //Long id = resultSet.getLong("id");
+                cliente = new Cliente(id,email, senha, CPF, nome, telefone, sexo, nascimento, papel);
             }
             resultSet.close();
             statement.close();

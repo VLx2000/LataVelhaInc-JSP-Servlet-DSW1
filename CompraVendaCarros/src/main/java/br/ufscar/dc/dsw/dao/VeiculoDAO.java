@@ -8,12 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.domain.Veiculo;
 
 public class VeiculoDAO extends GenericDAO {
 
     public void insert(Veiculo veiculo) {    
-        String sql = "INSERT INTO Veiculo (placa, modelo, chassi, ano, quilometragem, descricao, valor, cnpj_loja) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Veiculo (placa, modelo, chassi, ano, quilometragem, descricao, valor, id_loja) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);;    
@@ -25,7 +26,7 @@ public class VeiculoDAO extends GenericDAO {
             statement.setInt(5, veiculo.getQuilometragem());
             statement.setString(6, veiculo.getDescricao());
             statement.setFloat(7, veiculo.getValor());
-            statement.setString(8, veiculo.getCnpj_loja());
+            statement.setLong(8, veiculo.getLoja().getId());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -36,12 +37,13 @@ public class VeiculoDAO extends GenericDAO {
     
     public List<Veiculo> getAll() {   
         List<Veiculo> listaVeiculos = new ArrayList<>();
-        String sql = "SELECT * from Veiculo";
+        String sql = "SELECT * from Veiculo v, Loja l where v.id_loja = l.id order by v.id";
         try {
             Connection conn = this.getConnection();
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
+            	Long id =  resultSet.getLong("id");
                 String placa = resultSet.getString("placa");
                 String modelo = resultSet.getString("modelo");
                 String chassi = resultSet.getString("chassi");
@@ -49,11 +51,16 @@ public class VeiculoDAO extends GenericDAO {
                 Integer quilometragem = resultSet.getInt("quilometragem");
                 String descricao = resultSet.getString("descricao");
                 float valor = resultSet.getFloat("valor");
-                String cnpj_loja = resultSet.getString("cnpj_loja");
-                //byte[] imagens = resultSet.getBytes("imagens");
                 
-                //Boolean admin = resultSet.getBoolean("admin");
-                Veiculo veiculo = new Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,null,cnpj_loja);
+                Long loja_id = resultSet.getLong(6);
+    			String email = resultSet.getString("email");
+				String senha = resultSet.getString("senha");
+				String nome = resultSet.getString("nome");
+				String cnpj = resultSet.getString("CNPJ");
+				String descricao_loja = resultSet.getString("l.descricao");
+
+                Loja loja = new Loja(loja_id,email,senha,cnpj,nome,descricao_loja);
+                Veiculo veiculo = new Veiculo(id,placa,modelo,chassi,ano,quilometragem,descricao,valor,loja);
                 listaVeiculos.add(veiculo);
             }
             resultSet.close();
@@ -66,11 +73,11 @@ public class VeiculoDAO extends GenericDAO {
     }
     
     public void delete(Veiculo veiculo) {
-        String sql = "DELETE FROM Veiculo where placa = ?";
+        String sql = "DELETE FROM Veiculo where id = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, veiculo.getPlaca());
+            statement.setLong(1, veiculo.getId());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -79,7 +86,7 @@ public class VeiculoDAO extends GenericDAO {
     }
     
     public void update(Veiculo veiculo) {
-        String sql = "UPDATE Veiculo SET placa = ?, modelo = ?, chassi = ?, ano = ?, quilometragem = ?, descricao = ?, valor = ?, cnpj_loja = ? WHERE placa = ?";
+        String sql = "UPDATE Veiculo SET placa = ?, modelo = ?, chassi = ?, ano = ?, quilometragem = ?, descricao = ?, valor = ?, id_loja = ? WHERE id = ?";
     
         try {
             Connection conn = this.getConnection();
@@ -89,8 +96,10 @@ public class VeiculoDAO extends GenericDAO {
             statement.setString(3, veiculo.getChassi());
             statement.setInt(4, veiculo.getAno());
             statement.setInt(5, veiculo.getQuilometragem());
-            statement.setFloat(6, veiculo.getValor());
-            statement.setString(7, veiculo.getCnpj_loja());
+            statement.setString(6, veiculo.getDescricao());
+            statement.setFloat(7, veiculo.getValor());
+            statement.setLong(8, veiculo.getLoja().getId());
+            statement.setLong(9,veiculo.getId());
             statement.executeUpdate();
             statement.close();
             conn.close();
@@ -99,24 +108,26 @@ public class VeiculoDAO extends GenericDAO {
         }
     }
     
-    public Veiculo getbyPlaca(String placa) {
+    public Veiculo getbyId(Long id) {
         Veiculo veiculo = null;
-        String sql = "SELECT * from Veiculo WHERE placa = ?";
+        String sql = "SELECT * from Veiculo v, Loja l where v.id = ? and v.id_loja = l.id";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, placa);
+            statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+            	String placa = resultSet.getString("placa");
                 String modelo = resultSet.getString("modelo");
                 String chassi = resultSet.getString("chassi");
                 Integer ano = resultSet.getInt("ano");
                 Integer quilometragem = resultSet.getInt("quilometragem");
                 String descricao = resultSet.getString("descricao");
                 Float valor = resultSet.getFloat("valor");
-                byte[] imagens = resultSet.getBytes("imagens");
-                String cnpj_loja = resultSet.getString("cnpj_loja");
-                veiculo = new Veiculo(placa, modelo, chassi, ano, quilometragem, descricao, valor,imagens,cnpj_loja);
+                Long id_loja = resultSet.getLong("id_loja");
+                
+                Loja loja = new LojaDAO().getById(id_loja);
+                veiculo = new Veiculo(id,placa, modelo, chassi, ano, quilometragem, descricao, valor,loja);
             }
             resultSet.close();
             statement.close();

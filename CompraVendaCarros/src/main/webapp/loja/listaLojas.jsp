@@ -7,8 +7,8 @@
 <html>
 	<head>	
 		<title>Lista de Lojas</title>
+				<link rel="stylesheet" href="loja/lojas.css">
 		<link rel="stylesheet" type="text/css" href="../global.css">
-		<link rel="stylesheet" type="text/css" href="lojas.css">
 	</head>
 	
 	<body>
@@ -26,6 +26,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Nome</th>
 						<th>Email</th>
 						<th>Senha</th>
@@ -38,13 +39,17 @@
 				<tbody>
 					<c:forEach var="loja" items="${requestScope.listaLojas}">
 						<tr>
+							<td>${loja.id}</td>
 							<td>${loja.nome}</td>
 							<td>${loja.email}</td>
 							<td>${loja.senha}</td>
 							<td>${loja.CNPJ}</td>
 							<td>${loja.descricao}</td>
-							<td>
-								<a href="/<%=contextPath%>/lojas/remocao?cnpj=${loja.CNPJ}">Remover</a>
+							<td><a href="/<%= contextPath%>/lojas/edicao?id=${loja.id}">Edição</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; <a
+								href="/<%= contextPath%>/lojas/remocao?id=${loja.id}"
+								onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+									Remoção </a>
 							</td>
 						</tr>
 					</c:forEach>

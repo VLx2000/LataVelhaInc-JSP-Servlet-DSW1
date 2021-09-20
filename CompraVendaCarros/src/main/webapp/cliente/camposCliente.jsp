@@ -6,7 +6,7 @@
 <table border="1">
 	<caption>
 		<c:choose>
-			<c:when test="${livro != null}">
+			<c:when test="${cliente != null}">
             	Edição
             </c:when>
 			<c:otherwise>
@@ -14,6 +14,9 @@
             </c:otherwise>
 		</c:choose>
 	</caption>
+	<c:if test="${cliente != null}">
+		<input type="hidden" name="id" value="${cliente.id}" />
+	</c:if>
 	<tr>
 		<td><label for="nome">Nome</label></td>
 		<td><input type="text" id="nome" name="nome" size="30"
@@ -58,6 +61,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="save.link" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salvar" /></td>
 	</tr>
 </table>
