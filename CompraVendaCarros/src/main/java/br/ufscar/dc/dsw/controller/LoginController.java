@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.domain.Cliente;
+import br.ufscar.dc.dsw.dao.LojaDAO;
+import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(name = "Login", urlPatterns= {"/login/*"})
@@ -32,22 +34,40 @@ public class LoginController extends HttpServlet {
 				erros.add("Senha não informada!");
 			}
 			if (!erros.isExisteErros()) {
-				ClienteDAO dao = new ClienteDAO();
-				Cliente usuario = dao.getbyLogin(login);
-				if (usuario != null) {
+				ClienteDAO dao1 = new ClienteDAO();
+				Cliente usuario = dao1.getbyLogin(login);
+				LojaDAO dao2 = new LojaDAO();
+				Loja loja = dao2.getbyLogin(login);
+				// se encontrar um cliente com essas credenciais mas n uma loja
+				if (usuario != null && loja == null) {
 					if (usuario.getSenha().equalsIgnoreCase(senha)) {
 						request.getSession().setAttribute("usuarioLogado", usuario);
 						if (usuario.getPapel().equals("ADMIN")) {
-							response.sendRedirect("admin/");
-						} else {
-							response.sendRedirect("user/");
+							response.sendRedirect("/CompraVendaCarros/logado/admin/crudLinks.jsp");
+						} 
+						else {
+							response.sendRedirect("/CompraVendaCarros/");	//criaria um index so pra clientes
 						}
 						return;
 					} else {
 						erros.add("Senha inválida!");
 					}
-				} else {
-					erros.add("Usuário não encontrado!");
+				}
+				else {
+					// se encontrar uma loja com essas credenciais
+					if (loja != null && usuario == null) {
+						if (loja.getSenha().equalsIgnoreCase(senha)) {
+							request.getSession().setAttribute("lojaLogada", loja);
+							response.sendRedirect("/CompraVendaCarros/");		//criaria um index so para loja
+							return;
+						}
+						else {
+							erros.add("Senha inválida!");
+						}
+					}
+					else {
+						erros.add("Usuário ou loja não encontrados!");
+					}
 				}
 			}
 		}

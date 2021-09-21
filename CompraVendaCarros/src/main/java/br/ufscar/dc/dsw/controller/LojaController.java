@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//import br.ufscar.dc.dsw.util.Erro;
+
 
 @WebServlet(urlPatterns = "/lojas/*")
 public class LojaController extends HttpServlet {
@@ -28,14 +30,21 @@ public class LojaController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
+            throws ServletException, IOException {
         doGet(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
-                
+            throws ServletException, IOException {
+        
+        Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
+
+		if (loja == null) {
+			response.sendRedirect(request.getContextPath());
+			return;
+		}
+
         String action = request.getPathInfo();
         if (action == null) {
             action = "";
