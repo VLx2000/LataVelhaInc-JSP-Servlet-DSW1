@@ -108,7 +108,7 @@ public class VeiculoDAO extends GenericDAO {
         }
     }
     
-    public Veiculo getbyId(Long id) {
+    public Veiculo getById(Long id) {
         Veiculo veiculo = null;
         String sql = "SELECT * from Veiculo v, Loja l where v.id = ? and v.id_loja = l.id";
         try {

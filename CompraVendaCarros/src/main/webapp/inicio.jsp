@@ -30,7 +30,7 @@
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.placa}')">
+                <section class="box" onclick="Clicavel('${veiculo.modelo}')">
                     <div class="card">
                         <div class="container">
                             <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
@@ -39,7 +39,7 @@
                             <li class="modelo">${veiculo.modelo}</li>
                             <li>Loja: ${veiculo.loja.nome}</li>
                             <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$${veiculo.valor}</li>                    
+                            <li class="oferta">$ ${veiculo.valor}</li>                    
                         </ul>
                     </div>
                 </section>

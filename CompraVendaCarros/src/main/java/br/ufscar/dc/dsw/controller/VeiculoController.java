@@ -133,7 +133,7 @@ public class VeiculoController extends HttpServlet {
     private void apresentaFormEdicaoVeiculos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        Veiculo veiculo = dao.getbyId(id);
+        Veiculo veiculo = dao.getById(id);
         request.setAttribute("veiculo", veiculo);
         request.setAttribute("lojas", getLojas());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/formularioVeiculos.jsp");
