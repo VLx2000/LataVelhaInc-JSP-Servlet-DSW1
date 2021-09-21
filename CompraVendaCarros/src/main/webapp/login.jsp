@@ -21,7 +21,7 @@
                 </ul>
             </div>
         </c:if>
-        <form method="post" action="crudLinks.jsp">
+        <form method="post" action="login">
             <table align="center">
                 <tr>
                     <th><fmt:message key="user.login" />:</th>

@@ -21,6 +21,7 @@ public class LoginController extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Erro erros = new Erro();
+		
 		if (request.getParameter("bOK") != null) {
 			String login = request.getParameter("login");
 			String senha = request.getParameter("senha");
@@ -37,9 +38,9 @@ public class LoginController extends HttpServlet {
 					if (usuario.getSenha().equalsIgnoreCase(senha)) {
 						request.getSession().setAttribute("usuarioLogado", usuario);
 						if (usuario.getPapel().equals("ADMIN")) {
-							response.sendRedirect("usuarios/");
+							response.sendRedirect("admin/");
 						} else {
-							response.sendRedirect("compras/");
+							response.sendRedirect("user/");
 						}
 						return;
 					} else {
