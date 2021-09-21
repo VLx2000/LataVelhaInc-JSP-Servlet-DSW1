@@ -10,18 +10,4 @@
         <title>Compra e Venda de Veículos</title>
         <link rel="stylesheet" href="global.css">
     </head>
-    <body>
-        <%String contextPath = request.getContextPath().replace("/", ""); %>
-        <div class="topbar">
-            <ul>
-                <li class="linkTopoEsquerda">
-                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
-                </li>
-                <li class="linkTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
-                    <a href="crudLinks.jsp">Login</a>
-                </li>
-            </ul>
-        </div>
-    </body>
 </html>

@@ -13,9 +13,11 @@
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
         <div class="topbar">
-            <ul>
+            <ul id="links">
                 <li class="linkTopoEsquerda">
-                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
+                    <a href="/CompraVendaCarros/">
+                        <span id="titulo">LataVelhaInc.</span>
+                    </a>
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
@@ -27,8 +29,8 @@
             <div id="divFiltro">
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
             </div>
-            <c:forEach var="veiculo" items="${requestScope.catalogo}"> <!--n sei pq raios não funciona :/-->
-                <section class="box">
+            <c:forEach var="veiculo" items="${requestScope.catalogo}">
+                <section class="box" onclick="Clicavel('${veiculo.placa}')">
                     <div class="card">
                         <div class="container">
                             <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
