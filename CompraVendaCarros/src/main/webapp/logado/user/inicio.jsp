@@ -8,20 +8,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="CompraVendaCarros/src/main/webapp/global.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
         <div class="topbar">
             <ul id="links">
                 <li class="linkTopoEsquerda">
-                    <a href="/CompraVendaCarros/">
+                    <a href="${pageContext.request.contextPath}/inicio.jsp">
                         <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="login.jsp">Login</a>
+                    <span>index user</span>
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.modelo}')">
+                <section class="box" onclick="Clicavel('${veiculo.placa}')">
                     <div class="card">
                         <div class="container">
                             <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
@@ -39,12 +39,12 @@
                             <li class="modelo">${veiculo.modelo}</li>
                             <li>Loja: ${veiculo.loja.nome}</li>
                             <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$ ${veiculo.valor}</li>                    
+                            <li class="oferta">$${veiculo.valor}</li>                    
                         </ul>
                     </div>
                 </section>
             </c:forEach>
         </section>
-        <script src="script.js"></script>
+        <script src="CompraVendaCarros/src/main/webapp/script.js"></script>
     </body>
 </html>

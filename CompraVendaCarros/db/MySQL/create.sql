@@ -21,6 +21,9 @@ foreign key(id_veiculo) references Veiculo(id));
 insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('cliente1@cliente1','cliente1','111.111.111-11',
 'cliente1','1111111111','M','2000-01-01','USER');
 
+insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('admin','admin','cpf_admin',
+'admin01','12345678','M','1997-08-20','ADMIN');
+
 insert into Loja(email,senha,cnpj,nome,descricao) values ('loja@loja1','loja1','111.111.111/0001-11','loja1','primeira loja');
 
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 

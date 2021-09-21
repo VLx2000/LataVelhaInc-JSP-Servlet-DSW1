@@ -84,7 +84,7 @@ public class LojaDAO extends GenericDAO{
         }
     }
 	
-	 public void update(Loja loja) {
+	public void update(Loja loja) {
 	        String sql = "UPDATE Loja SET email = ?, senha = ?, CNPJ = ?, nome = ?";
 	        sql += ", descricao = ? WHERE id = ?";
 	        try {
@@ -106,7 +106,7 @@ public class LojaDAO extends GenericDAO{
 	        }
 	    }
 	 
-	 public Loja getById(Long id) {
+	public Loja getById(Long id) {
 	        Loja loja = null;
 
 	        String sql = "SELECT * from Loja WHERE id = ?";
@@ -134,5 +134,29 @@ public class LojaDAO extends GenericDAO{
 	        }
 	        return loja;
 	    }
-	
+	public Loja getbyLogin(String login) {
+			Loja loja = null;
+			String sql = "SELECT * from Loja WHERE email = ?";
+			try {
+				Connection conn = this.getConnection();
+				PreparedStatement statement = conn.prepareStatement(sql);
+				statement.setString(1, login);
+				ResultSet resultSet = statement.executeQuery();
+				if (resultSet.next()) {
+					Long id = resultSet.getLong("id");
+					String senha = resultSet.getString("senha");
+	                String CNPJ = resultSet.getString("CNPJ");
+	                String nome = resultSet.getString("nome");
+	                String descricao = resultSet.getString("descricao");
+					//Long id = resultSet.getLong("id");
+					loja = new Loja(id, login, senha, CNPJ, nome, descricao);
+				}
+				resultSet.close();
+				statement.close();
+				conn.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return loja;
+		}
 }

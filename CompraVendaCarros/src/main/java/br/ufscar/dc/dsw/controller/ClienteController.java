@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Cliente;
-
+import br.ufscar.dc.dsw.util.Erro;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 //import java.sql.Date;
 
@@ -36,8 +36,23 @@ public class ClienteController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException {
+            throws ServletException, IOException {
 
+    	Cliente usuario = (Cliente) request.getSession().getAttribute("usuarioLogado");
+		Erro erros = new Erro();
+
+		if (usuario == null) {
+			response.sendRedirect(request.getContextPath());
+			return;
+		} else if (!usuario.getPapel().equals("ADMIN")) {
+			erros.add("Acesso não autorizado!");
+			erros.add("Apenas Papel [ADMIN] tem acesso a essa página");
+			request.setAttribute("mensagens", erros);
+			RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+			rd.forward(request, response);
+			return;
+		}
+    	
         String action = request.getPathInfo();
         if (action == null) {
             action = "";
