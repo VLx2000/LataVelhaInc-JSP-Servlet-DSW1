@@ -18,14 +18,14 @@
                 </li>
             </ul>
         </div>
-        <section class="principal">
-            <div class="links">
+        <section id="crudLinks">
+            <div class="crud">
                 <a href="clientes">CRUD Clientes</a>
             </div>
-            <div class="links">
+            <div class="crud">
                 <a href="lojas">CRUD Lojas</a>
             </div>
-            <div class="links">
+            <div class="crud">
                 <a href="veiculos">CRUD Veiculos</a>
             </div>
         </section>
