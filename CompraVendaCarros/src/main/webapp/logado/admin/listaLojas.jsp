@@ -36,7 +36,6 @@
 			
 			<table>
 				<thead>
-					<a href="/<%=contextPath%>/admin/cadastroLoja">Adicionar Nova Loja</a>
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
@@ -67,6 +66,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/admin/cadastroLoja">Adicionar Nova Loja</a>
+			</div>
 		</div>
 	</body>
 </html>

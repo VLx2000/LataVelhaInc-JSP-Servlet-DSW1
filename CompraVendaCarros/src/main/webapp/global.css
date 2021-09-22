@@ -11,7 +11,11 @@ body {
 	font-size: 16px;
 }
 
-thead a, td a {
+.adiciona {
+	padding: 20px;
+}
+
+.adiciona a, td a {
 	display: block;
 	color: rgb(255, 0, 0);
 }

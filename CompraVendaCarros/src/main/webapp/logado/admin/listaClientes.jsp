@@ -33,7 +33,6 @@
 		<div align="center">
 			<h2>Lista de clientes</h2>
 			<table>
-				<a href="/<%=contextPath%>/admin/cadastroCliente">Adicionar Novo Cliente</a>
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -71,6 +70,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/admin/cadastroCliente">Adicionar Novo Cliente</a>
+			</div>
 		</div>
 	</body>
 </html> 
