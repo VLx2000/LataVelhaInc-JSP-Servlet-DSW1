@@ -41,6 +41,7 @@
 						<th>Placa</th>
 						<th>Modelo</th>
 						<th>Chassi</th>
+						<th>Ano</th>
 						<th>Quilometragem</th>
 						<th>Descricao</th>
 						<th>valor</th>
@@ -55,6 +56,7 @@
 							<td>${veiculo.placa}</td>
 							<td>${veiculo.modelo}</td>
 							<td>${veiculo.chassi}</td>
+							<td>${veiculo.ano}</td>
 							<td>${veiculo.quilometragem}</td>
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>

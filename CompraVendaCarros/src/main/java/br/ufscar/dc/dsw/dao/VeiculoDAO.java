@@ -74,11 +74,15 @@ public class VeiculoDAO extends GenericDAO {
 
     public List<Veiculo> getAllByLoja(Long id_loja) {   
         List<Veiculo> listaVeiculos = new ArrayList<>();
-        String sql = "SELECT * from Veiculo v, Loja l where v.id_loja = l.id order by v.id";
+        String sql = "SELECT * from Veiculo v, Loja l where l.id = ? and v.id_loja = l.id order by v.id";
+        
         try {
             Connection conn = this.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            PreparedStatement statement = conn.prepareStatement(sql);
+            
+            statement.setLong(1, id_loja);
+            
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
             	Long id =  resultSet.getLong("id");
                 String placa = resultSet.getString("placa");
@@ -89,7 +93,7 @@ public class VeiculoDAO extends GenericDAO {
                 String descricao = resultSet.getString("descricao");
                 float valor = resultSet.getFloat("valor");
                 
-                Long loja_id = resultSet.getLong(6);
+                Long loja_id = resultSet.getLong("id");
     			String email = resultSet.getString("email");
 				String senha = resultSet.getString("senha");
 				String nome = resultSet.getString("nome");
@@ -106,6 +110,8 @@ public class VeiculoDAO extends GenericDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
+        
         return listaVeiculos;
     }
     
