@@ -15,7 +15,7 @@
         <div class="topbar">
             <ul id="links">
                 <li class="linkTopoEsquerda">
-                    <a href="${pageContext.request.contextPath}/usuarios">
+                    <a href="${pageContext.request.contextPath}/clientes">
                         <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
@@ -31,6 +31,7 @@
         <section id="carros">
             <div id="divFiltro">
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
+                <p id="numero"></p>
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
                 <section class="box" onclick="Clicavel('${veiculo.placa}')">

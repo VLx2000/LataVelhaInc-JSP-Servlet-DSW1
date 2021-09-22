@@ -46,7 +46,7 @@ public class LoginController extends HttpServlet {
 							response.sendRedirect("admin");
 						} 
 						else {
-							response.sendRedirect("usuarios");	//criaria um index so pra clientes
+							response.sendRedirect("clientes");	//criaria um index so pra clientes
 						}
 						return;
 					} else {

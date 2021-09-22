@@ -22,10 +22,10 @@
         </div>
         <section id="crudLinks">
             <div class="crud">
-                <a href="clientes">CRUD Clientes</a>
+                <a href="admin/listaClientes">CRUD Clientes</a>
             </div>
             <div class="crud">
-                <a href="lojas">CRUD Lojas</a>
+                <a href="admin/listaLojas">CRUD Lojas</a>
             </div>
             <div class="crud">
                 <a href="veiculos">CRUD Veiculos</a>

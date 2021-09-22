@@ -6,7 +6,7 @@
 
 <head>
 <title>Lista de Lojas</title>
-<link rel="stylesheet" type="text/css" href="veiculo/listaVeiculos.css">
+<link rel="stylesheet" type="text/css" href="veiculos.css">
 <link rel="stylesheet" type="text/css" href="../global.css">
 </head>
 

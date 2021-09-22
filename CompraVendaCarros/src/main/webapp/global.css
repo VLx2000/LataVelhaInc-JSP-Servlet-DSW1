@@ -139,7 +139,7 @@ th, td {
 	width: 100%;
 }
 
-#filtro {
+#filtro, #numero {
 	background-color:rgba(250, 250, 250, 0.603);
 	border-radius: 2px;
 	border-color: rgba(0, 0, 0, 0);
@@ -148,8 +148,14 @@ th, td {
 	padding: 10px;
 }
 
+#numero {
+	float: right;
+	color: #757575;
+}
+
 #divFiltro {
 	margin: 20px;
+	position: relative;
 }
 
 #crudLinks {

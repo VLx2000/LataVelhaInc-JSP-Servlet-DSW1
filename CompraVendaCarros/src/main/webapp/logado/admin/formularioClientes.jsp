@@ -5,9 +5,9 @@
 <html>
 
 <head>
-<title>Lista de Lojas</title>
-<link rel="stylesheet" type="text/css" href="loja/lojas.css">
-<link rel="stylesheet" type="text/css" href="../global.css">
+	<title>Lista de Lojas</title>
+	<link rel="stylesheet" type="text/css" href="clientes.css">
+	<link rel="stylesheet" type="text/css" href="../global.css">
 </head>
 
 <body>
@@ -16,14 +16,14 @@
 	</div>
 	<div align="center">
 		<c:choose>
-			<c:when test="${loja != null}">
-				<form action="atualizacao" method="post">
-					<%@include file="camposLoja.jsp"%>
+			<c:when test="${cliente != null}">
+				<form action="atualizacaoCliente" method="post">
+					<%@include file="camposCliente.jsp"%>
 				</form>
 			</c:when>
 			<c:otherwise>
-				<form action="insercao" method="post">
-					<%@include file="camposLoja.jsp"%>
+				<form action="insercaoCliente" method="post">
+					<%@include file="camposCliente.jsp"%>
 				</form>
 			</c:otherwise>
 		</c:choose>

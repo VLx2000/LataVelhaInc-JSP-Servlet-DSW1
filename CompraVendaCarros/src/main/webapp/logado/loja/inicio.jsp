@@ -28,6 +28,7 @@
         <section id="carros">
             <div id="divFiltro">
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
+                <p id="numero"></p>
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
                 <section class="box" onclick="Clicavel('${veiculo.placa}')">
