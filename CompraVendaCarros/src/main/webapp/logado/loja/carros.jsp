@@ -15,7 +15,7 @@
         <div class="topbar">
             <ul id="links">
                 <li class="linkTopoEsquerda">
-                    <a href="${pageContext.request.contextPath}/lojas/listarVeiculos">
+                    <a href="${pageContext.request.contextPath}/lojas">
                         <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>

@@ -50,13 +50,32 @@ public class LojaController extends HttpServlet {
                 case "/listarVeiculos":
                 	listaVeiculos(request, response);
                 	break;
+                case "/listarPropostas":
+                	listaPropostas(request, response);
+                	break;
                 default:
+                    opcoes(request, response);
                     break;
             }
         } catch (RuntimeException | IOException | ServletException e) {
             throw new ServletException(e);
         }
     }
+
+    private void opcoes(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/opcoes.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void listaPropostas(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
+        dispatcher.forward(request, response);
+    }
+
     private void listaVeiculos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
