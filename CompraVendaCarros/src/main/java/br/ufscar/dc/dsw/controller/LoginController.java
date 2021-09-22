@@ -43,10 +43,10 @@ public class LoginController extends HttpServlet {
 					if (usuario.getSenha().equalsIgnoreCase(senha)) {
 						request.getSession().setAttribute("usuarioLogado", usuario);
 						if (usuario.getPapel().equals("ADMIN")) {
-							response.sendRedirect("admin/");
+							response.sendRedirect("admin");
 						} 
 						else {
-							response.sendRedirect("usuario/");	//criaria um index so pra clientes
+							response.sendRedirect("usuarios");	//criaria um index so pra clientes
 						}
 						return;
 					} else {
@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 					if (loja != null && usuario == null) {
 						if (loja.getSenha().equalsIgnoreCase(senha)) {
 							request.getSession().setAttribute("lojaLogada", loja);
-							response.sendRedirect("lojas/");		//criaria um index so para loja
+							response.sendRedirect("lojas/listarVeiculos");		//criaria um index so para loja
 							return;
 						}
 						else {

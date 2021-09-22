@@ -16,7 +16,7 @@ import br.ufscar.dc.dsw.util.Erro;
 
 import java.util.List;
 
-@WebServlet(urlPatterns = "/usuario/*")
+@WebServlet(urlPatterns = "/usuarios/*")
 public class UsuarioController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -28,16 +28,24 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		catalogo(request, response);
-    }
-
-	private void catalogo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-		VeiculoDAO dao = new VeiculoDAO();
-        List<Veiculo> catalogo = dao.getAll();
-        request.setAttribute("catalogo", catalogo);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/user/inicio.jsp");
-        dispatcher.forward(request, response);
+        Cliente usuario = (Cliente) request.getSession().getAttribute("usuarioLogado");
+    	Erro erros = new Erro();
+    	
+    	if (usuario == null) {
+    		response.sendRedirect(request.getContextPath());
+    	} else if (usuario.getPapel().equals("USER")) {
+            VeiculoDAO dao = new VeiculoDAO();
+            List<Veiculo> catalogo = dao.getAll();
+            request.setAttribute("catalogo", catalogo);
+    		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/user/inicio.jsp");
+            dispatcher.forward(request, response);
+    	} else {
+    		erros.add("Acesso não autorizado!");
+    		erros.add("Apenas Papel [USER] tem acesso a essa página");
+    		request.setAttribute("mensagens", erros);
+    		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+    		rd.forward(request, response);
+    	}    	
     }
 
 	private void fazerProposta(HttpServletRequest request, HttpServletResponse response)

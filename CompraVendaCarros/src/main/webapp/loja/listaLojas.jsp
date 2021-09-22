@@ -8,7 +8,7 @@
 	<head>	
 		<title>Lista de Lojas</title>
 		<link rel="stylesheet" href="loja/lojas.css">
-		<link rel="stylesheet" type="text/css" href="../global.css">
+		<link rel="stylesheet" type="text/css" href="global.css">
 	</head>
 	
 	<body>
@@ -17,17 +17,18 @@
 		<div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
+					<a href="${pageContext.request.contextPath}/admin">
+                        <span id="titulo">CRUDS</span>
+                    </a>
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="crudLinks.jsp">Login</a>
+                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
                 </li>
             </ul>
         </div>
-		<div align="center">
-			<h1>Gerenciamento de Lojas</h1>
-			<a href="/<%=contextPath%>/lojas/cadastro">Adicionar Nova Loja</a>
+		<div class="" align="center">
+			<h1 class="label">Gerenciamento de Lojas</h1>
 		</div>
 		
 		<div align="center">
@@ -35,6 +36,7 @@
 			
 			<table>
 				<thead>
+					<a href="/<%=contextPath%>/lojas/cadastro">Adicionar Nova Loja</a>
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>

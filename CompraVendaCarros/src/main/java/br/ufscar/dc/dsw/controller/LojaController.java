@@ -1,8 +1,5 @@
 package br.ufscar.dc.dsw.controller;
 
-import br.ufscar.dc.dsw.dao.LojaDAO;
-import br.ufscar.dc.dsw.domain.Loja;
-
 import java.io.IOException;
 //import java.util.HashMap;
 import java.util.List;
@@ -13,6 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.ufscar.dc.dsw.dao.LojaDAO;
+import br.ufscar.dc.dsw.domain.Loja;
+import br.ufscar.dc.dsw.dao.VeiculoDAO;
+import br.ufscar.dc.dsw.domain.Veiculo;
 //import br.ufscar.dc.dsw.util.Erro;
 
 
@@ -37,13 +39,6 @@ public class LojaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
-
-		if (loja == null) {
-			response.sendRedirect(request.getContextPath());
-			return;
-		}
 
         String action = request.getPathInfo();
         if (action == null) {
@@ -67,6 +62,9 @@ public class LojaController extends HttpServlet {
                 case "/remocao":
                 	remove(request, response);
                 	break;
+                case "/listarVeiculos":
+                	listaVeiculos(request, response);
+                	break;
                 default:
                     lista(request, response);
                     break;
@@ -81,6 +79,16 @@ public class LojaController extends HttpServlet {
         List<Loja> listaLojas = dao.getAll();
         request.setAttribute("listaLojas", listaLojas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/loja/listaLojas.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void listaVeiculos(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
+        VeiculoDAO dao = new VeiculoDAO();
+        List<Veiculo> catalogo = dao.getAllByLoja(loja.getId());
+        request.setAttribute("catalogo", catalogo);
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/inicio.jsp");
         dispatcher.forward(request, response);
     }
 

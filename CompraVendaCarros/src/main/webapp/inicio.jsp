@@ -30,7 +30,7 @@
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.modelo}')">
+                <section class="box" onclick="location.href='login.jsp'">
                     <div class="card">
                         <div class="container">
                             <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">

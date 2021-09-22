@@ -15,13 +15,13 @@
         <div class="topbar">
             <ul id="links">
                 <li class="linkTopoEsquerda">
-                    <a href="${pageContext.request.contextPath}/user/inicio.jsp">
+                    <a href="${pageContext.request.contextPath}/lojas/listarVeiculo">
                         <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
-                <li class="linkTopoDireita">
+                <li class="nomeTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <span>index lojaaa</span>
+                    <span>Loja: ${sessionScope.lojaLogada.nome}</span>
                 </li>
             </ul>
         </div>
@@ -45,6 +45,6 @@
                 </section>
             </c:forEach>
         </section>
-        <script src="script.js"></script>
+        <script src="${pageContext.request.contextPath}/script.js"></script>
     </body>
 </html>

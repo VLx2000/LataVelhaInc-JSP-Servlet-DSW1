@@ -8,7 +8,7 @@
 	<head>	
 		<title>Lista de clientes</title>
 		<link rel="stylesheet" href="cliente/listaClientes.css">
-		<link rel="stylesheet" href="../global.css">
+		<link rel="stylesheet" href="global.css">
 	</head>
 
 	<body>
@@ -17,22 +17,23 @@
 		<div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
+                    <a href="${pageContext.request.contextPath}/admin">
+                        <span id="titulo">CRUDS</span>
+                    </a>
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="crudLinks.jsp">Login</a>
+                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
                 </li>
             </ul>
         </div>
 		<div align="center">
-			<h1>Gerenciamento de clientes</h1>
-			<a href="/<%=contextPath%>/clientes/cadastro">Adicionar Nova Cliente</a>
+			<h1 class="label">Gerenciamento de clientes</h1>
 		</div>
 		<div align="center">
 			<h2>Lista de clientes</h2>
-
 			<table>
+				<a href="/<%=contextPath%>/clientes/cadastro">Adicionar Novo Cliente</a>
 				<thead>
 					<tr>
 						<th>Id</th>

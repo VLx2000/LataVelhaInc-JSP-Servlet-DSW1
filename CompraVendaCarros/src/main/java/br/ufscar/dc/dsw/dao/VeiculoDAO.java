@@ -71,6 +71,43 @@ public class VeiculoDAO extends GenericDAO {
         }
         return listaVeiculos;
     }
+
+    public List<Veiculo> getAllByLoja(Long id_loja) {   
+        List<Veiculo> listaVeiculos = new ArrayList<>();
+        String sql = "SELECT * from Veiculo v, Loja l where v.id_loja = l.id order by v.id";
+        try {
+            Connection conn = this.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+            	Long id =  resultSet.getLong("id");
+                String placa = resultSet.getString("placa");
+                String modelo = resultSet.getString("modelo");
+                String chassi = resultSet.getString("chassi");
+                Integer ano = resultSet.getInt("ano");
+                Integer quilometragem = resultSet.getInt("quilometragem");
+                String descricao = resultSet.getString("descricao");
+                float valor = resultSet.getFloat("valor");
+                
+                Long loja_id = resultSet.getLong(6);
+    			String email = resultSet.getString("email");
+				String senha = resultSet.getString("senha");
+				String nome = resultSet.getString("nome");
+				String cnpj = resultSet.getString("CNPJ");
+				String descricao_loja = resultSet.getString("l.descricao");
+
+                Loja loja = new Loja(loja_id,email,senha,cnpj,nome,descricao_loja);
+                Veiculo veiculo = new Veiculo(id,placa,modelo,chassi,ano,quilometragem,descricao,valor,loja);
+                listaVeiculos.add(veiculo);
+            }
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaVeiculos;
+    }
     
     public void delete(Veiculo veiculo) {
         String sql = "DELETE FROM Veiculo where id = ?";

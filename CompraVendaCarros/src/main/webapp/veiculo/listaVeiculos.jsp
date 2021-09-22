@@ -8,7 +8,7 @@
 	<head>	
 		<title>Lista de Veiculos</title>
 		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
-		<link rel="stylesheet" type="text/css" href="../global.css">
+		<link rel="stylesheet" type="text/css" href="global.css">
 	</head>
 	
 	<body>
@@ -17,16 +17,18 @@
 		<div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    </span><a href="/CompraVendaCarros/">LataVelhaInc.</a>
+                    <a href="${pageContext.request.contextPath}/admin">
+                        <span id="titulo">CRUDS</span>
+                    </a>
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="crudLinks.jsp">Login</a>
+                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
                 </li>
             </ul>
         </div>
 		<div align="center">
-			<h1>Gerenciamento de Veiculos</h1>
+			<h1 class="label">Gerenciamento de Veiculos</h1>
 			<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
 		</div>
 		
