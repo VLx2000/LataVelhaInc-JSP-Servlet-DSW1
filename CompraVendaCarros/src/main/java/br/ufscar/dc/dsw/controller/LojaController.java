@@ -82,7 +82,7 @@ public class LojaController extends HttpServlet {
         VeiculoDAO dao = new VeiculoDAO();
         List<Veiculo> catalogo = dao.getAllByLoja(loja.getId());
         request.setAttribute("catalogo", catalogo);
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/inicio.jsp");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/carros.jsp");
         dispatcher.forward(request, response);
     }
 }
