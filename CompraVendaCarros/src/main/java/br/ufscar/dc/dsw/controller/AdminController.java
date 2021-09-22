@@ -188,6 +188,7 @@ public class AdminController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/formularioClientes.jsp");
         dispatcher.forward(request, response);
     }
+
     private void apresentaFormEdicaoClientes(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
@@ -196,6 +197,7 @@ public class AdminController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/formularioClientes.jsp");
         dispatcher.forward(request, response);
     }
+
     private void insereCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
@@ -233,14 +235,18 @@ public class AdminController extends HttpServlet {
         response.sendRedirect("listaClientes");
     }
     
-
     private void removeCliente(HttpServletRequest request, HttpServletResponse response)
     		throws IOException {
     	String id_s = request.getParameter("id");
     	Long id = Long.parseLong( id_s );  
-    	
-    	Cliente cliente = new Cliente(id);
-    	daoCliente.delete(cliente);
+    	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
+    	Cliente cliente_remover = new Cliente(id);
+		if (cliente.getId().equals(id)){
+			//alert("Não é possível remover você mesmo!!!");
+		}
+		else {
+			daoCliente.delete(cliente_remover);
+		}
     	
     	// Retorna para a página do CRUD:
     	response.sendRedirect("listaClientes");
