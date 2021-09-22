@@ -37,7 +37,7 @@ public class ClienteController extends HttpServlet {
             VeiculoDAO dao = new VeiculoDAO();
             List<Veiculo> catalogo = dao.getAll();
             request.setAttribute("catalogo", catalogo);
-    		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/user/inicio.jsp");
+    		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/inicio.jsp");
             dispatcher.forward(request, response);
     	} else {
     		erros.add("Acesso não autorizado!");

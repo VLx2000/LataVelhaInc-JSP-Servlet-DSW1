@@ -18,13 +18,13 @@ valor float not null, data date not null, primary key(id_cliente,id_loja,id_veic
 foreign key(id_cliente) references Cliente(id),foreign key(id_loja) references Loja(id),
 foreign key(id_veiculo) references Veiculo(id));
 
-insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('cliente1@cliente1','cliente1','111.111.111-11',
+insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('cliente1@gmail.com','cliente1','111.111.111-11',
 'cliente1','1111111111','M','2000-01-01','USER');
 
 insert into Cliente(email,senha,cpf,nome,telefone,sexo,nascimento,papel) values ('admin','admin','cpf_admin',
 'admin01','12345678','M','1997-08-20','ADMIN');
 
-insert into Loja(email,senha,cnpj,nome,descricao) values ('loja@loja1','loja1','111.111.111/0001-11','loja1','primeira loja');
+insert into Loja(email,senha,cnpj,nome,descricao) values ('loja1@gmail.com','loja1','111.111.111/0001-11','loja1','primeira loja');
 
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
 values ('AAA0-7473', 'Corsa','1A1A1111111111111',2005,1200000, 'primeiro carro',7547,1);

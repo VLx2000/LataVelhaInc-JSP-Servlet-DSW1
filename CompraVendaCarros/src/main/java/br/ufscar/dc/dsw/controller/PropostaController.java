@@ -45,7 +45,7 @@ public class PropostaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
+		Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
 		//Erro erros = new Erro();
 
 		if (cliente == null) {
@@ -67,11 +67,11 @@ public class PropostaController extends HttpServlet {
 
         try {
             switch (action) {
-                case "/cadastro":
-                    apresentaFormCadastro(request, response);
+                case "/formProposta":
+                    apresentaFormProposta(request, response);
                     break;
-                case "/insercao":
-                    insere(request, response);
+                case "/insercaoProposta":
+                    insereProposta(request, response);
                     break;
                 default:
                     lista(request, response);
@@ -83,10 +83,10 @@ public class PropostaController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
+    	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
         List<Proposta> listaPropostas = dao.getAll(cliente);
         request.setAttribute("listaPropostas", listaPropostas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/proposta/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/listaPropostas.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -98,21 +98,21 @@ public class PropostaController extends HttpServlet {
         return veiculos;
     }
 
-    private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
+    private void apresentaFormProposta(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("veiculos", getVeiculos());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/proposta/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/formularioProposta.jsp");
         dispatcher.forward(request, response);
     }
 
-    private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void insereProposta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
         Long id = Long.parseLong(request.getParameter("veiculo"));
 
         Veiculo veiculo = new VeiculoDAO().getById(id);
         Loja loja = new LojaDAO().getById(id);
-        Cliente cliente = (Cliente) request.getSession().getAttribute("clienteLogado");
+        Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
         
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         Proposta proposta = new Proposta(data, veiculo.getValor(), veiculo, cliente, loja);
