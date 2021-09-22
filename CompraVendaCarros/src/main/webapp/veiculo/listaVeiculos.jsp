@@ -17,7 +17,7 @@
             <ul>
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/admin">
-                        <span id="titulo">CRUDS</span>
+                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">

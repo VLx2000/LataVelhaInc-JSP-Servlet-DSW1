@@ -26,6 +26,11 @@ a {
 	text-decoration: none;
 }
 
+#admin, #corporativo {
+	font-size: 0.8em;
+	color: whitesmoke;
+}
+
 .label {
 	text-align: center;
 	padding: 20px;

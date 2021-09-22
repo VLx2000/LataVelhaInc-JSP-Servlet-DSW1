@@ -11,8 +11,8 @@
         <div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    <a href="/CompraVendaCarros/">
-                        <span id="titulo">LataVelhaInc.</span>
+                    <a href="${pageContext.request.contextPath}/admin">
+                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
