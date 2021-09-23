@@ -10,6 +10,9 @@
         <title>Compra e Venda de Veículos</title>
         <link rel="stylesheet" href="../css/global.css">
         <link rel="stylesheet" href="../css/comprar.css">
+        <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+				
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -23,7 +26,7 @@
                 <li class="nomeTopoDireita">
                     <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
                     <ul class="dropdown">
-                        <li><a href="logout">Sair</a></li>
+                        <li><a href="../logout">Sair</a></li>
                     </ul>
                 </li>
                 <li class="linkTopoDireita">
@@ -38,8 +41,14 @@
                 </ul>
             </div>
             <div class="fotos">
-                <div class="container">
-                    <img src="../imagens/fotos/${veiculo.modelo}.jpg" alt="Carro">
+                <div class="container">                
+                        <ul class="slider">
+                            <c:forEach var = "i" begin = "1" end = "10">    
+                            <li>
+                                <img src="../imagens/fotos/${veiculo.modelo}/${i}.jpg" alt="Carro" />
+                            </li>
+                            </c:forEach>
+                        </ul>
                 </div>
             </div>
             <div class="info">
@@ -68,5 +77,9 @@
                 Sobre: ${veiculo.descricao}
             </div>
         </section>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../slick/slick.min.js"></script>
+        <script src="../js/carrossel.js"></script>
     </body>
 </html>
