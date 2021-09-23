@@ -34,11 +34,30 @@ public class ClienteController extends HttpServlet {
     	if (usuario == null) {
     		response.sendRedirect(request.getContextPath());
     	} else if (usuario.getPapel().equals("USER")) {
-            VeiculoDAO dao = new VeiculoDAO();
-            List<Veiculo> catalogo = dao.getAll();
-            request.setAttribute("catalogo", catalogo);
-    		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/inicio.jsp");
-            dispatcher.forward(request, response);
+            String action = request.getPathInfo();
+			if (action == null) {
+				action = "";
+			}
+
+			try {
+				switch (action) {
+					case "/comprar":
+						comprar(request, response);
+						break;
+					case "/fazerProposta":
+                        fazerProposta(request, response);
+						break;
+					case "/listarPropostas":
+						listarPropostas(request, response);
+						break;
+					default:
+						catalogo(request, response);
+						break;
+				}
+			} catch (RuntimeException | IOException | ServletException e) {
+				throw new ServletException(e);
+			}
+
     	} else {
     		erros.add("Acesso não autorizado!");
     		erros.add("Apenas Papel [USER] tem acesso a essa página");
@@ -47,6 +66,24 @@ public class ClienteController extends HttpServlet {
     		rd.forward(request, response);
     	}    	
     }
+
+    private void catalogo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        VeiculoDAO dao = new VeiculoDAO();
+        List<Veiculo> catalogo = dao.getAll();
+        request.setAttribute("catalogo", catalogo);
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/inicio.jsp");
+        dispatcher.forward(request, response);
+	}
+
+    private void comprar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/comprar.jsp");
+        dispatcher.forward(request, response);
+
+	}
 
 	private void fazerProposta(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
