@@ -15,21 +15,18 @@
         <div class="topbar">
             <ul id="links">
                 <li class="linkTopoEsquerda">
-                    <a href="${pageContext.request.contextPath}/lojas">
-                        <span id="titulo">LataVelhaInc. </span><span id="corporativo">Corporativo</span>
+                    <a href="${pageContext.request.contextPath}/clientes">
+                        <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
-                    <span>Loja: ${sessionScope.lojaLogada.nome}</span>
-                        <ul class="dropdown">
-                            <li><a href="logout">Sair</a></li>
-                        </ul>
+                    <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
+                    <ul class="dropdown">
+                        <li><a href="logout">Sair</a></li>
+                    </ul>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="lojas/listarPropostas">Propostas</a>
-                </li>
-                <li class="linkTopoDireita">
-                    <a href="lojas/adicionarVeiculo">Adicionar Veículo</a>
+                    <a href="cliente/listarPropostas">Propostas</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +45,7 @@
                             <li class="modelo">${veiculo.modelo}</li>
                             <li>Loja: ${veiculo.loja.nome}</li>
                             <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$${veiculo.valor}</li>                    
+                            <li class="oferta">$ ${veiculo.valor}</li>                    
                         </ul>
                     </div>
                 </section>

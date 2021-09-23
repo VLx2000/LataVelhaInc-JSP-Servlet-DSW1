@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="css/global.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -28,6 +28,7 @@
         <section id="carros">
             <div id="divFiltro">
                 <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
+                <p id="numero"></p>
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
                 <section class="box" onclick="location.href='login.jsp'">
@@ -45,6 +46,6 @@
                 </section>
             </c:forEach>
         </section>
-        <script src="script.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

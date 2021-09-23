@@ -1,0 +1,31 @@
+.carro {
+    margin-top: 80px;
+}
+
+.carro {
+    width: 100%;
+}
+
+.nomeCarro {
+    background-color: blueviolet;
+    margin: auto;
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+}
+
+.fotos {
+    background-color: aquamarine;
+    padding: 10px;
+    float: left;
+    margin: 20px;
+    width: 400px;
+    height: 400px;
+}
+
+.info {
+    background-color: blue;
+    float: right;
+    margin: 20px;
+    height: 400px;
+}

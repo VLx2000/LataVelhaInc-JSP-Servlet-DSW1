@@ -82,7 +82,7 @@ public class VeiculoController extends HttpServlet {
             throws ServletException, IOException {
         List<Veiculo> listaVeiculos = dao.getAll();
         request.setAttribute("listaVeiculos", listaVeiculos);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/listaVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/listaVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     private void insere(HttpServletRequest request, HttpServletResponse response) 
@@ -127,7 +127,7 @@ public class VeiculoController extends HttpServlet {
     private void apresentaFormCadastroVeiculos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {	
     	request.setAttribute("lojas", getLojas());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/formularioVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/formularioVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     private void apresentaFormEdicaoVeiculos(HttpServletRequest request, HttpServletResponse response)
@@ -136,7 +136,7 @@ public class VeiculoController extends HttpServlet {
         Veiculo veiculo = dao.getById(id);
         request.setAttribute("veiculo", veiculo);
         request.setAttribute("lojas", getLojas());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/formularioVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/formularioVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     
@@ -148,6 +148,6 @@ public class VeiculoController extends HttpServlet {
     	dao.delete(veiculo);
    
     	// Retorna para a página do CRUD:
-    	response.sendRedirect("listaLojas");
+    	response.sendRedirect("/CompraVendaCarros/veiculos");
     }
 }

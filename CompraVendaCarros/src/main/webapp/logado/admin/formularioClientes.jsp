@@ -5,25 +5,25 @@
 <html>
 
 <head>
-<title>Lista de Lojas</title>
-<link rel="stylesheet" type="text/css" href="veiculo/listaVeiculos.css">
-<link rel="stylesheet" type="text/css" href="../global.css">
+	<title>Lista de Lojas</title>
+	<link rel="stylesheet" type="text/css" href="../css/clientes.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
 </head>
 
 <body>
 	<div align="center">
-		<h1>Gerenciamento de Veiculos</h1>
+		<h1>Gerenciamento de Lojas</h1>
 	</div>
 	<div align="center">
 		<c:choose>
-			<c:when test="${veiculo != null}">
-				<form action="atualizacao" method="post">
-					<%@include file="camposVeiculo.jsp"%>
+			<c:when test="${cliente != null}">
+				<form action="atualizacaoCliente" method="post">
+					<%@include file="camposCliente.jsp"%>
 				</form>
 			</c:when>
 			<c:otherwise>
-				<form action="insercao" method="post">
-					<%@include file="camposVeiculo.jsp"%>
+				<form action="insercaoCliente" method="post">
+					<%@include file="camposCliente.jsp"%>
 				</form>
 			</c:otherwise>
 		</c:choose>

@@ -11,7 +11,11 @@ body {
 	font-size: 16px;
 }
 
-thead a, td a {
+.adiciona {
+	padding: 20px;
+}
+
+.adiciona a, td a {
 	display: block;
 	color: rgb(255, 0, 0);
 }
@@ -20,6 +24,11 @@ a {
 	display: block;
 	color: rgb(182, 182, 182);
 	text-decoration: none;
+}
+
+#admin, #corporativo {
+	font-size: 0.8em;
+	color: whitesmoke;
 }
 
 .label {
@@ -57,21 +66,7 @@ th, td {
 	width: 100%;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
 	z-index: 4;
-}
-
-.nomeTopoDireita {
-	float: right;
-	text-align: center;
-	padding: 20px 16px;
-	list-style-type: none;
-	color: whitesmoke;
-}
-
-.linkTopoDireita {
-	float: right;
-	text-align: center;
-	padding: 20px 16px;
-	list-style-type: none;
+	overflow: visible;
 }
 
 .linkTopoEsquerda {
@@ -79,8 +74,68 @@ th, td {
 	padding: 14px 16px;
 }
 
+.linkTopoDireita {
+	float: right;
+	text-align: center;
+	list-style-type: none;
+}
+
 .linkTopoDireita:hover {
 	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.linkTopoDireita a {
+	padding: 20px 16px;
+}
+
+.linkTopoDireita:hover a {
+	color: whitesmoke;
+}
+
+.nomeTopoDireita {
+	float: right;
+	text-align: center;
+	padding: 20px 16px;
+	list-style-type: none;
+	position: relative;
+}
+
+.nomeTopoDireita > span {
+	color: rgb(182, 182, 182);
+}
+
+.dropdown  {
+	display: none;
+	position: absolute;
+	top: 58px;
+	right: 0;
+	background-color: rgb(43, 43, 43);
+}
+
+.nomeTopoDireita:hover .dropdown {
+	display: block;
+}
+
+.nomeTopoDireita:hover, .dropdown:hover {
+	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.dropdown:hover {
+	background-color: #591c1c;
+}
+
+.dropdown li {
+	width: 100%;
+	float: right;
+	list-style-type: none;
+}
+
+.dropdown li a {
+	padding: 20px 16px;
+}
+
+.dropdown li:hover a, .nomeTopoDireita:hover span {
+	color: whitesmoke;
 }
 
 #carros {
@@ -139,7 +194,7 @@ th, td {
 	width: 100%;
 }
 
-#filtro {
+#filtro, #numero {
 	background-color:rgba(250, 250, 250, 0.603);
 	border-radius: 2px;
 	border-color: rgba(0, 0, 0, 0);
@@ -148,8 +203,14 @@ th, td {
 	padding: 10px;
 }
 
+#numero {
+	float: right;
+	color: #757575;
+}
+
 #divFiltro {
 	margin: 20px;
+	position: relative;
 }
 
 #crudLinks {

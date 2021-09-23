@@ -7,8 +7,8 @@
 <html>
 	<head>	
 		<title>Lista de clientes</title>
-		<link rel="stylesheet" href="cliente/listaClientes.css">
-		<link rel="stylesheet" href="global.css">
+		<link rel="stylesheet" href="../css/clientes.css">
+		<link rel="stylesheet" href="../css/global.css">
 	</head>
 
 	<body>
@@ -18,7 +18,7 @@
             <ul>
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/admin">
-                        <span id="titulo">CRUDS</span>
+                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
@@ -33,7 +33,6 @@
 		<div align="center">
 			<h2>Lista de clientes</h2>
 			<table>
-				<a href="/<%=contextPath%>/clientes/cadastro">Adicionar Novo Cliente</a>
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -61,9 +60,9 @@
                             <td>${cliente.sexo}</td>
                             <td>${cliente.nascimento}</td>
                             <td>${cliente.papel}</td>
-							<td><a href="/<%= contextPath%>/clientes/edicao?id=${cliente.id}">Edição</a>
+							<td><a href="/<%= contextPath%>/admin/edicaoCliente?id=${cliente.id}">Edição</a>
 							&nbsp;&nbsp;&nbsp;&nbsp; <a
-							href="/<%= contextPath%>/clientes/remocao?id=${cliente.id}"
+							href="/<%= contextPath%>/admin/remocaoCliente?id=${cliente.id}"
 							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
 								Remoção </a>
 							</td>
@@ -71,6 +70,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/admin/cadastroCliente">Adicionar Novo Cliente</a>
+			</div>
 		</div>
 	</body>
 </html> 

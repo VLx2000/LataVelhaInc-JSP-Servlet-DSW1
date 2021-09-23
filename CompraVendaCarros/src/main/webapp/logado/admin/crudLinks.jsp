@@ -5,14 +5,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="css/global.css">
     </head>
     <body>
         <div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    <a href="/CompraVendaCarros/">
-                        <span id="titulo">LataVelhaInc.</span>
+                    <a href="${pageContext.request.contextPath}/admin">
+                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
@@ -22,10 +22,10 @@
         </div>
         <section id="crudLinks">
             <div class="crud">
-                <a href="clientes">CRUD Clientes</a>
+                <a href="admin/listaClientes">CRUD Clientes</a>
             </div>
             <div class="crud">
-                <a href="lojas">CRUD Lojas</a>
+                <a href="admin/listaLojas">CRUD Lojas</a>
             </div>
             <div class="crud">
                 <a href="veiculos">CRUD Veiculos</a>

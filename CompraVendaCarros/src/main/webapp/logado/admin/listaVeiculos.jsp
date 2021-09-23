@@ -7,8 +7,7 @@
 <html>
 	<head>	
 		<title>Lista de Veiculos</title>
-		<link rel="stylesheet" href="veiculo/listaVeiculos.css">
-		<link rel="stylesheet" type="text/css" href="global.css">
+		<link rel="stylesheet" type="text/css" href="css/global.css">
 	</head>
 	
 	<body>
@@ -18,7 +17,7 @@
             <ul>
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/admin">
-                        <span id="titulo">CRUDS</span>
+                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
