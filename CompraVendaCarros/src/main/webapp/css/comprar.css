@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 150px;
     margin-bottom: 80px;
-    width: 55%;
+    width: 75%;
     height: 1000px;
     background-color:rgba(250, 250, 250, 0.603);
     border-radius: 10px;
@@ -10,7 +10,6 @@
 }
 
 .nomeCarro {
-    margin: auto;
     margin: 20px;
     padding: 10px;
     font-weight: bold;
@@ -18,17 +17,18 @@
 }
 
 .fotos {
-    padding: 10px;
     float: left;
-    margin: 20px;
+    margin: auto;
+    margin-left: 100px;
     width: 400px;
-    height: 400px;
+    height: 300px;
 }
 
 .info {
     float: right;
-    margin: 20px;
-    height: 400px;
+    margin: auto;
+    margin-right: 100px;
+    height: 300px;
 }
 
 .dadosCarro {
@@ -43,8 +43,8 @@
 }
 
 .oferta {
-    padding: 100px;
-    font-size: 3em;
+    padding: 10px;
+    font-size: 2em;
 }
 
 .nomeModelo {
@@ -52,17 +52,31 @@
 }
 
 input {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     padding: 14px;
     border-radius: 16px;
     font-size: 1.1em;
     border-color: rgba(255, 255, 255, 0);
 }
 
+.container {
+    padding: 10px;
+    height: 310px;
+}
+
+img {
+    background-color:rgba(250, 250, 250, 0.603);
+    border-radius: 10px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.445);
+	padding: 10px;
+	width: 100%;
+}
+
 #comprar {
     background-color: greenyellow;
     color: green;
     cursor: pointer;
+    width: 100%;
 }
 
 #proposta {
@@ -86,12 +100,38 @@ input {
 
 @media (min-width: 901px) and (max-width: 1300px) {
 	.carro {
-		width: 70%;
+		width: 85%;
 	}
+    .descricao {
+        clear: both;
+    }
+    .info {
+        margin-right: 0;
+        width: 100%;
+        clear: both;
+    }
+    .fotos {
+        margin-left: 0;
+        width: 100%;
+        clear: both;
+    }
 }
 
 @media (max-width: 900px) {
 	.carro {
 		width: 95%;
 	}
+    .descricao {
+        clear: both;
+    }
+    .info {
+        margin-right: 0;
+        width: 100%;
+        clear: both;
+    }
+    .fotos {
+        margin-left: 0;
+        width: 100%;
+        clear: both;
+    }
 }
