@@ -48,12 +48,12 @@
                     <li>Loja: ${veiculo.loja.nome}</li>
                     <li>Placa: ${veiculo.placa}</li>
                     <li>Chassi: ${veiculo.chassi}</li>
-                    <li class="oferta">$ ${veiculo.valor}</li>                    
                 </ul>
                 <!--<c:choose>
                     <c:when test="${veiculo != null}">-->
                         <form action="../proposta/Comprar?id=${veiculo.id}" method="post">
                             <input id="comprar" type="submit" name="Comprar" value="Comprar">
+                            <span class="oferta">$ ${veiculo.valor}</span>   
                         </form>
                         <form action="../proposta/insereProposta?id=${veiculo.id}" method="post">
                             <input id="pvalor" type="text" name="valor" placeholder="Proposta">
