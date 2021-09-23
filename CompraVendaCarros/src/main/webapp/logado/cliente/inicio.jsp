@@ -36,7 +36,7 @@
                 <p id="numero"></p>
             </div>
             <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.placa}')">
+                <section class="box" onclick="Clicavel('${veiculo.id}')">
                     <div class="card">
                         <div class="container">
                             <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">

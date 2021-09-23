@@ -80,6 +80,11 @@ public class ClienteController extends HttpServlet {
     private void comprar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+		Long id = Long.parseLong(request.getParameter("id"));
+		VeiculoDAO dao = new VeiculoDAO();
+		Veiculo veiculo = dao.getById(id);
+        request.setAttribute("veiculo", veiculo);
+		
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/comprar.jsp");
         dispatcher.forward(request, response);
 

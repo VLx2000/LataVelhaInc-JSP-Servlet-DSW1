@@ -33,13 +33,39 @@
         </div>
         <section class="carro">
             <div class="nomeCarro">
-                o titulo e nome do carro vai aqui
+                <ul class="dadosCarro">
+                    <li class="nomeModelo">${veiculo.modelo} (${veiculo.ano}) - ${veiculo.quilometragem}km</li>
+                </ul>
             </div>
             <div class="fotos">
-                as fotos vao aqui
+                <div class="container">
+                    <img src="../imagens/${veiculo.modelo}.jpg" alt="Carro">
+                </div>
             </div>
             <div class="info">
-                as informaçoes do carro preço e nova proposta vao aqui
+                <c:set var="veiculo" value='${requestScope.veiculo}' />
+                <ul class="dadosCarro">
+                    <li>Loja: ${veiculo.loja.nome}</li>
+                    <li>Placa: ${veiculo.placa}</li>
+                    <li>Chassi: ${veiculo.chassi}</li>
+                    <li class="oferta">$ ${veiculo.valor}</li>                    
+                </ul>
+                <!--<c:choose>
+                    <c:when test="${veiculo != null}">-->
+                        <form action="../proposta/Comprar?id=${veiculo.id}" method="post">
+                            <input id="comprar" type="submit" name="Comprar" value="Comprar">
+                        </form>
+                        <form action="../proposta/insereProposta?id=${veiculo.id}" method="post">
+                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
+                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
+                        </form>
+                    <!--</c:when>
+                    <c:otherwise>
+                    </c:otherwise>
+                </c:choose>-->
+            </div>
+            <div class="descricao">
+                Sobre: ${veiculo.descricao}
             </div>
         </section>
     </body>

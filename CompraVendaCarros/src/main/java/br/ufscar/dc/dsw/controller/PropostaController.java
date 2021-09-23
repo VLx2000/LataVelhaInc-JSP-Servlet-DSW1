@@ -108,16 +108,17 @@ public class PropostaController extends HttpServlet {
     private void insereProposta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        Long id = Long.parseLong(request.getParameter("veiculo"));
-
+		Long id = Long.parseLong(request.getParameter("id"));
         Veiculo veiculo = new VeiculoDAO().getById(id);
         Loja loja = new LojaDAO().getById(id);
         Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
-        
+        Float valor = Float.parseFloat(request.getParameter("valor"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta(data, veiculo.getValor(), veiculo, cliente, loja);
+        Proposta proposta = new Proposta(data, valor, veiculo, cliente, loja);
         dao.insert(proposta);
         
         response.sendRedirect("lista");
     }
 }
+
+//Proposta proposta = new Proposta(data, veiculo.getValor(), veiculo, cliente, loja);
