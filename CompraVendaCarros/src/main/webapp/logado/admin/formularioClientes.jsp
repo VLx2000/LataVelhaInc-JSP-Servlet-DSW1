@@ -6,8 +6,8 @@
 
 <head>
 	<title>Lista de Lojas</title>
-	<link rel="stylesheet" type="text/css" href="clientes.css">
-	<link rel="stylesheet" type="text/css" href="../global.css">
+	<link rel="stylesheet" type="text/css" href="../css/clientes.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
 </head>
 
 <body>

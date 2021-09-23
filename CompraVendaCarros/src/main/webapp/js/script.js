@@ -24,5 +24,5 @@ setInterval(function filtro() {
 }, 100)
 
 function Clicavel(placa) {
-    window.location = "https://www.google.com/search?q=" + placa;
+    window.location = "clientes/comprar" /*+ placa*/;
 }

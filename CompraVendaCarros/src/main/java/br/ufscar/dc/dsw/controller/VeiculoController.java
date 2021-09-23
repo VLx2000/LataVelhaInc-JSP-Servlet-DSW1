@@ -82,7 +82,7 @@ public class VeiculoController extends HttpServlet {
             throws ServletException, IOException {
         List<Veiculo> listaVeiculos = dao.getAll();
         request.setAttribute("listaVeiculos", listaVeiculos);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/veiculo/listaVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/listaVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     private void insere(HttpServletRequest request, HttpServletResponse response) 

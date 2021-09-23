@@ -8,7 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/comprar.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -30,27 +31,16 @@
                 </li>
             </ul>
         </div>
-        <section id="carros">
-            <div id="divFiltro">
-                <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
-                <p id="numero"></p>
+        <section class="carro">
+            <div class="nomeCarro">
+                o titulo e nome do carro vai aqui
             </div>
-            <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.placa}')">
-                    <div class="card">
-                        <div class="container">
-                            <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
-                        </div>
-                        <ul class="dadosCarro">
-                            <li class="modelo">${veiculo.modelo}</li>
-                            <li>Loja: ${veiculo.loja.nome}</li>
-                            <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$ ${veiculo.valor}</li>                    
-                        </ul>
-                    </div>
-                </section>
-            </c:forEach>
+            <div class="fotos">
+                as fotos vao aqui
+            </div>
+            <div class="info">
+                as informaçoes do carro preço e nova proposta vao aqui
+            </div>
         </section>
-        <script src="js/script.js"></script>
     </body>
 </html>

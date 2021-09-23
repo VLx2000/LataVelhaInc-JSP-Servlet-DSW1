@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="css/global.css">
     </head>
     <body>
         <div class="topbar">
