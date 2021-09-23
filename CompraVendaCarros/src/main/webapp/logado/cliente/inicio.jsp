@@ -19,12 +19,14 @@
                         <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
-                <li class="linkTopoDireita">
-                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
-                </li>
                 <li class="nomeTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
                     <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
+                    <ul class="dropdown">
+                        <li><a href="logout">Sair</a></li>
+                    </ul>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="cliente/listarPropostas">Propostas</a>
                 </li>
             </ul>
         </div>

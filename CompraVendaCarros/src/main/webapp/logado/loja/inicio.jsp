@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
-        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="global.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -20,8 +20,16 @@
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
                     <span>Loja: ${sessionScope.lojaLogada.nome}</span>
+                        <ul class="dropdown">
+                            <li><a href="logout">Sair</a></li>
+                        </ul>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="lojas/listarPropostas">Propostas</a>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="lojas/adicionarVeiculo">Adicionar Veículo</a>
                 </li>
             </ul>
         </div>
@@ -34,7 +42,7 @@
                 <section class="box" onclick="Clicavel('${veiculo.placa}')">
                     <div class="card">
                         <div class="container">
-                            <img src="../imagens/${veiculo.modelo}.jpg" alt="Carro">
+                            <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
                         </div>
                         <ul class="dadosCarro">
                             <li class="modelo">${veiculo.modelo}</li>

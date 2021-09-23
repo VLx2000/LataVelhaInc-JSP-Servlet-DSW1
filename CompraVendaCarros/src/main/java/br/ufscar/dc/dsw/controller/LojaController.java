@@ -47,14 +47,14 @@ public class LojaController extends HttpServlet {
 
         try {
             switch (action) {
-                case "/listarVeiculos":
-                	listaVeiculos(request, response);
-                	break;
                 case "/listarPropostas":
                 	listaPropostas(request, response);
                 	break;
+                case "/adicionarVeiculo":
+                	adicionarVeiculo(request, response);
+                	break;
                 default:
-                    opcoes(request, response);
+                    listaVeiculos(request, response);
                     break;
             }
         } catch (RuntimeException | IOException | ServletException e) {
@@ -62,14 +62,14 @@ public class LojaController extends HttpServlet {
         }
     }
 
-    private void opcoes(HttpServletRequest request, HttpServletResponse response)
+    private void listaPropostas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/opcoes.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
         dispatcher.forward(request, response);
     }
 
-    private void listaPropostas(HttpServletRequest request, HttpServletResponse response)
+    private void adicionarVeiculo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
@@ -82,7 +82,7 @@ public class LojaController extends HttpServlet {
         VeiculoDAO dao = new VeiculoDAO();
         List<Veiculo> catalogo = dao.getAllByLoja(loja.getId());
         request.setAttribute("catalogo", catalogo);
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/carros.jsp");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/inicio.jsp");
         dispatcher.forward(request, response);
     }
 }
