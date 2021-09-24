@@ -321,6 +321,12 @@ th, td {
 	background: red;
 }
 
+#erro {
+	justify-content: center;
+	display: flex;
+	margin-top: 200px;
+}
+
 #erro ul {
 	color: red;
     list-style-type: none;
