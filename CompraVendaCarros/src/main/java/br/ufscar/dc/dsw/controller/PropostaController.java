@@ -44,7 +44,7 @@ public class PropostaController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
 		Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
 		//Erro erros = new Erro();
 
