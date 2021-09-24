@@ -16,36 +16,46 @@
             <ul id="links">
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/lojas">
-                        <span id="titulo">LataVelhaInc. </span><span id="corporativo">Corporativo</span>
+                        <span id="titulo">LataVelhaInc.</span>
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
-                    <span>Loja: ${sessionScope.lojaLogada.nome}</span>
+                    <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
+                    <ul class="dropdown">
+                        <li><a href="logout">Sair</a></li>
+                    </ul>
+                </li>
+                <li class="linkTopoDireita">
+                    <a href="proposta/listarPropostasLoja">Propostas</a>
                 </li>
             </ul>
         </div>
-        <section id="carros">
-            <div id="divFiltro">
-                <input type="text" name="Filtro" placeholder="filtrar por modelo..." id="filtro">
-                <p id="numero"></p>
-            </div>
-            <c:forEach var="veiculo" items="${requestScope.catalogo}">
-                <section class="box" onclick="Clicavel('${veiculo.placa}')">
-                    <div class="card">
-                        <div class="container">
-                            <img src="../imagens/${veiculo.modelo}.jpg" alt="Carro">
-                        </div>
-                        <ul class="dadosCarro">
-                            <li class="modelo">${veiculo.modelo}</li>
-                            <li>Loja: ${veiculo.loja.nome}</li>
-                            <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$${veiculo.valor}</li>                    
-                        </ul>
-                    </div>
-                </section>
-            </c:forEach>
+        <div align="center">
+			<h2>Lista de propostas</h2>
+            <table>
+				<thead>
+					<tr>
+						<th>valor</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
+						<tr>
+							<td>${proposta.valor}</td>
+							<td><a href="/<%= contextPath%>/admin/edicaoCliente?id=${cliente.id}">Edição</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a
+							href="/<%= contextPath%>/admin/remocaoCliente?id=${cliente.id}"
+							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+								Remoção </a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/admin/cadastroCliente">Adicionar Novo Cliente</a>
+			</div>
         </section>
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
     </body>
 </html>

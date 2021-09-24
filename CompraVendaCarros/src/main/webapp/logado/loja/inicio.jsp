@@ -26,7 +26,7 @@
                         </ul>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="lojas/listarPropostas">Propostas</a>
+                    <a href="lojas/listarPropostasLoja">Propostas</a>
                 </li>
                 <li class="linkTopoDireita">
                     <a href="lojas/adicionarVeiculo">Adicionar Veículo</a>

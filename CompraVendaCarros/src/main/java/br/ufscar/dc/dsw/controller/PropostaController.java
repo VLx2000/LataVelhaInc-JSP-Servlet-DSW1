@@ -74,10 +74,10 @@ public class PropostaController extends HttpServlet {
                     insereProposta(request, response);
                     break;
                     
-                case "/logado/loja/listarPropostas":
+                case "/listarPropostasLoja":
                 	lista_por_loja(request,response);
                 	break;
-                case "/logado/cliente/listarPropostas":
+                case "/listarPropostasCliente":
                 	lista_por_cliente(request,response);
                 	break;
                 default:
@@ -101,7 +101,7 @@ public class PropostaController extends HttpServlet {
     	Loja loja = (Loja) request.getSession().getAttribute("lojalogada");
         List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
         request.setAttribute("listaPropostas", listaPropostas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/propostas.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
         dispatcher.forward(request, response);
     }
     
@@ -137,7 +137,7 @@ public class PropostaController extends HttpServlet {
         Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
         Float valor = Float.parseFloat(request.getParameter("valor"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta(data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta("ABERTO", data, valor, veiculo, cliente, loja);
         dao.insert(proposta);
         
         response.sendRedirect("lista");

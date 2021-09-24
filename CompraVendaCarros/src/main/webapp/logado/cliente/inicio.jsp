@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="cliente/listarPropostas">Propostas</a>
+                    <a href="proposta/listarPropostasCliente">Propostas</a>
                 </li>
             </ul>
         </div>

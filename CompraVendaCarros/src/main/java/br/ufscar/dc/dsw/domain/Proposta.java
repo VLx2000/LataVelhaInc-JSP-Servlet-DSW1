@@ -3,15 +3,17 @@ package br.ufscar.dc.dsw.domain;
 public class Proposta {
 
 	//private Long id;
-	private String data;
+	private String data_p;
 	private Float valor;
 	private Veiculo veiculo;
 	private Cliente cliente;
 	private Loja loja;
+	private String estado;
 
-	public Proposta (String data, Float valor, Veiculo veiculo, Cliente cliente, Loja loja) {
+	public Proposta (String estado, String data_p, Float valor, Veiculo veiculo, Cliente cliente, Loja loja) {
 		//this.id = id;
-		this.data = data;
+		this.estado = estado;
+		this.data_p = data_p;
 		this.valor = valor;
 		this.veiculo = veiculo;
 		this.cliente = cliente;
@@ -26,12 +28,20 @@ public class Proposta {
 		//this.id = id;
 	//}
 
-	public String getData() {
-		return data;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getData() {
+		return data_p;
+	}
+
+	public void setData(String data_p) {
+		this.data_p = data_p;
 	}
 
 	public Float getValor() {
