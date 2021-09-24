@@ -47,7 +47,7 @@ public class PropostaDAO extends GenericDAO {
     public List<Proposta> getAll() {   
         List<Proposta> listaPropostas = new ArrayList<>();
         String sql = "SELECT * from Proposta p, Cliente c,Veiculo v, Loja l where p.id_loja = l.id "
-        		+ "and p.id_veiculo = v.id and p.id_cliente = c. id order by v.id";
+        		+ "and p.id_veiculo = v.id and p.id_cliente = c. id and p.id_loja = l.id and p.id_veiculo = v.id order by v.id";
         try {
             Connection conn = this.getConnection();
             Statement statement = conn.createStatement();
@@ -103,7 +103,7 @@ public class PropostaDAO extends GenericDAO {
         List<Proposta> listaPropostas = new ArrayList<>();
 
         String sql = "SELECT * from Proposta p,Loja l, Cliente c,Veiculo v where p.id_cliente = ? "
-        		+ "and p.id_cliente = c.id order by p.id_loja";
+        		+ "and p.id_cliente = c.id and p.id_loja = l.id  and p.id_veiculo = v.id order by p.id_loja";
 
         try {
         	Connection conn = this.getConnection();
@@ -164,8 +164,8 @@ public class PropostaDAO extends GenericDAO {
 
         List<Proposta> listaPropostas = new ArrayList<>();
 
-        String sql = "SELECT * from Proposta p,Loja l, Cliente c, Veiculo v where p.id_loja = ? "
-        		+ "and p.id_loja = l.id order by p.id_veiculo";
+        String sql = "SELECT * from Proposta p,Loja l, Cliente c, Veiculo v WHERE p.id_loja = ? "
+        		+ "and p.id_loja = l.id and p.id_cliente = c.id and p.id_veiculo = v.id order by p.id_veiculo";
 
         try {
         	Connection conn = this.getConnection();
