@@ -39,8 +39,8 @@
 					<tr>
                         <th>Carro</th>
                         <th>Valor</th>
-                        <th>Status</th>
 						<th>Proposta</th>
+                        <th>Status</th>
                         <th>Ação</th>
 					</tr>
 				</thead>
@@ -50,8 +50,8 @@
 						<tr>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
-                            <td class="estado">${proposta.estado}</td>
 							<td>${proposta.valor}</td>
+                            <td class="estado">${proposta.estado}</td>
                             <td><a href="aceitarProposta?id=${proposta.cliente.id}">ACEITAR</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp; 
                                 <a href="negarProposta?id=${proposta.cliente.id}">NEGAR </a>

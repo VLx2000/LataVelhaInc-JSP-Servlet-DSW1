@@ -39,8 +39,9 @@
 					<tr>
                         <th>Carro</th>
                         <th>Valor</th>
-                        <th>Status</th>
+                        <th>Loja</th>
 						<th>Proposta</th>
+                        <th>Status</th>
 					</tr>
 				</thead>
 
@@ -49,8 +50,9 @@
 						<tr>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
-                            <td class="estado">${proposta.estado}</td>
+                            <td>${proposta.loja.nome}</td>
 							<td>${proposta.valor}</td>
+                            <td class="estado">${proposta.estado}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
