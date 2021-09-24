@@ -55,9 +55,6 @@
                 </ul>
                 <!--<c:choose>
                     <c:when test="${veiculo != null}">-->
-                        <form action="../proposta/Comprar?id=${veiculo.id}" method="post">
-                            <input id="comprar" type="submit" name="Comprar" value="Comprar">
-                        </form>
                         <form action="../proposta/insereProposta?id=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
                             <input id="pvalor" type="text" name="valor" placeholder="Proposta">
                             <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">

@@ -86,7 +86,6 @@ public class PropostaController extends HttpServlet {
                 	lista_por_cliente(request,response);
                 	break;
                 default:
-                    lista(request, response);
                     break;
             }
         } catch (RuntimeException | IOException | ServletException e) {
@@ -107,14 +106,6 @@ public class PropostaController extends HttpServlet {
         List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
         request.setAttribute("listaPropostas", listaPropostas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
-        dispatcher.forward(request, response);
-    }
-    
-    private void lista(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        List<Proposta> listaPropostas = dao.getAll();
-        request.setAttribute("listaVeiculos", listaPropostas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/propostas.jsp");
         dispatcher.forward(request, response);
     }
 

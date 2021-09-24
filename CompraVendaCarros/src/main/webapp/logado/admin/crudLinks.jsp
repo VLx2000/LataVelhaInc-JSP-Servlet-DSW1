@@ -28,7 +28,7 @@
                 <a href="admin/listaLojas">CRUD Lojas</a>
             </div>
             <div class="crud">
-                <a href="veiculos">CRUD Veiculos</a>
+                <a href="veiculos">Lista de Veiculos</a>
             </div>
         </section>
     </body>
