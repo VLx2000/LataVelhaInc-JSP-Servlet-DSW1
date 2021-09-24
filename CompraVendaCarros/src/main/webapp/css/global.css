@@ -321,4 +321,13 @@ th, td {
 	background: red;
 }
 
-
+#erro ul {
+	color: red;
+    list-style-type: none;
+    margin: 100px;
+    background-color: #591c1c;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1.2em;
+}

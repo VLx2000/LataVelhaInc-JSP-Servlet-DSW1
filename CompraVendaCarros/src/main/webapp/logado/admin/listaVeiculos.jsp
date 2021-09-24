@@ -28,7 +28,6 @@
         </div>
 		<div align="center">
 			<h1 class="label">Gerenciamento de Veiculos</h1>
-			<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
 		</div>
 		
 		<div align="center">
@@ -71,6 +70,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
+			</div>
 		</div>
 	</body>
 </html>

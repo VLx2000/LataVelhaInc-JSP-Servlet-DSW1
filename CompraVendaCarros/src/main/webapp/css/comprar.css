@@ -1,43 +1,36 @@
 .carro {
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 80px;
     width: 75%;
-    height: 1000px;
-    background-color:rgba(250, 250, 250, 0.603);
+    height: fit-content;
+    /*background-color:rgba(250, 250, 250, 0.603);
     border-radius: 10px;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
-}
-
-.nomeCarro {
-    margin: 20px;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 1.1em;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);*/
 }
 
 .fotos {
+    padding: 30px;
+    padding-bottom: 100px;
     float: left;
-    margin: auto;
-    margin-left: 100px;
-    width: 400px;
-    height: 300px;
+    width: 630px;
+    height: 460px;
+    overflow: hidden;
 }
 
 .info {
     float: right;
     margin: auto;
-    margin-right: 100px;
     height: 300px;
 }
 
 .dadosCarro {
-    font-style: italic;
+    margin-top: 30px;
     font-size: 1.1em;
 }
 
 .descricao {
-    padding: 50px;
+    padding: 120px;
     clear: both;
     font-size: 1.1em;
 }
@@ -49,6 +42,8 @@
 
 .nomeModelo {
     font-size: 1.5em;
+    font-weight: bolder;
+    margin-bottom: 10px;
 }
 
 input {
@@ -59,17 +54,10 @@ input {
     border-color: rgba(255, 255, 255, 0);
 }
 
-.container {
-    margin: 20px;
-    padding: 30px;
-    height: 320px;
-	width: 100%;
-    border-radius: 16px;
-}
-
 li img {
-    padding: 0;
-	width: 100%;
+    width: 600px;
+    height: 400px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
 }
 
 #comprar {
@@ -98,7 +86,7 @@ li img {
     transform: scale(1.02);
 }
 
-@media (min-width: 901px) and (max-width: 1300px) {
+@media (min-width: 901px) and (max-width: 1600px) {
 	.carro {
 		width: 85%;
 	}
@@ -106,13 +94,10 @@ li img {
         clear: both;
     }
     .info {
-        margin-right: 0;
         width: 100%;
         clear: both;
     }
     .fotos {
-        margin-left: 0;
-        width: 100%;
         clear: both;
     }
 }
@@ -125,13 +110,10 @@ li img {
         clear: both;
     }
     .info {
-        margin-right: 0;
         width: 100%;
         clear: both;
     }
     .fotos {
-        margin-left: 0;
-        width: 100%;
         clear: both;
     }
 }

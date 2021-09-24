@@ -35,13 +35,7 @@
             </ul>
         </div>
         <section class="carro">
-            <div class="nomeCarro">
-                <ul class="dadosCarro">
-                    <li class="nomeModelo">${veiculo.modelo} (${veiculo.ano}) - ${veiculo.quilometragem}km</li>
-                </ul>
-            </div>
-            <div class="fotos">
-                <div class="container">                
+                <div class="fotos">                
                         <ul class="slider">
                             <c:forEach var = "i" begin = "1" end = "10">    
                             <li>
@@ -50,10 +44,10 @@
                             </c:forEach>
                         </ul>
                 </div>
-            </div>
             <div class="info">
                 <c:set var="veiculo" value='${requestScope.veiculo}' />
                 <ul class="dadosCarro">
+                    <li class="nomeModelo">${veiculo.modelo} (${veiculo.ano}) - ${veiculo.quilometragem}km</li>
                     <li>Loja: ${veiculo.loja.nome}</li>
                     <li>Placa: ${veiculo.placa}</li>
                     <li>Chassi: ${veiculo.chassi}</li>
