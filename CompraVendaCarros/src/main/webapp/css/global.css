@@ -324,13 +324,13 @@ th, td {
 #erro {
 	justify-content: center;
 	display: flex;
-	margin-top: 200px;
+	margin-top: 50px;
 }
 
 #erro ul {
 	color: red;
     list-style-type: none;
-    margin: 100px;
+    margin: 50px;
     background-color: #591c1c;
     width: fit-content;
     padding: 10px;

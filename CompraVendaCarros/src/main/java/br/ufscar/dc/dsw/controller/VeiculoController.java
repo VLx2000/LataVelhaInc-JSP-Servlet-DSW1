@@ -127,7 +127,7 @@ public class VeiculoController extends HttpServlet {
     private void apresentaFormCadastroVeiculos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {	
     	request.setAttribute("lojas", getLojas());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/formularioVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/formularioVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     private void apresentaFormEdicaoVeiculos(HttpServletRequest request, HttpServletResponse response)
@@ -136,7 +136,7 @@ public class VeiculoController extends HttpServlet {
         Veiculo veiculo = dao.getById(id);
         request.setAttribute("veiculo", veiculo);
         request.setAttribute("lojas", getLojas());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/formularioVeiculos.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/formularioVeiculos.jsp");
         dispatcher.forward(request, response);
     }
     

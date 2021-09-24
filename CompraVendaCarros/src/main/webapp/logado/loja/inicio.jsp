@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
         <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/lojas.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -29,7 +30,7 @@
                     <a href="proposta/listarPropostasLoja">Propostas</a>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="lojas/adicionarVeiculo">Adicionar Veículo</a>
+                    <a href="lojas/cadastro">Adicionar Veículo</a>
                 </li>
             </ul>
         </div>
@@ -46,9 +47,9 @@
                         </div>
                         <ul class="dadosCarro">
                             <li class="modelo">${veiculo.modelo}</li>
-                            <li>Loja: ${veiculo.loja.nome}</li>
-                            <li>${veiculo.quilometragem}km</li>
-                            <li class="oferta">$${veiculo.valor}</li>                    
+                            <a href="lojas/edicao?id=${veiculo.id}">Edição</a>
+							<a href="lojas/remocao?id=${veiculo.id}" 
+                                onclick="return confirm('Tem certeza de que deseja excluir este item?');">Remoção </a>                
                         </ul>
                     </div>
                 </section>
