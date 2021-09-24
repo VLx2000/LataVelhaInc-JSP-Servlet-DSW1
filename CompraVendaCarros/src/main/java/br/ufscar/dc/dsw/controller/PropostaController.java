@@ -73,6 +73,13 @@ public class PropostaController extends HttpServlet {
                 case "/insercaoProposta":
                     insereProposta(request, response);
                     break;
+                    
+                case "/logado/loja/listarPropostas":
+                	lista_por_loja(request,response);
+                	break;
+                case "/logado/cliente/listarPropostas":
+                	lista_por_cliente(request,response);
+                	break;
                 default:
                     lista(request, response);
                     break;
@@ -82,11 +89,27 @@ public class PropostaController extends HttpServlet {
         }
     }
 
-    private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void lista_por_cliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
-        List<Proposta> listaPropostas = dao.getAll(cliente);
+        List<Proposta> listaPropostas = dao.getAllbyCliente(cliente.getId());
         request.setAttribute("listaPropostas", listaPropostas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/listaPropostas.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/propostas.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void lista_por_loja(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	Loja loja = (Loja) request.getSession().getAttribute("lojalogada");
+        List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
+        request.setAttribute("listaPropostas", listaPropostas);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/propostas.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void lista(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Proposta> listaPropostas = dao.getAll();
+        request.setAttribute("listaVeiculos", listaPropostas);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/admin/propostas.jsp");
         dispatcher.forward(request, response);
     }
 

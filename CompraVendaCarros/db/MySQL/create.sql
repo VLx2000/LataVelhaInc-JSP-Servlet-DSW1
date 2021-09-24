@@ -53,3 +53,6 @@ values ('AAA0-7473', 'RX-7','1A1A1111111111111',2005,780, 'primeiro carro',34534
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
 values ('AAA0-7473', 'Camaro','1A1A1111111111111',2005,1345, 'primeiro carro',786868,1);
 
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data) values (1,1,1,100000,'2021-09-23');
+
+
