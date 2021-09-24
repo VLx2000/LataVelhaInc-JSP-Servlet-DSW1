@@ -103,7 +103,7 @@ public class PropostaController extends HttpServlet {
     }
     
     private void lista_por_loja(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Loja loja = (Loja) request.getSession().getAttribute("lojalogada");
+    	Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
         List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
         request.setAttribute("listaPropostas", listaPropostas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");

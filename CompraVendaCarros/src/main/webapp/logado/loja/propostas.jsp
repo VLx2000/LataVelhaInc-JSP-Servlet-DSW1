@@ -35,11 +35,6 @@
 		</div>
         <div align="center">
             <table>
-				<thead>
-					<tr>
-						<th>valor</th>
-					</tr>
-				</thead>
                 <thead>
 					<tr>
                         <th>Carro</th>
