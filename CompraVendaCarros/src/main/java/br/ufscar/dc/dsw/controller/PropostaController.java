@@ -70,7 +70,7 @@ public class PropostaController extends HttpServlet {
                 case "/formProposta":
                     apresentaFormProposta(request, response);
                     break;
-                case "/insercaoProposta":
+                case "/insereProposta":
                     insereProposta(request, response);
                     break;
                     

@@ -12,11 +12,11 @@ import br.ufscar.dc.dsw.domain.Proposta;
 import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Loja;
-
+/*
 import br.ufscar.dc.dsw.dao.LojaDAO;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.dao.VeiculoDAO;
-
+*/
 public class PropostaDAO extends GenericDAO {
 
     public void insert(Proposta proposta) {

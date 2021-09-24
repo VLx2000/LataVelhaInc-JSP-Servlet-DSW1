@@ -35,29 +35,24 @@
             <table>
 				<thead>
 					<tr>
-                        <th>status</th>
-						<th>valor</th>
+                        <th>Carro</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+						<th>Proposta</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
 						<tr>
+                            <td>${proposta.veiculo.modelo}</td>
+                            <td>${proposta.veiculo.valor}</td>
                             <td>${proposta.estado}</td>
 							<td>${proposta.valor}</td>
-							<td><a href="/<%= contextPath%>/admin/edicaoCliente?id=${cliente.id}">Edição</a>
-							&nbsp;&nbsp;&nbsp;&nbsp; <a
-							href="/<%= contextPath%>/admin/remocaoCliente?id=${cliente.id}"
-							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-								Remoção </a>
-							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="adiciona">
-				<a href="/<%=contextPath%>/admin/cadastroCliente">Adicionar Novo Cliente</a>
-			</div>
         </section>
     </body>
 </html>
