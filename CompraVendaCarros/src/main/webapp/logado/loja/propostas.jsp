@@ -20,13 +20,13 @@
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
-                    <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
+                    <span>Bem vindo: ${sessionScope.lojaLogada.nome}</span>
                     <ul class="dropdown">
-                        <li><a href="logout">Sair</a></li>
+                        <li><a href="../logout">Sair</a></li>
                     </ul>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="proposta/listarPropostasLoja">Propostas</a>
+                    <a href="listarPropostasLoja">Propostas</a>
                 </li>
             </ul>
         </div>
@@ -39,8 +39,8 @@
 					<tr>
                         <th>Carro</th>
                         <th>Valor</th>
-                        <th>Status</th>
 						<th>Proposta</th>
+                        <th>Status</th>
                         <th>Ação</th>
 					</tr>
 				</thead>
@@ -50,11 +50,11 @@
 						<tr>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
-                            <td class="estado">${proposta.estado}</td>
 							<td>${proposta.valor}</td>
-                            <td><a href="proposta/aceitarProposta?id=${proposta.cliente.id}">ACEITAR</a>
+                            <td class="estado">${proposta.estado}</td>
+                            <td><a href="aceitarProposta?id=${proposta.cliente.id}">ACEITAR</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp; 
-                                <a href="proposta/negarProposta?id=${proposta.cliente.id}">NEGAR </a>
+                                <a href="negarProposta?id=${proposta.cliente.id}">NEGAR </a>
                             </td>
 						</tr>
 					</c:forEach>
