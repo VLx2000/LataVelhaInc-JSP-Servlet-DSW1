@@ -12,15 +12,6 @@
     </head>
     <body>
         <h1 class="tituloLogin">LataVelhaInc.</h1>
-        <c:if test="${mensagens.existeErros}">
-            <div id="erro">
-                <ul>
-                    <c:forEach var="erro" items="${mensagens.erros}">
-                        <li> ${erro} </li>
-                        </c:forEach>
-                </ul>
-            </div>
-        </c:if>
         <div class="boxLogin">
         	<form method="post" action="login">
 	        	<label class="labelLogin">
@@ -35,9 +26,17 @@
 	            </label>
 	
 	        	<input class="botaoLogin" type="submit" name="bOK" value="<fmt:message key="user.login"/>">
-	
 	        </form>
         </div>
+        <c:if test="${mensagens.existeErros}">
+            <div id="erro">
+                <ul>
+                    <c:forEach var="erro" items="${mensagens.erros}">
+                        <li> ${erro} </li>
+                        </c:forEach>
+                </ul>
+            </div>
+        </c:if>
     </body>
 </fmt:bundle>
 </html>

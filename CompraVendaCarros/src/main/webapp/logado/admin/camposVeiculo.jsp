@@ -52,6 +52,16 @@
 		<td><input type="number" id="valor" name="valor" required
 			value="${veiculo.valor}" /></td>
 	</tr>
+	<tr>
+		<td><label for="id_loja">Loja</label></td>
+		<td><select id="id_loja" name="id_loja">
+				<c:forEach items="${lojas}" var="loja">
+					<option value="${loja.key}"
+						${veiculo.loja.nome==loja.value ? 'selected' : '' }>
+						${loja.value}</option>
+				</c:forEach>
+		</select></td>
+	</tr>
 
 	
 	<tr>
