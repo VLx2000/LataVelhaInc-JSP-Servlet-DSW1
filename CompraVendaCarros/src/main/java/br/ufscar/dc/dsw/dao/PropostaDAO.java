@@ -29,6 +29,9 @@ public class PropostaDAO extends GenericDAO {
 
             statement = conn.prepareStatement(sql);
             statement.setLong(1, proposta.getCliente().getId());
+            if(proposta.getLoja() == null) {
+            	System.out.println("NUUUUUULL");
+            }
             statement.setLong(2, proposta.getLoja().getId());
             statement.setLong(3, proposta.getVeiculo().getId());
             statement.setFloat(4, proposta.getValor());
@@ -127,7 +130,7 @@ public class PropostaDAO extends GenericDAO {
                 String veiculo_descricao = resultSet.getString("v.descricao");
                 float veiculo_valor = resultSet.getFloat("v.valor");
                 
-                Long lojaId = resultSet.getLong("id_loja");
+                Long lojaId = resultSet.getLong("l.id");
     			String loja_email = resultSet.getString("l.email");
 				String loja_senha = resultSet.getString("l.senha");
 				String loja_nome = resultSet.getString("l.nome");

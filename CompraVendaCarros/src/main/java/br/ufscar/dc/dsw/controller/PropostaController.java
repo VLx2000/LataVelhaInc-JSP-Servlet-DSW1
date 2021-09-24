@@ -137,8 +137,9 @@ public class PropostaController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
 		Long id = Long.parseLong(request.getParameter("id"));
+		Long id_loja =  Long.parseLong(request.getParameter("id_loja"));
         Veiculo veiculo = new VeiculoDAO().getById(id);
-        Loja loja = new LojaDAO().getById(id);
+        Loja loja = new LojaDAO().getById(id_loja);
         Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
         Float valor = Float.parseFloat(request.getParameter("valor"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
