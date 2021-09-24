@@ -73,7 +73,12 @@ public class PropostaController extends HttpServlet {
                 case "/insereProposta":
                     insereProposta(request, response);
                     break;
-                    
+                case "/aceitarProposta":
+                    aceitar(request, response);
+                    break;
+                case "/negarProposta":
+                    negar(request, response);
+                    break;
                 case "/listarPropostasLoja":
                 	lista_por_loja(request,response);
                 	break;
@@ -140,7 +145,37 @@ public class PropostaController extends HttpServlet {
         Proposta proposta = new Proposta("ABERTO", data, valor, veiculo, cliente, loja);
         dao.insert(proposta);
         
-        response.sendRedirect("lista");
+        response.sendRedirect("listarPropostasCliente");
+    }
+
+    private void aceitar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        Long id = Long.parseLong(request.getParameter("id"));
+        Veiculo veiculo = new VeiculoDAO().getById(id);
+        Loja loja = new LojaDAO().getById(id);
+        Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
+        Float valor = Float.parseFloat(request.getParameter("valor"));
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        Proposta proposta = new Proposta("ACEITO", data, valor, veiculo, cliente, loja);
+        dao.insert(proposta);
+        
+        response.sendRedirect("listarPropostasLoja");
+    }
+
+    private void negar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Long id = Long.parseLong(request.getParameter("id"));
+        Veiculo veiculo = new VeiculoDAO().getById(id);
+        Loja loja = new LojaDAO().getById(id);
+        Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
+        Float valor = Float.parseFloat(request.getParameter("valor"));
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        Proposta proposta = new Proposta("NÂO ACEITO", data, valor, veiculo, cliente, loja);
+        dao.insert(proposta);
+        
+        response.sendRedirect("listarPropostasLoja");
     }
 }
 
