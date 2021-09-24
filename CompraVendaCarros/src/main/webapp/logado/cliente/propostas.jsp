@@ -22,7 +22,7 @@
                 <li class="nomeTopoDireita">
                     <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
                     <ul class="dropdown">
-                        <li><a href="logout">Sair</a></li>
+                        <li><a href="../logout">Sair</a></li>
                     </ul>
                 </li>
                 <li class="linkTopoDireita">
@@ -31,7 +31,9 @@
             </ul>
         </div>
         <div align="center">
-			<h2>Lista de propostas</h2>
+			<h1 class="label">Lista de Propostas</h1>
+		</div>
+        <div align="center">
             <table>
 				<thead>
 					<tr>
@@ -47,12 +49,13 @@
 						<tr>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
-                            <td>${proposta.estado}</td>
+                            <td class="estado">${proposta.estado}</td>
 							<td>${proposta.valor}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
         </section>
+        <script src="../js/cor.js"></script>
     </body>
 </html>
