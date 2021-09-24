@@ -10,6 +10,9 @@
         <title>Compra e Venda de Veículos</title>
         <link rel="stylesheet" href="../css/global.css">
         <link rel="stylesheet" href="../css/comprar.css">
+        <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+				
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -23,7 +26,7 @@
                 <li class="nomeTopoDireita">
                     <span>Bem vindo: ${sessionScope.usuarioLogado.nome}</span>
                     <ul class="dropdown">
-                        <li><a href="logout">Sair</a></li>
+                        <li><a href="../logout">Sair</a></li>
                     </ul>
                 </li>
                 <li class="linkTopoDireita">
@@ -32,15 +35,45 @@
             </ul>
         </div>
         <section class="carro">
-            <div class="nomeCarro">
-                o titulo e nome do carro vai aqui
-            </div>
-            <div class="fotos">
-                as fotos vao aqui
-            </div>
+                <div class="fotos">                
+                        <ul class="slider">
+                            <c:forEach var = "i" begin = "1" end = "10">    
+                            <li>
+                                <img src="../imagens/fotos/${veiculo.modelo}/${i}.jpg" alt="Carro" />
+                            </li>
+                            </c:forEach>
+                        </ul>
+                </div>
             <div class="info">
-                as informaçoes do carro preço e nova proposta vao aqui
+                <c:set var="veiculo" value='${requestScope.veiculo}' />
+                <ul class="dadosCarro">
+                    <li class="nomeModelo">${veiculo.modelo} (${veiculo.ano}) - ${veiculo.quilometragem}km</li>
+                    <li>Loja: ${veiculo.loja.nome}</li>
+                    <li>Placa: ${veiculo.placa}</li>
+                    <li>Chassi: ${veiculo.chassi}</li>
+                    <li class="oferta">$ ${veiculo.valor}</li>
+                </ul>
+                <!--<c:choose>
+                    <c:when test="${veiculo != null}">-->
+                        <form action="../proposta/Comprar?id=${veiculo.id}" method="post">
+                            <input id="comprar" type="submit" name="Comprar" value="Comprar">
+                        </form>
+                        <form action="../proposta/insereProposta?id=${veiculo.id}" method="post">
+                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
+                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
+                        </form>
+                    <!--</c:when>
+                    <c:otherwise>
+                    </c:otherwise>
+                </c:choose>-->
+            </div>
+            <div class="descricao">
+                Sobre: ${veiculo.descricao}
             </div>
         </section>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../slick/slick.min.js"></script>
+        <script src="../js/carrossel.js"></script>
     </body>
 </html>

@@ -23,6 +23,19 @@ setInterval(function filtro() {
     document.getElementById('numero').textContent = cont + ' Carros'
 }, 100)
 
-function Clicavel(placa) {
-    window.location = "clientes/comprar" /*+ placa*/;
+function Clicavel(id) {
+    window.location = "clientes/comprar?id=" + id;
+    /*$(document).ready(function(){
+        $(".box").click(function(){
+            $.ajax({
+                type:"GET",
+                url:"ClasseServletAjax",
+                data: {
+                    pesquisar:$("#pesquisar").val()
+                },
+                success: function(respostaServidor){
+                    $("#imprimirAjax")[0].innerHTML=respostaServidor;
+                }
+            });
+        });*/
 }

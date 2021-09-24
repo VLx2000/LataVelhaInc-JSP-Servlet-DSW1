@@ -11,7 +11,7 @@
         <div class="topbar">
             <ul>
                 <li class="linkTopoEsquerda">
-                    <a href="${pageContext.request.contextPath}/admin">
+                    <a href="admin">
                         <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
                     </a>
                 </li>

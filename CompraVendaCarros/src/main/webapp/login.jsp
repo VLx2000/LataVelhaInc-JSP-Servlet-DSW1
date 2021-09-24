@@ -11,7 +11,7 @@
         <link href="css/global.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1 class="label"><fmt:message key="page.label" /></h1>
+        <h1 class="tituloLogin">LataVelhaInc.</h1>
         <c:if test="${mensagens.existeErros}">
             <div id="erro">
                 <ul>
@@ -21,24 +21,23 @@
                 </ul>
             </div>
         </c:if>
-        <form method="post" action="login">
-            <table align="center">
-                <tr>
-                    <th><fmt:message key="user.login" />:</th>
-                    <td><input type="text" name="login"
-                               value="${param.login}"/></td>
-                </tr>
-                <tr>
-                    <th><fmt:message key="user.password" />:</th>
-                    <td><input type="password" name="senha" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2"> 
-                        <input type="submit" name="bOK" value="<fmt:message key="user.login"/>">
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <div class="boxLogin">
+        	<form method="post" action="login">
+	        	<label class="labelLogin">
+		       		<fmt:message key="user.login" />:
+			       	<input class="camposLogin" type="text" name="login"
+			                              value="${param.login}"/>
+		       	</label>
+        		
+	        	<label>
+	        		<fmt:message key="user.password" />:
+	        		<input class="camposLogin" type="password" name="senha" />
+	            </label>
+	
+	        	<input class="botaoLogin" type="submit" name="bOK" value="<fmt:message key="user.login"/>">
+	
+	        </form>
+        </div>
     </body>
 </fmt:bundle>
 </html>

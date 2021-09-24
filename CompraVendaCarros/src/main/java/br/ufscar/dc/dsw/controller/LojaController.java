@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.dao.VeiculoDAO;
 import br.ufscar.dc.dsw.domain.Veiculo;
-//import br.ufscar.dc.dsw.util.Erro;
+import br.ufscar.dc.dsw.util.Erro;
 
 
 @WebServlet(urlPatterns = "/lojas/*")
@@ -40,25 +40,37 @@ public class LojaController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String action = request.getPathInfo();
-        if (action == null) {
-            action = "";
-        }
+        Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
+    	Erro erros = new Erro();
 
-        try {
-            switch (action) {
-                case "/listarPropostas":
-                	listaPropostas(request, response);
-                	break;
-                case "/adicionarVeiculo":
-                	adicionarVeiculo(request, response);
-                	break;
-                default:
-                    listaVeiculos(request, response);
-                    break;
+		if (loja == null) {
+            erros.add("Acesso não autorizado!");
+            erros.add("Apenas Loja tem acesso a essa página");
+            request.setAttribute("mensagens", erros);
+            RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+            rd.forward(request, response);
+    	} 
+        else {
+            String action = request.getPathInfo();
+            if (action == null) {
+                action = "";
             }
-        } catch (RuntimeException | IOException | ServletException e) {
-            throw new ServletException(e);
+
+            try {
+                switch (action) {
+                    case "/listarPropostas":
+                        listaPropostas(request, response);
+                        break;
+                    case "/adicionarVeiculo":
+                        adicionarVeiculo(request, response);
+                        break;
+                    default:
+                        listaVeiculos(request, response);
+                        break;
+                }
+            } catch (RuntimeException | IOException | ServletException e) {
+                throw new ServletException(e);
+            }
         }
     }
 

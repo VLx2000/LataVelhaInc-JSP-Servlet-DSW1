@@ -16,19 +16,10 @@ import br.ufscar.dc.dsw.dao.VeiculoDAO;
 
 import java.util.List;
 
-@WebServlet(name = "Index", urlPatterns = "/index.jsp")
+@WebServlet(name = "Index", urlPatterns = {"/index.jsp", "/logout/*"})
 public class IndexController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		/*
-
-		String URL = "/login.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(URL);
-		rd.forward(request, response);*/
-	}
 
     private void catalogo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

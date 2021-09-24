@@ -23,7 +23,7 @@
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
                 </li>
             </ul>
         </div>

@@ -22,13 +22,12 @@
                 </li>
                 <li class="linkTopoDireita">
                     <!--<a href="login.jsp">Login</a>--> 
-                    <a href="${pageContext.request.contextPath}/logout.jsp">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
                 </li>
             </ul>
         </div>
 		<div align="center">
 			<h1 class="label">Gerenciamento de Veiculos</h1>
-			<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
 		</div>
 		
 		<div align="center">
@@ -71,6 +70,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="adiciona">
+				<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
+			</div>
 		</div>
 	</body>
 </html>

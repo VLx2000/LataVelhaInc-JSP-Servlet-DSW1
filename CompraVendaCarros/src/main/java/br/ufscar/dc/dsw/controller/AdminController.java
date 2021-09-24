@@ -236,19 +236,23 @@ public class AdminController extends HttpServlet {
     }
     
     private void removeCliente(HttpServletRequest request, HttpServletResponse response)
-    		throws IOException {
+    		throws ServletException, IOException {
+
+		Erro erros = new Erro();
     	String id_s = request.getParameter("id");
     	Long id = Long.parseLong( id_s );  
     	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
     	Cliente cliente_remover = new Cliente(id);
 		if (cliente.getId().equals(id)){
-			//alert("Não é possível remover você mesmo!!!");
+			erros.add("Não é possível remover você mesmo!!!");
+            request.setAttribute("mensagens", erros);
+            RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+            rd.forward(request, response);
 		}
 		else {
 			daoCliente.delete(cliente_remover);
+			// Retorna para a página do CRUD:
+			response.sendRedirect("listaClientes");
 		}
-    	
-    	// Retorna para a página do CRUD:
-    	response.sendRedirect("listaClientes");
     }
 }
