@@ -1,0 +1,12 @@
+.propostas {
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.233);
+    background-color: whitesmoke;
+}
+
+#aceitar {
+    color: green;
+}
+
+#negar {
+    color: red;
+}

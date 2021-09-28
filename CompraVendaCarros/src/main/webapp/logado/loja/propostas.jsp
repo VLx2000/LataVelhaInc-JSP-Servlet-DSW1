@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compra e Venda de Veículos</title>
         <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/propostas.css">
     </head>
     <body>
         <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -20,7 +21,7 @@
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
-                    <span>Bem vindo: ${sessionScope.lojaLogada.nome}</span>
+                    <span>Loja: ${sessionScope.lojaLogada.nome}</span>
                     <ul class="dropdown">
                         <li><a href="../logout">Sair</a></li>
                     </ul>
@@ -28,33 +29,38 @@
                 <li class="linkTopoDireita">
                     <a href="listarPropostasLoja">Propostas</a>
                 </li>
+                <li class="linkTopoDireita">
+                    <a href="cadastro">Adicionar Veículo</a>
+                </li>
             </ul>
         </div>
         <div align="center">
 			<h1 class="label">Lista de Propostas</h1>
 		</div>
         <div align="center">
-            <table>
+            <table class="propostas">
                 <thead>
 					<tr>
+                        <th>Status</th>
+                        <th>Foto</th>
                         <th>Carro</th>
                         <th>Valor</th>
 						<th>Proposta</th>
-                        <th>Status</th>
                         <th>Ação</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
-						<tr>
+						<tr class="proposta">
+                            <td class="estado">${proposta.estado}</td>
+                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
 							<td>${proposta.valor}</td>
-                            <td class="estado">${proposta.estado}</td>
-                            <td><a href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
-                                &nbsp;&nbsp;&nbsp;&nbsp; 
-                                <a href="negarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
+                            <td><a id="aceitar" href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
+                                &nbsp; 
+                                <a id="negar" href="negarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
                             </td>
 						</tr>
 					</c:forEach>
