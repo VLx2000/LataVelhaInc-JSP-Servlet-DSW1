@@ -52,7 +52,7 @@
                             <td>${proposta.veiculo.valor}</td>
 							<td>${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
-                            <td><a href="aceitarProposta?id=${proposta.cliente.id}">ACEITAR</a>
+                            <td><a href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp; 
                                 <a href="negarProposta?id=${proposta.cliente.id}">NEGAR </a>
                             </td>

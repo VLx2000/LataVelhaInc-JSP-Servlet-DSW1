@@ -244,17 +244,18 @@ public class PropostaDAO extends GenericDAO {
     }
 	
 	  public void update(Proposta proposta) {
-	        String sql = "UPDATE Veiculo SET valor = ?, data_p = ? WHERE (id_cliente,id_loja,id_veiculo) = (?,?,?)";
+	        String sql = "UPDATE Proposta SET valor = ?, data_p = ?, estado = ? WHERE (id_cliente,id_loja,id_veiculo) = (?,?,?)";
 	    
 	        try {
 	            Connection conn = this.getConnection();
 	            PreparedStatement statement = conn.prepareStatement(sql);
 	            statement.setFloat(1, proposta.getValor());
 	            statement.setString(2, proposta.getData());
-	            statement.setLong(3,proposta.getCliente().getId());
-	            statement.setLong(4,proposta.getLoja().getId());
-	            statement.setLong(5, proposta.getVeiculo().getId());
-                statement.setString(6, proposta.getEstado());
+                statement.setString(3, proposta.getEstado());
+	            statement.setLong(4,proposta.getCliente().getId());
+	            statement.setLong(5,proposta.getLoja().getId());
+	            statement.setLong(6, proposta.getVeiculo().getId());
+
 	            statement.executeUpdate();
 	            statement.close();
 	            conn.close();
