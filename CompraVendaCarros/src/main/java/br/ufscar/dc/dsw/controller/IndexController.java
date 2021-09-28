@@ -16,7 +16,7 @@ import br.ufscar.dc.dsw.dao.VeiculoDAO;
 
 import java.util.List;
 
-@WebServlet(name = "Index", urlPatterns = {"/index.jsp", "/logout/*"})
+@WebServlet(name = "Index", urlPatterns = "/index.jsp")
 public class IndexController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -33,6 +33,7 @@ public class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.getSession().invalidate();
         catalogo(request, response);
 	}
 

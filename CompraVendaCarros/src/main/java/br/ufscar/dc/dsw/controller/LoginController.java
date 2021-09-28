@@ -15,7 +15,7 @@ import br.ufscar.dc.dsw.dao.LojaDAO;
 import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.util.Erro;
 
-@WebServlet(name = "Login", urlPatterns= {"/login/*"})
+@WebServlet(name = "Login", urlPatterns= {"/login/*", "/logout/*"})
 public class LoginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -75,7 +75,7 @@ public class LoginController extends HttpServlet {
 
 		request.setAttribute("mensagens", erros);
 
-		String URL = "/login.jsp";
+		String URL = "/index.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request, response);
 	}

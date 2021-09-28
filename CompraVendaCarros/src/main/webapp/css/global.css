@@ -337,3 +337,10 @@ th, td {
     border-radius: 6px;
     font-size: 1.2em;
 }
+
+#voltar {
+	background-color: rgb(43, 43, 43);
+	border-radius: 16px;
+	padding: 10px;
+	width: fit-content;
+}

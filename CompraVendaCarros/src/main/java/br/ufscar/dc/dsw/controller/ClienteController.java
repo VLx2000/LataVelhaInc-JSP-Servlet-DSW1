@@ -29,10 +29,9 @@ public class ClienteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cliente usuario = (Cliente) request.getSession().getAttribute("usuarioLogado");
-    	Erro erros = new Erro();
     	
     	if (usuario == null) {
-    		response.sendRedirect(request.getContextPath());
+    		erro(request, response);
     	} else if (usuario.getPapel().equals("USER")) {
             String action = request.getPathInfo();
 			if (action == null) {
@@ -53,12 +52,20 @@ public class ClienteController extends HttpServlet {
 			}
 
     	} else {
-    		erros.add("Acesso não autorizado!");
-    		erros.add("Apenas Papel [USER] tem acesso a essa página");
-    		request.setAttribute("mensagens", erros);
-    		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
-    		rd.forward(request, response);
+    		erro(request, response);
     	}    	
+    }
+
+	private void erro(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		
+		Erro erros = new Erro();
+
+        erros.add("Acesso não autorizado!");
+    	erros.add("Apenas CLIENTES tem acesso a essa página");
+    	request.setAttribute("mensagens", erros);
+    	RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+    	rd.forward(request, response);
     }
 
     private void catalogo(HttpServletRequest request, HttpServletResponse response)

@@ -20,5 +20,8 @@
                 </ul>
             </div>
         </c:if>
+        <div align="center">
+            <a id="voltar" href="${pageContext.request.contextPath}/index.jsp">Voltar para a página inicial</a>
+        </div>
     </body>
 </html>

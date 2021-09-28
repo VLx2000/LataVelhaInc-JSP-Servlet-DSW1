@@ -13,8 +13,6 @@ import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.dao.LojaDAO;
-/*import br.ufscar.dc.dsw.dao.VeiculoDAO;
-import br.ufscar.dc.dsw.domain.Veiculo;*/
 
 import br.ufscar.dc.dsw.util.Erro;
 import java.util.List;
@@ -43,10 +41,9 @@ public class AdminController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
-    	Erro erros = new Erro();
 
 		if (cliente == null) {
-    		response.sendRedirect(request.getContextPath());
+    		erro(request, response);
     	} else if (cliente.getPapel().equals("ADMIN")) {
 			String action = request.getPathInfo();
 			if (action == null) {
@@ -101,12 +98,20 @@ public class AdminController extends HttpServlet {
 			}
     		
     	} else {
-    		erros.add("Acesso não autorizado!");
-    		erros.add("Apenas Papel [ADMIN] tem acesso a essa página");
-    		request.setAttribute("mensagens", erros);
-    		RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
-    		rd.forward(request, response);
+    		erro(request, response);
     	}
+    }
+
+	private void erro(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		
+		Erro erros = new Erro();
+
+        erros.add("Acesso não autorizado!");
+    	erros.add("Apenas ADMINS tem acesso a essa página");
+    	request.setAttribute("mensagens", erros);
+    	RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+    	rd.forward(request, response);
     }
 
 	private void listaLojas(HttpServletRequest request, HttpServletResponse response)
