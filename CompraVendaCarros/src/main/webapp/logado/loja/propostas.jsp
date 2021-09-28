@@ -17,7 +17,7 @@
             <ul id="links">
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/lojas">
-                        <span id="titulo">LataVelhaInc.</span>
+                        <span id="titulo">LataVelhaInc. </span><span id="corporativo">Corporativo</span>
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
@@ -30,7 +30,7 @@
                     <a href="listarPropostasLoja">Propostas</a>
                 </li>
                 <li class="linkTopoDireita">
-                    <a href="cadastro">Adicionar Veículo</a>
+                    <a href="../lojas/cadastro">Adicionar Veículo</a>
                 </li>
             </ul>
         </div>
@@ -41,24 +41,25 @@
             <table class="propostas">
                 <thead>
 					<tr>
-                        <th>Status</th>
                         <th>Foto</th>
                         <th>Carro</th>
                         <th>Valor</th>
 						<th>Proposta</th>
-                        <th>Ação</th>
+                        <th>Status</th>
+                        <th class="acao"></th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
 						<tr class="proposta">
-                            <td class="estado">${proposta.estado}</td>
                             <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>${proposta.veiculo.valor}</td>
 							<td>${proposta.valor}</td>
-                            <td><a id="aceitar" href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
+                            <td class="estado">${proposta.estado}</td>
+                            <td class="acao">
+                                <a id="aceitar" href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
                                 &nbsp; 
                                 <a id="negar" href="negarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
                             </td>

@@ -1,5 +1,4 @@
 .propostas {
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.233);
     background-color: whitesmoke;
 }
 
@@ -9,4 +8,19 @@
 
 #negar {
     color: red;
+}
+
+#aceitar, #negar {
+    background-color: rgb(43, 43, 43);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+td {
+    width: 140px;
+}
+
+.acao {
+    background-color: rgb(230, 230, 230);
+    border-color: rgb(230, 230, 230);
 }
