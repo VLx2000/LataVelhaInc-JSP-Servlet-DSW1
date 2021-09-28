@@ -44,12 +44,6 @@ public class ClienteController extends HttpServlet {
 					case "/comprar":
 						comprar(request, response);
 						break;
-					case "/fazerProposta":
-                        fazerProposta(request, response);
-						break;
-					case "/listarPropostas":
-						listarPropostas(request, response);
-						break;
 					default:
 						catalogo(request, response);
 						break;
@@ -87,16 +81,6 @@ public class ClienteController extends HttpServlet {
 		
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/comprar.jsp");
         dispatcher.forward(request, response);
-
-	}
-
-	private void fazerProposta(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-	}
-
-    private void listarPropostas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
 
 	}
 }

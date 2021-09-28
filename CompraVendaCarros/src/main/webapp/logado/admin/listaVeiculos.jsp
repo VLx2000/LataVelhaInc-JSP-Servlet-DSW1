@@ -27,11 +27,10 @@
             </ul>
         </div>
 		<div align="center">
-			<h1 class="label">Gerenciamento de Veiculos</h1>
+			<h1 class="label">Lista de Veiculos</h1>
 		</div>
 		
 		<div align="center">
-			<h2>Lista de Veiculos</h2>
 			
 			<table>
 				<thead>
@@ -44,7 +43,6 @@
 						<th>Descricao</th>
 						<th>valor</th>
 						<th>Nome da Loja</th>
-						<th>Ações</th>
 					</tr>
 				</thead>
 				
@@ -59,20 +57,10 @@
 							<td>${veiculo.descricao}</td>
 							<td>${veiculo.valor}</td>
 							<td>${veiculo.loja.nome}</td>
-
-						<td><a href="/<%= contextPath%>/veiculos/edicao?id=${veiculo.id}">Edição</a>
-							&nbsp;&nbsp;&nbsp;&nbsp; <a
-							href="/<%= contextPath%>/veiculos/remocao?id=${veiculo.id}"
-							onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-								Remoção </a>
-						</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="adiciona">
-				<a href="/<%=contextPath%>/veiculos/cadastro">Adicionar Novo Veículo</a>
-			</div>
 		</div>
 	</body>
 </html>
