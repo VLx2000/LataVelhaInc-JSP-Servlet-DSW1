@@ -86,7 +86,7 @@ public class PropostaController extends HttpServlet {
                 case "/listarPropostasCliente":
                 	lista_por_cliente(request,response);
                 	break;
-                case "*/comprar":
+                case "/comprar":
                 	lista_por_cliente(request,response);
                 	break;
                 default:
