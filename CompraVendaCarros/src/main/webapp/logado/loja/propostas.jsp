@@ -59,9 +59,9 @@
 							<td>${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
                             <td class="acao">
-                                <a id="aceitar" href="aceitarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
+                                <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
                                 &nbsp; 
-                                <a id="negar" href="negarProposta?id=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
+                                <a id="negar" href="negarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
                             </td>
 						</tr>
 					</c:forEach>

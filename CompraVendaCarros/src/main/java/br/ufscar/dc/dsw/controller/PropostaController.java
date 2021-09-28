@@ -86,6 +86,9 @@ public class PropostaController extends HttpServlet {
                 case "/listarPropostasCliente":
                 	lista_por_cliente(request,response);
                 	break;
+                case "*/comprar":
+                	lista_por_cliente(request,response);
+                	break;
                 default:
                     break;
             }
@@ -127,10 +130,10 @@ public class PropostaController extends HttpServlet {
 
     private void insereProposta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        
-		Long id = Long.parseLong(request.getParameter("id"));
+
 		Long id_loja =  Long.parseLong(request.getParameter("id_loja"));
-        Veiculo veiculo = new VeiculoDAO().getById(id);
+		Long id_veiculo =  Long.parseLong(request.getParameter("id_veiculo"));
+        Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
         Loja loja = new LojaDAO().getById(id_loja);
         Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
         Float valor = Float.parseFloat(request.getParameter("valor"));
@@ -144,14 +147,15 @@ public class PropostaController extends HttpServlet {
     private void aceitar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Long id = Long.parseLong(request.getParameter("id"));
+    	Long id = Long.parseLong(request.getParameter("id"));
+        Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
         Long id_veiculo = Long.parseLong(request.getParameter("id_veiculo"));
         Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
-        Cliente cliente = new ClienteDAO().getbyId(id);
+        Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
         Float valor = Float.parseFloat(request.getParameter("valor"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta("ACEITO", data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta(id,"ACEITO", data, valor, veiculo, cliente, loja);
         dao.update(proposta);
         
         response.sendRedirect("listarPropostasLoja");
@@ -159,15 +163,16 @@ public class PropostaController extends HttpServlet {
 
     private void negar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Long id = Long.parseLong(request.getParameter("id"));
+    	
+    	Long id = Long.parseLong(request.getParameter("id"));
+        Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
         Long id_veiculo = Long.parseLong(request.getParameter("id_veiculo"));
         Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
-        Cliente cliente = new ClienteDAO().getbyId(id);
+        Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
         Float valor = Float.parseFloat(request.getParameter("valor"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta("NÃO ACEITO", data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta(id,"RECUSADO", data, valor, veiculo, cliente, loja);
         dao.update(proposta);
         
         response.sendRedirect("listarPropostasLoja");

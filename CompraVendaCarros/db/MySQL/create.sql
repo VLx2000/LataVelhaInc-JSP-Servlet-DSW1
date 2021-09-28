@@ -13,8 +13,8 @@ create table Veiculo(id bigint not null auto_increment, placa varchar(20) not nu
 chassi varchar(17) not null, ano integer not null, quilometragem integer not null, descricao varchar(120) not null, 
 valor float not null,id_loja bigint not null, primary key(id),foreign key(id_loja) references Loja(id));
 
-create table Proposta(id_cliente bigint not null, id_loja bigint not null, id_veiculo bigint not null,
-valor float not null, data_p varchar(10) not null, estado varchar(10) not null, primary key(id_cliente,id_loja,id_veiculo), 
+create table Proposta(id bigint not null auto_increment,id_cliente bigint not null, id_loja bigint not null, id_veiculo bigint not null,
+valor float not null, data_p varchar(10) not null, estado varchar(11) not null, primary key(id), 
 foreign key(id_cliente) references Cliente(id),foreign key(id_loja) references Loja(id),
 foreign key(id_veiculo) references Veiculo(id));
 
@@ -60,7 +60,7 @@ values ('EBRH-7473', 'Camaro','54562575734747',2005,1345, '13 carro',78868,1);
 insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado) values (1,1,1,4366,'2021-09-23', 'ABERTO');
 insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado) values (1,1,3,8663,'2021-09-23', 'ACEITO');
 insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado) values (2,2,2,1543,'2021-09-23', 'ABERTO');
-insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado) values (2,1,3,4255,'2021-09-23', 'NÃO ACEITO');
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado) values (2,1,3,4255,'2021-09-23', 'RECUSADO');
 
 
 

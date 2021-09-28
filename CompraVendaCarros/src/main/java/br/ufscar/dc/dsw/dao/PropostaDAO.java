@@ -56,6 +56,7 @@ public class PropostaDAO extends GenericDAO {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
+            	Long id = resultSet.getLong("p.id");
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("p.valor");
@@ -89,7 +90,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
             resultSet.close();
@@ -116,7 +117,7 @@ public class PropostaDAO extends GenericDAO {
             ResultSet resultSet = statement.executeQuery(); 
             
             while (resultSet.next()) {
-                
+            	Long id = resultSet.getLong("p.id");
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("p.valor");
@@ -149,7 +150,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
 
@@ -178,7 +179,7 @@ public class PropostaDAO extends GenericDAO {
             ResultSet resultSet = statement.executeQuery(); 
             
             while (resultSet.next()) {
-
+            	Long id = resultSet.getLong("p.id");
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("valor");
@@ -212,7 +213,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
 
@@ -225,15 +226,13 @@ public class PropostaDAO extends GenericDAO {
         return listaPropostas;
     }
 	public void delete(Proposta proposta) {
-        String sql = "DELETE FROM proposta where (id_cliente,id_loja,id_veiculo) = (?,?,?)";
+        String sql = "DELETE FROM proposta where id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setLong(1, proposta.getCliente().getId());
-            statement.setLong(2, proposta.getLoja().getId());
-            statement.setLong(3, proposta.getVeiculo().getId());
+            statement.setLong(1, proposta.getId());
             statement.executeUpdate();
 
             statement.close();
@@ -244,7 +243,7 @@ public class PropostaDAO extends GenericDAO {
     }
 	
 	  public void update(Proposta proposta) {
-	        String sql = "UPDATE Proposta SET valor = ?, data_p = ?, estado = ? WHERE (id_cliente,id_loja,id_veiculo) = (?,?,?)";
+	        String sql = "UPDATE Proposta SET valor = ?, data_p = ?, estado = ? WHERE id = ?";
 	    
 	        try {
 	            Connection conn = this.getConnection();
@@ -252,9 +251,10 @@ public class PropostaDAO extends GenericDAO {
 	            statement.setFloat(1, proposta.getValor());
 	            statement.setString(2, proposta.getData());
                 statement.setString(3, proposta.getEstado());
-	            statement.setLong(4,proposta.getCliente().getId());
-	            statement.setLong(5,proposta.getLoja().getId());
-	            statement.setLong(6, proposta.getVeiculo().getId());
+                statement.setLong(4, proposta.getId());
+	            //statement.setLong(4,proposta.getCliente().getId());
+	            //statement.setLong(5,proposta.getLoja().getId());
+	            //statement.setLong(6, proposta.getVeiculo().getId());
 
 	            statement.executeUpdate();
 	            statement.close();
@@ -263,25 +263,27 @@ public class PropostaDAO extends GenericDAO {
 	            throw new RuntimeException(e);
 	        }
 	    }
-	  public Proposta getByIds(Long id_cliente, Long id_loja,Long id_veiculo) {
+	  public Proposta getById(Long id) {
 		  	Proposta proposta = null;
-	        String sql = "SELECT * from Proposta p WHERE p.id_clinete = ? and p.id_loja =? and p.id_veiculo = ?"; 
+	        String sql = "SELECT * from Proposta p WHERE id = ?"; 
 	        try {
 	            Connection conn = this.getConnection();
 	            PreparedStatement statement = conn.prepareStatement(sql);
-	            statement.setLong(1, id_cliente);
-	            statement.setLong(2,id_loja);
-	            statement.setLong(3,id_veiculo);
+	            statement.setLong(1, id);
 	            ResultSet resultSet = statement.executeQuery();
 	            if (resultSet.next()) {
 	            	Float valor = resultSet.getFloat("valor");
 	            	String data_p = resultSet.getString("data_p");
                     String estado = resultSet.getString("estado");
+                    
+                    Long id_loja = resultSet.getLong("id_loja");
+    				Long id_cliente = resultSet.getLong("id_cliente");
+    				Long id_veiculo = resultSet.getLong("id_veiculo");
 	            		
 	            	Cliente cliente = new ClienteDAO().getbyId(id_cliente);
 	                Loja loja = new LojaDAO().getById(id_loja);
 	                Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
-	                proposta = new Proposta(estado, data_p, valor, veiculo,cliente,loja);
+	                proposta = new Proposta(id,estado, data_p, valor, veiculo,cliente,loja);
 	            }
 	            resultSet.close();
 	            statement.close();

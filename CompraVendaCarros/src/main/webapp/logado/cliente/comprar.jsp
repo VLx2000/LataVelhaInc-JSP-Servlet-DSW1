@@ -55,10 +55,21 @@
                 </ul>
                 <!--<c:choose>
                     <c:when test="${veiculo != null}">-->
-                        <form action="../proposta/insereProposta?id=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
-                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
-                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
-                        </form>
+                    <c:set var = "perm_proposta" scope = "page" value = "True"/>
+                    <c:forEach var="proposta" items="${requestScope.listaPropostas}">       
+                    	<c:out value = "${propost.estado}"/>           
+                    	<c:if test ="${proposta.estado == 'ABERTO' && proposta.veiculo.id == veiculo.id}">
+                    		<c:set var = "perm_proposta" scope = "page" value = "False"/>
+                    		
+                        </c:if>   
+					</c:forEach>
+						
+               			<c:if test="${pageScope.perm_proposta == 'True'}">
+	                        <form action="../proposta/insereProposta?id_veiuculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
+	                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
+	                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
+                        	</form>
+                        </c:if>
                     <!--</c:when>
                     <c:otherwise>
                     </c:otherwise>
