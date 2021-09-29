@@ -49,7 +49,6 @@
                         <th>Parcelamento</th>
 						<th>Proposta</th>
                         <th>Status</th>
-                        <th class="box_mensagem">Enviar mensagem</th>
                         <th class="acao"></th>
 					</tr>
 				</thead>
@@ -64,14 +63,17 @@
                             <td>${proposta.parcelamento} parcelas</td>
 							<td>R$${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
-                            <td class="box_mensagem">
-                                <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
-                            </td>
-                            <td class="acao">
-                                <a id="aceitar" href="aceitarProposta?id=${proposta.id}">ACEITAR</a>
-                                &nbsp; 
-                                <a id="negar" href="negarProposta?id=${proposta.id}">NEGAR</a>
-                            </td>
+                            <c:if test="${proposta.estado == 'ABERTO' }">
+                                <td class="box_mensagem">
+                                    <h5>Enviar mensagem para o cliente</h5>
+                                    <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
+                                </td>
+                                <td class="acao">
+                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&mensagem=mensagem">ACEITAR</a>
+                                    &nbsp; 
+                                    <a id="negar" href="negarProposta?id=${proposta.id}&mensagem=mensagem">NEGAR</a>
+                                </td>
+                            </c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
