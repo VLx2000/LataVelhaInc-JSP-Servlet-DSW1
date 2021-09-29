@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../css/comprar.css">
         <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+        <link rel="stylesheet" href="../css/propostas.css">
 				
     </head>
     <body>
@@ -55,22 +56,48 @@
                 </ul>
                 <!--<c:choose>
                     <c:when test="${veiculo != null}">-->
-                    <c:set var = "perm_proposta" scope = "page" value = "True"/>
-                    <c:forEach var="proposta" items="${requestScope.listaPropostas}">       
-                    	           
+                    <c:forEach var="proposta" items="${requestScope.listaPropostas}">            
                     	<c:if test ="${proposta.estado == 'ABERTO' && proposta.veiculo.id == veiculo.id}">
-                    		<c:set var = "perm_proposta" scope = "page" value = "False"/>
-                    		
+                    		<c:set var = "block_proposta" scope = "page" value = "True"/>
+                    		<c:set var = "proposta_aberta" scope = "page" value = "${proposta}"/>
                         </c:if>   
 					</c:forEach>
-						
-               			<c:if test="${pageScope.perm_proposta == 'True'}">
-               				<c:out value = "${requestScope.listaPropostas}"/>
+					<c:choose>
+               			<c:when test="${pageScope.block_proposta == null}">
 	                        <form action="../proposta/insereProposta?id_veiculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
 	                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
 	                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
                         	</form>
-                        </c:if>
+                        </c:when>
+                        <c:otherwise>
+                        	<div align="center">
+								<h1 class="label">Proposta em aberto</h1>
+							</div>
+                       		<table class="propostas">
+								<thead>
+									<tr>
+                        				<th>Foto</th>
+                        				<th>Carro</th>
+                        				<th>Valor</th>
+                        				<th>Loja</th>
+										<th>Proposta</th>
+                        				<th>Status</th>
+									</tr>
+								</thead>
+
+							<tbody>
+								<tr class="proposta">
+                            		<td><img src="../imagens/${pageScope.proposta_aberta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
+                            		<td>${pageScope.proposta_aberta.veiculo.modelo}</td>
+                            		<td>${pageScope.proposta_aberta.veiculo.valor}</td>
+                            		<td>${pageScope.proposta_aberta.loja.nome}</td>
+									<td>${pageScope.proposta_aberta.valor}</td>
+                            		<td class="estado">${pageScope.proposta_aberta.estado}</td>
+								</tr>
+							</tbody>
+							</table>
+                       </c:otherwise> 	
+                    </c:choose>
                     <!--</c:when>
                     <c:otherwise>
                     </c:otherwise>

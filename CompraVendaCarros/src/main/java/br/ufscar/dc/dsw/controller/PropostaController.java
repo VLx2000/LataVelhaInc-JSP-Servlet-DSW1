@@ -86,9 +86,6 @@ public class PropostaController extends HttpServlet {
                 case "/listarPropostasCliente":
                 	lista_por_cliente(request,response);
                 	break;
-                case "/comprar":
-                	lista_por_cliente(request,response);
-                	break;
                 default:
                     break;
             }
@@ -104,6 +101,7 @@ public class PropostaController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/propostas.jsp");
         dispatcher.forward(request, response);
     }
+    
     
     private void lista_por_loja(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");

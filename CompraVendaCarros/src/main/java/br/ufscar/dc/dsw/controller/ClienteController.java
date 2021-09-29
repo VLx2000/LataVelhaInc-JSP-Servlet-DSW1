@@ -13,6 +13,8 @@ import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.dao.VeiculoDAO;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.util.Erro;
+import br.ufscar.dc.dsw.dao.PropostaDAO;
+import br.ufscar.dc.dsw.domain.Proposta;
 
 import java.util.List;
 
@@ -77,14 +79,18 @@ public class ClienteController extends HttpServlet {
     	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/inicio.jsp");
         dispatcher.forward(request, response);
 	}
-
+    
     private void comprar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+    	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
 		Long id = Long.parseLong(request.getParameter("id"));
 		VeiculoDAO dao = new VeiculoDAO();
 		Veiculo veiculo = dao.getById(id);
+		PropostaDAO dao_proposta = new PropostaDAO();
+		List<Proposta> listaPropostas = dao_proposta.getAllbyCliente(cliente.getId());
+		
         request.setAttribute("veiculo", veiculo);
+        request.setAttribute("listaPropostas", listaPropostas);
 		
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/comprar.jsp");
         dispatcher.forward(request, response);
