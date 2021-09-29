@@ -35,32 +35,34 @@
 			<h1 class="label">Lista de Propostas</h1>
 		</div>
         <div align="center">
-            <table class="propostas">
-				<thead>
-					<tr>
-                        <th>Foto</th>
-                        <th>Carro</th>
-                        <th>Valor</th>
-                        <th>Loja</th>
-						<th>Proposta</th>
-                        <th>Status</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
-						<tr class="proposta">
-                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
-                            <td>${proposta.veiculo.modelo}</td>
-                            <td>${proposta.veiculo.valor}</td>
-                            <td>${proposta.loja.nome}</td>
-							<td>${proposta.valor}</td>
-                            <td class="estado">${proposta.estado}</td>
+	        <section>
+	            <table class="propostas">
+					<thead>
+						<tr>
+	                        <th>Foto</th>
+	                        <th>Carro</th>
+	                        <th>Valor</th>
+	                        <th>Loja</th>
+							<th>Proposta</th>
+	                        <th>Status</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-        </section>
+					</thead>
+	
+					<tbody>
+						<c:forEach var="proposta" items="${requestScope.listaPropostas}">
+							<tr class="proposta">
+	                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
+	                            <td>${proposta.veiculo.modelo}</td>
+	                            <td>${proposta.veiculo.valor}</td>
+	                            <td>${proposta.loja.nome}</td>
+								<td>${proposta.valor}</td>
+	                            <td class="estado">${proposta.estado}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+	        </section>
+        </div>
         <script src="../js/cor.js"></script>
     </body>
 </html>

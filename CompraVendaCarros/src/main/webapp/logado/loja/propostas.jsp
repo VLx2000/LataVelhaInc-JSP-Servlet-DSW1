@@ -38,6 +38,7 @@
 			<h1 class="label">Lista de Propostas</h1>
 		</div>
         <div align="center">
+        <section>
             <table class="propostas">
                 <thead>
 					<tr>
@@ -68,6 +69,7 @@
 				</tbody>
 			</table>
         </section>
+        </div>
         <script src="../js/cor.js"></script>
     </body>
 </html>

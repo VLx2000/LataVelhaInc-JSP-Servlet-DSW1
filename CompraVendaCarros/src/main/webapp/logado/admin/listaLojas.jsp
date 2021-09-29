@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
+	<fmt:bundle basename="message">
 	<head>	
-		<title>Lista de Lojas</title>
+		<title><fmt:message key="store.title"/></title>
 		<link rel="stylesheet" href="../css/lojas.css">
 		<link rel="stylesheet" type="text/css" href="../css/global.css">
 	</head>
@@ -18,32 +20,31 @@
             <ul>
                 <li class="linkTopoEsquerda">
 					<a href="${pageContext.request.contextPath}/admin">
-                        <span id="titulo">LataVelhaInc. </span><span id="admin">admin</span>
+                        <span id="titulo"><fmt:message key="topbar.title"/> </span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">
-                    <!--<a href="login.jsp">Login</a>--> 
-                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    <a href="${pageContext.request.contextPath}/logout"><fmt:message key="user.logout"/></a>
                 </li>
             </ul>
         </div>
 		<div class="" align="center">
-			<h1 class="label">Gerenciamento de Lojas</h1>
+			<h1 class="label"><fmt:message key="store.welcome"/></h1>
 		</div>
 		
 		<div align="center">
-			<h3>Lista de Lojas</h3>
+			<h3><fmt:message key="store.title"/></h3>
 			
 			<table>
 				<thead>
 					<tr>
-						<th>Id</th>
-						<th>Nome</th>
-						<th>Email</th>
-						<th>Senha</th>
-						<th>CNPJ</th>
-						<th>Descrição</th>
-						<th>Ações</th>
+						<th><fmt:message key="store.id"/></th>
+						<th><fmt:message key="store.name"/></th>
+						<th><fmt:message key="store.email"/></th>
+						<th><fmt:message key="store.password"/></th>
+						<th><fmt:message key="store.cnpj"/></th>
+						<th><fmt:message key="store.description"/></th>
+						<th><fmt:message key="object.actions"/></th>
 					</tr>
 				</thead>
 				
@@ -56,19 +57,20 @@
 							<td>${loja.senha}</td>
 							<td>${loja.CNPJ}</td>
 							<td>${loja.descricao}</td>
-							<td><a href="/<%= contextPath%>/admin/edicaoLoja?id=${loja.id}">Edição</a>
+							<td><a href="/<%= contextPath%>/admin/edicaoLoja?id=${loja.id}"><fmt:message key="object.update"/></a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="/<%= contextPath%>/admin/remocaoLoja?id=${loja.id}"
-								onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-									Remoção </a>
+								onclick="return confirm('<fmt:message key="confirm.message"/>');">
+									<fmt:message key="object.delete"/> </a>
 							</td>
 						</tr>
-					</c:forEach>
+					</c:forEach> 
 				</tbody>
 			</table>
 			<div class="adiciona">
-				<a href="/<%=contextPath%>/admin/cadastroLoja">Adicionar Nova Loja</a>
+				<a href="/<%=contextPath%>/admin/cadastroLoja"><fmt:message key="store.add"/></a>
 			</div>
 		</div>
 	</body>
+	</fmt:bundle>
 </html>
