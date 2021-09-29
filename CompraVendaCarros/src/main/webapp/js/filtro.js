@@ -20,7 +20,3 @@ setInterval(function filtro() {
     }
     document.getElementById('numero').textContent = cont
 }, 100)
-
-function Clicavel(id) {
-    window.location = "clientes/comprar?id=" + id;
-}

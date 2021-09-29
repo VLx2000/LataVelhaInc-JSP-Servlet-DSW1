@@ -20,7 +20,7 @@
             <ul>
                 <li class="linkTopoEsquerda">
 					<a href="${pageContext.request.contextPath}/admin">
-                        <span id="titulo"><fmt:message key="topbar.title"/> </span><span id="admin">admin</span>
+                        <span id="titulo"><fmt:message key="topbar.title"/></span><span id="admin">admin</span>
                     </a>
                 </li>
                 <li class="linkTopoDireita">

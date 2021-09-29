@@ -11,6 +11,7 @@
 	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	        <title><fmt:message key="page.title"/></title>
 	        <link rel="stylesheet" href="css/global.css">
+			<link rel="stylesheet" href="css/inicio.css">
 	    </head>
 	    <body>
 	        <%String contextPath = request.getContextPath().replace("/", ""); %>
@@ -35,10 +36,10 @@
 	        <section id="carros">
 	            <div id="divFiltro">
 	                <input type="text" name="Filtro" placeholder="<fmt:message key="filter.label"/>" id="filtro">
-	                <span id="legendaN"><fmt:message key="filter.count"/></span><span id="numero"></span>
+	                <span id="legendaN"><fmt:message key="filter.count"/></span><span id="numero">-</span>
 	            </div>
 	            <c:forEach var="veiculo" items="${requestScope.catalogo}">
-	                <section class="box" onclick="Clicavel('${veiculo.id}')">
+	                <section class="box" onclick="location.href='clientes/comprar?id=${veiculo.id}'">
 	                    <div class="card">
 	                        <div class="container">
 	                            <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
@@ -53,7 +54,8 @@
 	                </section>
 	            </c:forEach>
 	        </section>
-	        <script src="js/script.js"></script>
+			<footer>2021 &copy; LataVelhaInc. Feito por: Lucas, Rafael e Victor</footer>
+	        <script src="js/filtro.js"></script>
 	    </body>
     </fmt:bundle>
 </html>

@@ -58,11 +58,11 @@
 	                            <td>${proposta.loja.nome}</td>
 								<td>R$${proposta.valor}</td>
 	                            <td class="estado">${proposta.estado}</td>
-	                            <c:if test="${proposta.estado == 'ABERTO' }">
-                                	<td class="acao">
-                                	<a id="negar" href="../proposta/removerProposta?id=${proposta.id}">CANCELAR</a>
-                                	</td>
-                                </c:if>
+                                <td class="acao">
+                                    <c:if test="${proposta.estado == 'ABERTO' }">
+                                	    <a id="negar" href="../proposta/removerProposta?id=${proposta.id}">CANCELAR</a>
+                                    </c:if>
+                                </td>
 							</tr>
 						</c:forEach>
 					</tbody>

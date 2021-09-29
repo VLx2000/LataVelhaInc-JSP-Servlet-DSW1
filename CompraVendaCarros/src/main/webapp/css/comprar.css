@@ -27,6 +27,11 @@
     text-align: end;
     margin-top: 30px;
     font-size: 1.1em;
+    list-style-type: none;
+}
+
+.dadosCarro > li {
+    padding-right: 30px;
 }
 
 .descricao {
@@ -36,8 +41,7 @@
 }
 
 #preco {
-    margin-top: 30px;
-    padding: 10px;
+    padding-top: 30px;
     font-size: 2em;
     color: red;
 }
@@ -45,7 +49,8 @@
 .nomeModelo {
     font-size: 1.5em;
     font-weight: bolder;
-    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 input {
@@ -69,6 +74,12 @@ li img {
     width: 100%;
 }
 
+.propostas {
+    background-color: #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.226);
+}
+
 #proposta {
     background-color: orange;
     cursor: pointer;
@@ -79,13 +90,29 @@ li img {
 }
 
 #proposta:hover {
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 #comprar:hover {
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+}
+
+td, th {
+    width: 200px;
+    border: none;
+}
+
+#botao_cancelar {
+    background-color: #2b2b2b;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+#form_proposta {
+    margin-top: 150px;
+    text-align: center;
 }
 
 @media (min-width: 901px) and (max-width: 1400px) {

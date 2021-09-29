@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="../css/comprar.css">
         <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
-        <link rel="stylesheet" href="../css/propostas.css">
 				
     </head>
     <body>
@@ -64,7 +63,7 @@
 					</c:forEach>
 					<c:choose>
                			<c:when test="${pageScope.block_proposta == null}">
-	                        <form action="../proposta/insereProposta?id_veiculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
+	                        <form id="form_proposta" action="../proposta/insereProposta?id_veiculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
 	                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
 	                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
                         	</form>
@@ -76,18 +75,18 @@
                        		<table class="propostas">
 								<thead>
 									<tr>
-										<th class="acao">Proposta</th>
-                        				<th class="acao">Deseja Cancelar?</th>
+										<th>Proposta</th>
+                        				<th>Deseja Cancelar?</th>
 									</tr>
 								</thead>
-							<tbody>
-								<tr class="proposta">
-									<td class="acao">R$${pageScope.proposta_aberta.valor}</td>
-                            		<td class="acao">
-                               			 <a id="remover" href="../proposta/removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
-                            		</td>
-								</tr>
-							</tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>R$${pageScope.proposta_aberta.valor}</td>
+                                        <td id="botao_cancelar">
+                                            <a id="remover" href="../proposta/removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
 							</table>
                        </c:otherwise> 	
                     </c:choose>
