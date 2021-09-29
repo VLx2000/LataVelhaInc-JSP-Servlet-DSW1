@@ -299,5 +299,26 @@ public class PropostaDAO extends GenericDAO {
 	        }
 	        return proposta;
 	    }
+
+        public void updateEstado(Proposta proposta, String estado) {
+	        String sql = "UPDATE Proposta SET estado = ? WHERE id = ?";
+	    
+	        try {
+	            Connection conn = this.getConnection();
+	            PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setString(1, estado);
+                statement.setLong(2, proposta.getId());
+
+	            //statement.setLong(4,proposta.getCliente().getId());
+	            //statement.setLong(5,proposta.getLoja().getId());
+	            //statement.setLong(6, proposta.getVeiculo().getId());
+
+	            statement.executeUpdate();
+	            statement.close();
+	            conn.close();
+	        } catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
 }
 

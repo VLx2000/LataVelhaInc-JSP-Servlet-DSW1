@@ -49,6 +49,7 @@
                         <th>Parcelamento</th>
 						<th>Proposta</th>
                         <th>Status</th>
+                        <th class="box_mensagem">Enviar mensagem</th>
                         <th class="acao"></th>
 					</tr>
 				</thead>
@@ -63,10 +64,13 @@
                             <td>${proposta.parcelamento} parcelas</td>
 							<td>R$${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
+                            <td class="box_mensagem">
+                                <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
+                            </td>
                             <td class="acao">
-                                <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>
+                                <a id="aceitar" href="aceitarProposta?id=${proposta.id}">ACEITAR</a>
                                 &nbsp; 
-                                <a id="negar" href="negarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">NEGAR</a>
+                                <a id="negar" href="negarProposta?id=${proposta.id}">NEGAR</a>
                             </td>
 						</tr>
 					</c:forEach>
