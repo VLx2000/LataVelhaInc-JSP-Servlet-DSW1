@@ -84,7 +84,7 @@
 								<tr class="proposta">
 									<td class="acao">R$${pageScope.proposta_aberta.valor}</td>
                             		<td class="acao">
-                               			 <a id="remover" href="removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
+                               			 <a id="remover" href="../proposta/removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
                             		</td>
 								</tr>
 							</tbody>
