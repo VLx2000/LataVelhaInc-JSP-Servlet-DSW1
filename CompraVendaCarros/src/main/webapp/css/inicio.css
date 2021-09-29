@@ -1,7 +1,3 @@
-body {
-    position: absolute;
-}
-
 /*CARDS DOS CARROS*/
 #carros {
 	margin: auto;
@@ -77,15 +73,6 @@ body {
 #divFiltro {
 	margin: 20px;
 	position: relative;
-}
-
-/*SOBRE FOOTER*/
-footer {
-	position: relative;
-	clear: both;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
 }
 
 /*DESIGN RESPONSIVO DA PAGINA INICIAL*/

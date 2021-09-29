@@ -47,7 +47,6 @@
 	                </section>
 	            </c:forEach>
 	        </section>
-			<footer>2021 &copy; LataVelhaInc. Feito por: Lucas, Rafael e Victor</footer>
 	        <script src="js/filtro.js"></script>
 	    </body>
     </fmt:bundle>

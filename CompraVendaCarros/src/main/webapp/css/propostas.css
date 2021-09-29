@@ -21,6 +21,14 @@
     padding: 10px;
 }
 
+#mensagem {
+    padding: 10px;
+}
+
+.box_mensagem {
+    border: none;
+}
+
 td {
     width: 140px;
 }
