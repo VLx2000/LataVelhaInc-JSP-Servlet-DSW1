@@ -29,6 +29,9 @@ public class Proposta {
 		this.cliente = cliente;
 		this.loja = loja;
 	}
+	public Proposta (Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;

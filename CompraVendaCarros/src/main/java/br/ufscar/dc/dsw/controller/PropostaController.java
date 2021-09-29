@@ -86,6 +86,8 @@ public class PropostaController extends HttpServlet {
                 case "/listarPropostasCliente":
                 	lista_por_cliente(request,response);
                 	break;
+                case "/removerProposta":
+                	remover(request,response);
                 default:
                     break;
             }
@@ -175,6 +177,15 @@ public class PropostaController extends HttpServlet {
         
         response.sendRedirect("listarPropostasLoja");
     }
+    private void remover(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		System.out.println("PROOPOSSSSSSSSSSSSTAAAAAAAAAAAAaa");
+		PropostaDAO dao = new PropostaDAO();
+    	Long id = Long.parseLong(request.getParameter("id"));
+		Proposta proposta = new Proposta(id);
+		dao.delete(proposta);
+    	response.sendRedirect("listarPropostasCliente");
+	}
 }
 
 //Proposta proposta = new Proposta(data, veiculo.getValor(), veiculo, cliente, loja);

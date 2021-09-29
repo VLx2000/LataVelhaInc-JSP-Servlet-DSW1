@@ -82,6 +82,7 @@
                         				<th>Loja</th>
 										<th>Proposta</th>
                         				<th>Status</th>
+                        				<th class="acao"></th>
 									</tr>
 								</thead>
 
@@ -93,6 +94,9 @@
                             		<td>${pageScope.proposta_aberta.loja.nome}</td>
 									<td>${pageScope.proposta_aberta.valor}</td>
                             		<td class="estado">${pageScope.proposta_aberta.estado}</td>
+                            		<td class="acao">
+                               			 <a id="remover" href="removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
+                            		</td>
 								</tr>
 							</tbody>
 							</table>
