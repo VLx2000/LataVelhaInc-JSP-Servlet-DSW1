@@ -61,6 +61,10 @@ input {
     border-color: rgba(255, 255, 255, 0);
 }
 
+#pvalor, #pparcelas {
+    width: 150px;
+}
+
 li img {
     width: 600px;
     height: 400px;

@@ -17,7 +17,7 @@
             <ul id="links">
                 <li class="linkTopoEsquerda">
                     <a href="${pageContext.request.contextPath}/lojas">
-                        <span id="titulo">LataVelhaInc. </span><span id="corporativo">Corporativo</span>
+                        <span id="titulo">LataVelhaInc.</span><span id="corporativo">Corporativo</span>
                     </a>
                 </li>
                 <li class="nomeTopoDireita">
@@ -42,9 +42,11 @@
             <table class="propostas">
                 <thead>
 					<tr>
+                        <th>Data</th>
                         <th>Foto</th>
                         <th>Carro</th>
                         <th>Valor</th>
+                        <th>Parcelamento</th>
 						<th>Proposta</th>
                         <th>Status</th>
                         <th class="acao"></th>
@@ -54,9 +56,11 @@
 				<tbody>
 					<c:forEach var="proposta" items="${requestScope.listaPropostas}">
 						<tr class="proposta">
+                            <td>${proposta.data}</td>
                             <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
                             <td>${proposta.veiculo.modelo}</td>
                             <td>R$${proposta.veiculo.valor}</td>
+                            <td>${proposta.parcelamento} parcelas</td>
 							<td>R$${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
                             <td class="acao">

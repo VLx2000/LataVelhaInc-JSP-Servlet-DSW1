@@ -21,7 +21,7 @@ public class PropostaDAO extends GenericDAO {
 
     public void insert(Proposta proposta) {
 
-        String sql = "INSERT INTO Proposta (id_cliente, id_loja, id_veiculo, valor, data_p, estado) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Proposta (id_cliente, id_loja, id_veiculo, valor, data_p, estado, parcelamento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -37,6 +37,7 @@ public class PropostaDAO extends GenericDAO {
             statement.setFloat(4, proposta.getValor());
             statement.setString(5, proposta.getData());
             statement.setString(6, proposta.getEstado());
+            statement.setInt(7, proposta.getParcelamento());
 
             statement.executeUpdate();
 
@@ -60,6 +61,7 @@ public class PropostaDAO extends GenericDAO {
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("p.valor");
+                int parcelamento = resultSet.getInt("parcelamento");
                
             	Long id_veiculo =  resultSet.getLong("id_veiculo");
                 String placa = resultSet.getString("placa");
@@ -90,7 +92,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, parcelamento, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
             resultSet.close();
@@ -121,6 +123,7 @@ public class PropostaDAO extends GenericDAO {
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("p.valor");
+                int parcelamento = resultSet.getInt("parcelamento");
                
             	Long id_veiculo =  resultSet.getLong("id_veiculo");
                 String placa = resultSet.getString("placa");
@@ -150,7 +153,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, parcelamento, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
 
@@ -183,6 +186,7 @@ public class PropostaDAO extends GenericDAO {
                 String estado = resultSet.getString("estado");
                 String data_p = resultSet.getString("data_p");
                 Float valor = resultSet.getFloat("valor");
+                int parcelamento = resultSet.getInt("parcelamento");
                
             	Long id_veiculo =  resultSet.getLong("id_veiculo");
                 String placa = resultSet.getString("placa");
@@ -213,7 +217,7 @@ public class PropostaDAO extends GenericDAO {
 				Loja loja = new Loja(lojaId,loja_email,loja_senha,cnpj,loja_nome,descricao_loja);
                 Cliente cliente = new Cliente(id_cliente,cliente_email,cliente_senha,cpf,cliente_nome,telefone,sexo,nascimento,papel);   
                 Veiculo veiculo = new Veiculo(id_veiculo,placa,modelo,chassi,ano,quilometragem,veiculo_descricao,veiculo_valor,loja);
-                Proposta proposta = new Proposta(id,estado, data_p, valor, veiculo, cliente, loja);
+                Proposta proposta = new Proposta(id,estado, data_p, valor, parcelamento, veiculo, cliente, loja);
                 listaPropostas.add(proposta);
             }
 
@@ -243,7 +247,7 @@ public class PropostaDAO extends GenericDAO {
     }
 	
 	  public void update(Proposta proposta) {
-	        String sql = "UPDATE Proposta SET valor = ?, data_p = ?, estado = ? WHERE id = ?";
+	        String sql = "UPDATE Proposta SET valor = ?, data_p = ?, estado = ?, parcelamento = ? WHERE id = ?";
 	    
 	        try {
 	            Connection conn = this.getConnection();
@@ -252,6 +256,7 @@ public class PropostaDAO extends GenericDAO {
 	            statement.setString(2, proposta.getData());
                 statement.setString(3, proposta.getEstado());
                 statement.setLong(4, proposta.getId());
+                statement.setInt(5, proposta.getParcelamento());
 	            //statement.setLong(4,proposta.getCliente().getId());
 	            //statement.setLong(5,proposta.getLoja().getId());
 	            //statement.setLong(6, proposta.getVeiculo().getId());
@@ -275,6 +280,7 @@ public class PropostaDAO extends GenericDAO {
 	            	Float valor = resultSet.getFloat("valor");
 	            	String data_p = resultSet.getString("data_p");
                     String estado = resultSet.getString("estado");
+                    int parcelamento = resultSet.getInt("parcelamento");
                     
                     Long id_loja = resultSet.getLong("id_loja");
     				Long id_cliente = resultSet.getLong("id_cliente");
@@ -283,7 +289,7 @@ public class PropostaDAO extends GenericDAO {
 	            	Cliente cliente = new ClienteDAO().getbyId(id_cliente);
 	                Loja loja = new LojaDAO().getById(id_loja);
 	                Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
-	                proposta = new Proposta(id,estado, data_p, valor, veiculo,cliente,loja);
+	                proposta = new Proposta(id,estado, data_p, valor, parcelamento, veiculo,cliente,loja);
 	            }
 	            resultSet.close();
 	            statement.close();

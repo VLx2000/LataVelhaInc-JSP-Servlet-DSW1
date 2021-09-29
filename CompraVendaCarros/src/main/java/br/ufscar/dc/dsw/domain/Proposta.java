@@ -9,22 +9,25 @@ public class Proposta {
 	private Cliente cliente;
 	private Loja loja;
 	private String estado;
+	private int parcelamento;
 
-	public Proposta (Long id,String estado, String data_p, Float valor, Veiculo veiculo, Cliente cliente, Loja loja) {
+	public Proposta (Long id,String estado, String data_p, Float valor, int parcelamento, Veiculo veiculo, Cliente cliente, Loja loja) {
 		this.id = id;
 		this.estado = estado;
 		this.data_p = data_p;
 		this.valor = valor;
+		this.parcelamento = parcelamento;
 		this.veiculo = veiculo;
 		this.cliente = cliente;
 		this.loja = loja;
 	}
 	
-	public Proposta (String estado, String data_p, Float valor, Veiculo veiculo, Cliente cliente, Loja loja) {
+	public Proposta (String estado, String data_p, Float valor, int parcelamento, Veiculo veiculo, Cliente cliente, Loja loja) {
 		//this.id = id;
 		this.estado = estado;
 		this.data_p = data_p;
 		this.valor = valor;
+		this.parcelamento = parcelamento;
 		this.veiculo = veiculo;
 		this.cliente = cliente;
 		this.loja = loja;
@@ -63,6 +66,14 @@ public class Proposta {
 
 	public void setValor(Float valor) {
 		this.valor = valor;
+	}
+
+	public int getParcelamento() {
+		return parcelamento;
+	}
+
+	public void setParcelamento(int parcelamento) {
+		this.parcelamento = parcelamento;
 	}
 
 	public Veiculo getVeiculo() {

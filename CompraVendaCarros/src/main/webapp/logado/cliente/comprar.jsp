@@ -64,7 +64,8 @@
 					<c:choose>
                			<c:when test="${pageScope.block_proposta == null}">
 	                        <form id="form_proposta" action="../proposta/insereProposta?id_veiculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
-	                            <input id="pvalor" type="text" name="valor" placeholder="Proposta">
+	                            <input id="pvalor" type="number" name="valor" placeholder="Proposta">
+                                <input id="pparcelas" type="number" name="parcelamento" placeholder="Nº Parcelas">
 	                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
                         	</form>
                         </c:when>
@@ -75,13 +76,15 @@
                        		<table class="propostas">
 								<thead>
 									<tr>
+                                        <th>Data</th>
 										<th>Proposta</th>
                         				<th>Deseja Cancelar?</th>
 									</tr>
 								</thead>
                                 <tbody>
                                     <tr>
-                                        <td>R$${pageScope.proposta_aberta.valor}</td>
+                                        <td>${pageScope.proposta_aberta.data}</td>
+                                        <td>R$${pageScope.proposta_aberta.valor} ${pageScope.proposta_aberta.parcelamento}x</td>
                                         <td id="botao_cancelar">
                                             <a id="remover" href="../proposta/removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
                                         </td>

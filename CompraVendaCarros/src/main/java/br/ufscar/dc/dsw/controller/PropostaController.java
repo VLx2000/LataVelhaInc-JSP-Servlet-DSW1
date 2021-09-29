@@ -136,9 +136,15 @@ public class PropostaController extends HttpServlet {
         Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
         Loja loja = new LojaDAO().getById(id_loja);
         Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
-        Float valor = Float.parseFloat(request.getParameter("valor"));
+        Float valor = veiculo.getValor();
+        int parcelamento = 1;
+        if (request.getParameter("parcelamento") != "")
+            parcelamento = Integer.parseInt(request.getParameter("parcelamento"));
+        if (request.getParameter("valor") != "")
+            valor = Float.parseFloat(request.getParameter("valor"));
+
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta("ABERTO", data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta("ABERTO", data, valor, parcelamento, veiculo, cliente, loja);
         dao.insert(proposta);
         
         response.sendRedirect("listarPropostasCliente");
@@ -154,8 +160,9 @@ public class PropostaController extends HttpServlet {
         Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
         Float valor = Float.parseFloat(request.getParameter("valor"));
+        int parcelamento = Integer.parseInt(request.getParameter("parcelamento"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta(id,"ACEITO", data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta(id,"ACEITO", data, valor, parcelamento, veiculo, cliente, loja);
         dao.update(proposta);
         
         response.sendRedirect("listarPropostasLoja");
@@ -171,8 +178,9 @@ public class PropostaController extends HttpServlet {
         Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
         Float valor = Float.parseFloat(request.getParameter("valor"));
+        int parcelamento = Integer.parseInt(request.getParameter("parcelamento"));
         String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        Proposta proposta = new Proposta(id,"RECUSADO", data, valor, veiculo, cliente, loja);
+        Proposta proposta = new Proposta(id,"RECUSADO", data, valor, parcelamento, veiculo, cliente, loja);
         dao.update(proposta);
         
         response.sendRedirect("listarPropostasLoja");

@@ -39,9 +39,11 @@
 	            <table class="propostas">
 					<thead>
 						<tr>
+                            <th>Data</th>
 	                        <th>Foto</th>
 	                        <th>Carro</th>
 	                        <th>Valor</th>
+                            <th>Parcelamento</th>
 	                        <th>Loja</th>
 							<th>Proposta</th>
 	                        <th>Status</th>
@@ -52,9 +54,11 @@
 					<tbody>
 						<c:forEach var="proposta" items="${requestScope.listaPropostas}">
 							<tr class="proposta">
+                                <td>${proposta.data}</td>
 	                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
 	                            <td>${proposta.veiculo.modelo}</td>
 	                            <td>R$${proposta.veiculo.valor}</td>
+                                <td>${proposta.parcelamento} parcelas</td>
 	                            <td>${proposta.loja.nome}</td>
 								<td>R$${proposta.valor}</td>
 	                            <td class="estado">${proposta.estado}</td>
