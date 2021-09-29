@@ -57,10 +57,10 @@ values ('BEBE-7473', 'RX-7','175785635744747',2017,80000, 'RX-7 seminovo',200000
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
 values ('EBRH-7473', 'Camaro','54562575734747',2016,95000, 'Caro seminovo',100000,1);
 
-insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,1,4366,'2021-09-23', 'ABERTO',12);
-insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,3,8663,'2021-09-23', 'ACEITO',14);
-insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (2,2,2,1543,'2021-09-23', 'ABERTO',30);
-insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (2,1,3,4255,'2021-09-23', 'RECUSADO',1);
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,1,17000,'2021-09-23', 'ABERTO',12);
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,3,10500,'2021-09-23', 'ACEITO',14);
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (2,2,2,4500,'2021-09-23', 'ABERTO',30);
+insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (2,1,3,10000,'2021-09-23', 'RECUSADO',1);
 
 
 
