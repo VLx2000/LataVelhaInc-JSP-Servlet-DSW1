@@ -39,7 +39,7 @@
 	        <section id="carros">
 	            <div id="divFiltro">
 	                <input type="text" name="Filtro" placeholder="<fmt:message key="filter.label"/>" id="filtro">
-	                <p id="numero"></p>
+	                <span id="legendaN"><fmt:message key="filter.count"/></span><span id="numero"></span>
 	            </div>
 	            <c:forEach var="veiculo" items="${requestScope.catalogo}">
 	                <section class="box">

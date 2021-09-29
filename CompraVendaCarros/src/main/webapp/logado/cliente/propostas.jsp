@@ -57,6 +57,9 @@
 	                            <td>${proposta.loja.nome}</td>
 								<td>${proposta.valor}</td>
 	                            <td class="estado">${proposta.estado}</td>
+                                <td class="estado">${proposta.estado}</td>
+                                <td class="acao">
+                                <a id="negar" href="aceitarProposta?id=${proposta.id}">CANCELAR</a>
 							</tr>
 						</c:forEach>
 					</tbody>

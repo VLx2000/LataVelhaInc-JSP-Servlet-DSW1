@@ -9,8 +9,6 @@ setInterval(function filtro() {
             cont = cards.length
         }
         else {
-            /*console.log(filtrar.value.toUpperCase())
-            console.log(modelos[i].textContent.toUpperCase())*/
             if (modelos[i].textContent.toUpperCase().includes(filtrar.value.toUpperCase())) {
                 cards[i].style = 'display: block;'
                 cont += 1
@@ -20,22 +18,9 @@ setInterval(function filtro() {
             }
         }
     }
-    document.getElementById('numero').textContent = cont + ' Carros'
+    document.getElementById('numero').textContent = cont
 }, 100)
 
 function Clicavel(id) {
     window.location = "clientes/comprar?id=" + id;
-    /*$(document).ready(function(){
-        $(".box").click(function(){
-            $.ajax({
-                type:"GET",
-                url:"ClasseServletAjax",
-                data: {
-                    pesquisar:$("#pesquisar").val()
-                },
-                success: function(respostaServidor){
-                    $("#imprimirAjax")[0].innerHTML=respostaServidor;
-                }
-            });
-        });*/
 }

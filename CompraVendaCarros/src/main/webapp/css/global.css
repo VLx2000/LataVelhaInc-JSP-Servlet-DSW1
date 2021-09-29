@@ -194,7 +194,7 @@ th, td {
 	width: 100%;
 }
 
-#filtro, #numero {
+#filtro, #numero, #legendaN {
 	background-color:rgba(250, 250, 250, 0.603);
 	border-radius: 2px;
 	border-color: rgba(0, 0, 0, 0);
@@ -203,7 +203,7 @@ th, td {
 	padding: 10px;
 }
 
-#numero {
+#numero, #legendaN {
 	float: right;
 	color: #757575;
 }
