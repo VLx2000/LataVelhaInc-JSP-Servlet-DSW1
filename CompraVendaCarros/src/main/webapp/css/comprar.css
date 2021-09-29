@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 100px;
     margin-bottom: 80px;
-    width: 60%;
+    width: 65%;
     height: fit-content;
     background-color:#fafafa;
     border-radius: 10px;
@@ -19,7 +19,7 @@
 }
 
 .info {
-    margin: auto;
+    margin: 30px;
     height: 300px;
 }
 
@@ -88,7 +88,7 @@ li img {
     transform: scale(1.02);
 }
 
-@media (min-width: 901px) and (max-width: 1200px) {
+@media (min-width: 901px) and (max-width: 1400px) {
 	.carro {
 		width: 75%;
 	}
@@ -97,10 +97,15 @@ li img {
     }
     .info {
         width: 100%;
+        height: fit-content;
         clear: both;
+        margin: 0;
     }
     .fotos {
         clear: both;
+    }
+    .dadosCarro {
+        text-align: center;
     }
 }
 
@@ -113,9 +118,14 @@ li img {
     }
     .info {
         width: 100%;
+        height: fit-content;
         clear: both;
+        margin: 0;
     }
     .fotos {
         clear: both;
+    }
+    .dadosCarro {
+        text-align: center;
     }
 }

@@ -23,10 +23,10 @@
 	            </ul>
 	        </div>
 	        <section id="crudLinks">
-	            <div class="crud">
+	            <div class="crud" id="crud1">
 	                <a href="admin/listaClientes"><fmt:message key="customer.crudname"/></a>
 	            </div>
-	            <div class="crud">
+	            <div class="crud" id="crud2">
 	                <a href="admin/listaLojas"><fmt:message key="store.crudname"/></a>
 	            </div>
 	        </section>
