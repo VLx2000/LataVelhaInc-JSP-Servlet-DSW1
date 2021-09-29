@@ -49,10 +49,10 @@
                 <c:set var="veiculo" value='${requestScope.veiculo}' />
                 <ul class="dadosCarro">
                     <li class="nomeModelo">${veiculo.modelo} (${veiculo.ano}) - ${veiculo.quilometragem}km</li>
-                    <li>Loja: ${veiculo.loja.nome}</li>
+                    <li>${veiculo.loja.nome}</li>
                     <li>Placa: ${veiculo.placa}</li>
                     <li>Chassi: ${veiculo.chassi}</li>
-                    <li class="oferta">$ ${veiculo.valor}</li>
+                    <li id="preco">R$${veiculo.valor}</li>
                 </ul>
                 <!--<c:choose>
                     <c:when test="${veiculo != null}">-->
@@ -76,24 +76,13 @@
                        		<table class="propostas">
 								<thead>
 									<tr>
-                        				<th>Foto</th>
-                        				<th>Carro</th>
-                        				<th>Valor</th>
-                        				<th>Loja</th>
-										<th>Proposta</th>
-                        				<th>Status</th>
-                        				<th class="acao"></th>
+										<th class="acao">Proposta</th>
+                        				<th class="acao">Deseja Cancelar?</th>
 									</tr>
 								</thead>
-
 							<tbody>
 								<tr class="proposta">
-                            		<td><img src="../imagens/${pageScope.proposta_aberta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
-                            		<td>${pageScope.proposta_aberta.veiculo.modelo}</td>
-                            		<td>${pageScope.proposta_aberta.veiculo.valor}</td>
-                            		<td>${pageScope.proposta_aberta.loja.nome}</td>
-									<td>${pageScope.proposta_aberta.valor}</td>
-                            		<td class="estado">${pageScope.proposta_aberta.estado}</td>
+									<td class="acao">R$${pageScope.proposta_aberta.valor}</td>
                             		<td class="acao">
                                			 <a id="remover" href="removerProposta?id=${pageScope.proposta_aberta.id}">CANCELAR</a>
                             		</td>

@@ -45,6 +45,7 @@
 	                        <th>Loja</th>
 							<th>Proposta</th>
 	                        <th>Status</th>
+                            <th class="acao"></th>
 						</tr>
 					</thead>
 	
@@ -53,11 +54,10 @@
 							<tr class="proposta">
 	                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
 	                            <td>${proposta.veiculo.modelo}</td>
-	                            <td>${proposta.veiculo.valor}</td>
+	                            <td>R$${proposta.veiculo.valor}</td>
 	                            <td>${proposta.loja.nome}</td>
-								<td>${proposta.valor}</td>
+								<td>R$${proposta.valor}</td>
 	                            <td class="estado">${proposta.estado}</td>
-                                <td class="estado">${proposta.estado}</td>
                                 <td class="acao">
                                 <a id="negar" href="aceitarProposta?id=${proposta.id}">CANCELAR</a>
 							</tr>

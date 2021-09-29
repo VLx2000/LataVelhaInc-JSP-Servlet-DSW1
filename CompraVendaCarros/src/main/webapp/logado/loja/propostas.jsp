@@ -56,8 +56,8 @@
 						<tr class="proposta">
                             <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
                             <td>${proposta.veiculo.modelo}</td>
-                            <td>${proposta.veiculo.valor}</td>
-							<td>${proposta.valor}</td>
+                            <td>R$${proposta.veiculo.valor}</td>
+							<td>R$${proposta.valor}</td>
                             <td class="estado">${proposta.estado}</td>
                             <td class="acao">
                                 <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&id_veiculo=${proposta.veiculo.id}&valor=${proposta.valor}">ACEITAR</a>

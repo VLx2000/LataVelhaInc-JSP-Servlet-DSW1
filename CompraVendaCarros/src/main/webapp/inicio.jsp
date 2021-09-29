@@ -40,7 +40,7 @@
 	                            <li class="modelo">${veiculo.modelo}</li>
 	                            <li><fmt:message key="store.entity" />: ${veiculo.loja.nome}</li>
 	                            <li>${veiculo.quilometragem}km</li>
-	                            <li class="oferta">$ ${veiculo.valor}</li>                    
+	                            <li class="oferta">R$${veiculo.valor}</li>                    
 	                        </ul>
 	                    </div>
 	                </section>
