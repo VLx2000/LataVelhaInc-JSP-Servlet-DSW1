@@ -201,9 +201,8 @@ public class PropostaController extends HttpServlet {
     private void remover(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 		System.out.println("PROOPOSSSSSSSSSSSSTAAAAAAAAAAAAaa");
-		PropostaDAO dao = new PropostaDAO();
     	Long id = Long.parseLong(request.getParameter("id"));
-		Proposta proposta = new Proposta(id);
+		Proposta proposta = new PropostaDAO().getById(id);
 		dao.delete(proposta);
     	response.sendRedirect("listarPropostasCliente");
 	}

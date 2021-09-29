@@ -28,5 +28,9 @@ hs_err_pid*
 .project
 .settings/
 bin/
+
+#VSCode
+.vscode
+
 /CompraVendaCarros/target/
 **/GenericDAO.java

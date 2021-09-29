@@ -230,7 +230,7 @@ public class PropostaDAO extends GenericDAO {
         return listaPropostas;
     }
 	public void delete(Proposta proposta) {
-        String sql = "DELETE FROM proposta where id = ?";
+        String sql = "DELETE FROM Proposta where id = ?";
 
         try {
             Connection conn = this.getConnection();
