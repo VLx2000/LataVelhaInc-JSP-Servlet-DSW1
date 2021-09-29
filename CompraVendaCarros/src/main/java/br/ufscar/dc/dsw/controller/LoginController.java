@@ -70,14 +70,17 @@ public class LoginController extends HttpServlet {
 					}
 				}
 			}
+			request.setAttribute("mensagens", erros);
+			String URL = "/login.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);
 		}
-		request.getSession().invalidate();
-
-		request.setAttribute("mensagens", erros);
-
-		String URL = "/index.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(URL);
-		rd.forward(request, response);
+		else {
+			request.getSession().invalidate();	// fazendo logout de usuario
+			String URL = "/index.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);
+		}
 	}
 
 	@Override
