@@ -220,14 +220,22 @@ th, td {
 	border: 2px solid rgb(32, 32, 32);
 	border-radius: 20px;
 	text-align: center;
-	width: 600px;
-	height: 300px;
+	width: fit-content;
+	height: fit-content;
 	margin-top: 200px;
 }
 
 .crud {
-	padding: 20px;
+	padding: 80px;
 	font-size: 3em;
+}
+
+#crud1 a:hover  {
+	color: whitesmoke;
+}
+
+#crud2 a:hover  {
+	color: whitesmoke;
 }
 
 @media (min-width: 1301px) {
