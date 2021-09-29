@@ -64,8 +64,8 @@
 					<c:choose>
                			<c:when test="${pageScope.block_proposta == null}">
 	                        <form id="form_proposta" action="../proposta/insereProposta?id_veiculo=${veiculo.id}&id_loja=${veiculo.loja.id}" method="post">
-	                            <input id="pvalor" type="number" name="valor" placeholder="Proposta">
-                                <input id="pparcelas" type="number" name="parcelamento" placeholder="Nº Parcelas">
+	                            <input id="pvalor" type="number" name="valor" placeholder="Proposta" required>
+                                <input id="pparcelas" type="number" name="parcelamento" placeholder="Nº Parcelas" required>
 	                            <input id="proposta" type="submit" name="Proposta" value="Fazer Proposta">
                         	</form>
                         </c:when>

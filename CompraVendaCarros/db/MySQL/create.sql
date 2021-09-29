@@ -31,31 +31,31 @@ insert into Loja(email,senha,cnpj,nome,descricao) values ('loja2@gmail.com','loj
 insert into Loja(email,senha,cnpj,nome,descricao) values ('loja3@gmail.com','loja3','333.333.333/0001-11','loja3','terceira loja');
 
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('AAA0-7473', 'Corsa','1A1A1111111111111',2005,1200000, 'primeiro carro',7547,1);
+values ('AAA0-7473', 'Corsa','1A1A1111111111111',2005,120000, 'Corsa 2005 turbinado',20000,1);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('WTBW-7473', 'Fusca','5643563563456346',2009,54642562, '2 carro',6456,2);
+values ('WTBW-7473', 'Fusca','5B4B563563456346',1997,160000, 'Fusca 97 rebaixado ',6000,2);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('RBWT-7473', 'Uno','345634564356346',2007,563, '3 carro',6346,1);
+values ('RBWT-7473', 'Uno','3A5A4564356346',2007,100000, 'Uno Mile 2007',12000,1);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('RWTBRW-7473', 'Palio','7547458548764',2005,456, '4 carro',2626,2);
+values ('RWTBRW-7473', 'Palio','7C4C458548764',2005,110000, 'Palio 2005 em bom estado',8000,2);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('WREB-7473', 'Monza','25645636465456',2005,2456, '5 carro',4457,1);
+values ('WREB-7473', 'Monza','2R6D5636465456',2006,100000, 'Monza',8000,1);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('RTJN-7473', 'Kombi','34563476765477',2005,8568, '6 carro',9696,2);
+values ('RTJN-7473', 'Kombi','5D5E3576765473',2003,115000, 'Kombi Branca em bom estado',25000,2);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('NQEA-7473', 'Corolla','134513253656456',2005,237, '7 carro',7567,3);
+values ('NQEA-7473', 'Corolla','134513253656456',2013,95000, 'Corolla 2013',15000,3);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('KYTRT-7473', 'Ka','096068784784563',2005,96766, '8 carro',3737,3);
+values ('KYTRT-7473', 'Ka','0D60R8784784563',2015,90000, 'Ford Ka seminovo',23000,3);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('HEBBT-7473', 'Focus','257564769897897',2005,7357, '9 carro',7756,3);
+values ('HEBBT-7473', 'Focus','2P45C4769897897',2012,105000, 'Focus 2012 em bom estado',16000,3);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('ERBVE-7473', 'F50','24575687686786',2005,96967, '10 carro',750067,3);
+values ('ERBVE-7473', 'F50','2E5K5687686786',2019,60000, 'Ferrari F50 vermelha',450000,3);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('EQB-7473', 'R8','25765878976536546',2005,24626, '11 carro',224003,3);
+values ('EQB-7473', 'R8','25765878976536546',2020,30000, 'Audi R8',250000,3);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('BEBE-7473', 'RX-7','175785635744747',2005,780, '12 carro',34034,1);
+values ('BEBE-7473', 'RX-7','175785635744747',2017,80000, 'RX-7 seminovo',200000,1);
 insert into Veiculo(placa,modelo,chassi,ano,quilometragem,descricao,valor,id_loja) 
-values ('EBRH-7473', 'Camaro','54562575734747',2005,1345, '13 carro',78868,1);
+values ('EBRH-7473', 'Camaro','54562575734747',2016,95000, 'Caro seminovo',100000,1);
 
 insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,1,4366,'2021-09-23', 'ABERTO',12);
 insert into Proposta(id_cliente,id_loja,id_veiculo, valor,data_p, estado, parcelamento) values (1,1,3,8663,'2021-09-23', 'ACEITO',14);
