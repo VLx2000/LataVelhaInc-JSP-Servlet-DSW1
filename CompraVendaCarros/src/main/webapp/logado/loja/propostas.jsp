@@ -63,7 +63,19 @@
 	                            <td>R$${proposta.veiculo.valor}</td>
 	                            <td>${proposta.parcelamento} <fmt:message key="bids.installments"/></td>
 								<td>R$${proposta.valor}</td>
-	                            <td class="estado">${proposta.estado}</td>
+	                            <td class="estado">
+									<c:choose>
+		                            	<c:when test="${proposta.estado == 'ACEITO'}">
+		                            		<fmt:message key="bids.accepted"/>
+		                            	</c:when>
+		                            	<c:when test="${proposta.estado == 'RECUSADO'}">
+		                            		<fmt:message key="bids.rejected"/>
+		                            	</c:when>
+		                            	<c:otherwise>
+		                            		<fmt:message key="bids.open"/>
+		                            	</c:otherwise>
+		                            </c:choose>
+								</td>
 	                            <c:if test="${proposta.estado == 'ABERTO' }">
 	                                <td class="box_mensagem">
 	                                    <h5><fmt:message key="store.send.message"/></h5>
