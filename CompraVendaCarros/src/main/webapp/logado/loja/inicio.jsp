@@ -30,7 +30,7 @@
 	                        </ul>
 	                </li>
 	                <li class="linkTopoDireita">
-	                    <a href="proposta/listarPropostasLoja"><fmt:message key="customer.bids"/></a>
+	                    <a href="proposta/listarPropostasLoja"><fmt:message key="store.bids"/></a>
 	                </li>
 	                <li class="linkTopoDireita">
 	                    <a href="lojas/cadastro"><fmt:message key="vehicle.add"/></a>
@@ -52,7 +52,7 @@
 	                            <li class="modelo">${veiculo.modelo}</li>
 	                            <a href="lojas/edicao?id=${veiculo.id}"><fmt:message key="object.update"/></a>
 								<a href="lojas/remocao?id=${veiculo.id}" 
-	                                onclick="return confirm('Tem certeza de que deseja excluir este item?');"><fmt:message key="object.delete"/> </a>                
+	                                onclick="return confirm('<fmt:message key="confirm.message"/>');"><fmt:message key="object.delete"/> </a>                
 	                        </ul>
 	                    </div>
 	                </section>
