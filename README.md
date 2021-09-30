@@ -54,3 +54,15 @@ quit
 4. Execute ```./mvnw tomcat7:redeploy```
 5. Em um navegador acesse http://localhost:8080/CompraVendaCarros/
 6. E, por fim, compre seu Corsa turbinado ou Uno com escada!
+
+### Integrantes ###
+
+- Lucas Vinícius Domingues 769699
+- Rafael Yoshio Yamawaki Murata 769681
+- Victor Luís Aguilar Antunes 769734
+
+Arquivo com a separação dos requisitos:
+[Checklist](checklist.md)
+
+Documento de requisitos:
+[Requisitos](Requisitos-A1.pdf)
