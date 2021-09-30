@@ -80,11 +80,12 @@
 	                                <td class="box_mensagem">
 	                                    <h5><fmt:message key="store.send.message"/></h5>
 	                                    <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
+										<input value="Salvar" type="button" id="salvar_mensagem" onclick="msg_email()">
 	                                </td>
 	                                <td class="acao">
-	                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg=mensagem"><fmt:message key="store.accept"/></a>
+	                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg="><fmt:message key="store.accept"/></a>
 	                                    &nbsp; 
-	                                    <a id="negar" href="negarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg=mensagem"><fmt:message key="store.reject"/></a>
+	                                    <a id="negar" href="negarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg="><fmt:message key="store.reject"/></a>
 	                                </td>
 	                            </c:if>
 							</tr>
@@ -94,6 +95,7 @@
 	        </section>
 	        </div>
 	        <script src="../js/cor.js"></script>
+			<script src="../js/msg_email.js"></script>
 	    </body>
     </fmt:bundle>
 </html>

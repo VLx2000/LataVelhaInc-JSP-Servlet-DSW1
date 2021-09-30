@@ -32,10 +32,10 @@ public class EmailService {
 			} else {
 				throw new FileNotFoundException("config.properties not found in the classpath");
 			}
-
+/*
 			String username = prop.getProperty("username");
 			String password = prop.getProperty("password");
-
+*/
 			Session session = Session.getInstance(prop, new Authenticator() {
 				@Override
 				protected PasswordAuthentication getPasswordAuthentication() {

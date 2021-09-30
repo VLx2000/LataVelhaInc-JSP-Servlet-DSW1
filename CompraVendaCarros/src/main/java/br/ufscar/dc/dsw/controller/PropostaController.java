@@ -23,9 +23,9 @@ import br.ufscar.dc.dsw.domain.Proposta;
 import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Loja;
-
+/*
 import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.UnsupportedEncodingException;*/
 import javax.mail.internet.InternetAddress;
 import br.ufscar.dc.dsw.util.EmailService;
 //import br.ufscar.dc.dsw.util.Erro;
@@ -158,7 +158,7 @@ public class PropostaController extends HttpServlet {
 		InternetAddress to = new InternetAddress(cliente.getEmail(), cliente.getNome());
 				
 		String subject = "Sua proposta de compra foi ACEITA";
-		String body = request.getParameter("msg")  + "https://meet.google.com/nzq-uifu-hsi";
+		String body = request.getParameter("msg")  + " https://meet.google.com/nzq-uifu-hsi";
 
 		service.send(from, to, subject, body);
         /**/
