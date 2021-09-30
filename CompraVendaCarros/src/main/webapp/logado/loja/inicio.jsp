@@ -11,8 +11,8 @@
 	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	        <title><fmt:message key="page.title"/></title>
 	        <link rel="stylesheet" href="css/global.css">
-	        <link rel="stylesheet" href="css/lojas.css">
 			<link rel="stylesheet" href="css/inicio.css">
+			<link rel="stylesheet" href="css/lojas.css">
 	    </head>
 	    <body>
 	        <%String contextPath = request.getContextPath().replace("/", ""); %>

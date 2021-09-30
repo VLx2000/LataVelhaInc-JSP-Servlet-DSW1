@@ -82,9 +82,9 @@
 	                                    <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
 	                                </td>
 	                                <td class="acao">
-	                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&mensagem=mensagem"><fmt:message key="store.accept"/></a>
+	                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg=mensagem"><fmt:message key="store.accept"/></a>
 	                                    &nbsp; 
-	                                    <a id="negar" href="negarProposta?id=${proposta.id}&mensagem=mensagem"><fmt:message key="store.reject"/></a>
+	                                    <a id="negar" href="negarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg=mensagem"><fmt:message key="store.reject"/></a>
 	                                </td>
 	                            </c:if>
 							</tr>

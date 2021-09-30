@@ -16,7 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-//import br.ufscar.dc.dsw.controller.PropostaController;
+import br.ufscar.dc.dsw.controller.PropostaController;
 
 public class EmailService {
 
@@ -25,7 +25,7 @@ public class EmailService {
 		try {
 
 			Properties prop = new Properties();
-			InputStream is = br.ufscar.dc.dsw.controller.PropostaController.class.getClassLoader().getResourceAsStream("config.properties");
+			InputStream is = PropostaController.class.getClassLoader().getResourceAsStream("config.properties");
 
 			if (is != null) {
 				prop.load(is);
@@ -39,7 +39,7 @@ public class EmailService {
 			Session session = Session.getInstance(prop, new Authenticator() {
 				@Override
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("teste", "teste");
+					return new PasswordAuthentication("37504cfc6f8c8a", "f51c92ac4ed207");
 				}
 			});
 

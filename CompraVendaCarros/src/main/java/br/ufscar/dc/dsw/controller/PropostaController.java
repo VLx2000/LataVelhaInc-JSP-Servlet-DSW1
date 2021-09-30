@@ -24,11 +24,10 @@ import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.domain.Cliente;
 import br.ufscar.dc.dsw.domain.Loja;
 
-/*
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import javax.mail.internet.InternetAddress;*/
-//import br.ufscar.dc.dsw.util.EmailService;
+import javax.mail.internet.InternetAddress;
+import br.ufscar.dc.dsw.util.EmailService;
 //import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(urlPatterns = "/proposta/*")
@@ -144,25 +143,22 @@ public class PropostaController extends HttpServlet {
             throws ServletException, IOException {
         
     	Long id = Long.parseLong(request.getParameter("id"));
-        /*Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
-        Long id_veiculo = Long.parseLong(request.getParameter("id_veiculo"));
-        Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
+        Proposta proposta = new PropostaDAO().getById(id);
+
+        Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
         Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
-        Float valor = Float.parseFloat(request.getParameter("valor"));
-        int parcelamento = Integer.parseInt(request.getParameter("parcelamento"));
-        String data = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());*/
-        Proposta proposta = new PropostaDAO().getById(id);
+
         dao.updateEstado(proposta, "ACEITO");
 
-        /* mandando email
+        /* mandando email*/
         EmailService service = new EmailService();
 		
         InternetAddress from = new InternetAddress(loja.getEmail(), loja.getNome());
 		InternetAddress to = new InternetAddress(cliente.getEmail(), cliente.getNome());
 				
 		String subject = "Sua proposta de compra foi ACEITA";
-		String body = request.getParameter("mensagem")  + "https://meet.google.com/nzq-uifu-hsi";
+		String body = request.getParameter("msg")  + "https://meet.google.com/nzq-uifu-hsi";
 
 		service.send(from, to, subject, body);
         /**/
@@ -174,24 +170,22 @@ public class PropostaController extends HttpServlet {
             throws ServletException, IOException {
     	
     	Long id = Long.parseLong(request.getParameter("id"));
-        /*Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
-        Long id_veiculo = Long.parseLong(request.getParameter("id_veiculo"));
-        Veiculo veiculo = new VeiculoDAO().getById(id_veiculo);
+        Proposta proposta = new PropostaDAO().getById(id);
+
+        Long id_cliente = Long.parseLong(request.getParameter("id_cliente"));
         Cliente cliente = new ClienteDAO().getbyId(id_cliente);
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
-        Float valor = Float.parseFloat(request.getParameter("valor"));
-        int parcelamento = Integer.parseInt(request.getParameter("parcelamento"));*/
-        Proposta proposta = new PropostaDAO().getById(id);
+        
         dao.updateEstado(proposta, "RECUSADO");
         
-        /* mandando email
+        /* mandando email*/
         EmailService service = new EmailService();
 		
         InternetAddress from = new InternetAddress(loja.getEmail(), loja.getNome());
 		InternetAddress to = new InternetAddress(cliente.getEmail(), cliente.getNome());
 				
 		String subject = "Sua proposta de compra foi NEGADA";
-		String body = request.getParameter("mensagem");
+		String body = request.getParameter("msg");
 
 		service.send(from, to, subject, body);
         /**/
