@@ -137,6 +137,44 @@ public class AdminController extends HttpServlet {
         dispatcher.forward(request, response);
     }
     
+    private Erro verifica_duplicado(String email, String senha) {
+		Erro erros = new Erro();
+   		
+		int i = 0;
+		int ver_cli = 0;
+		ClienteDAO dao_cliente = new ClienteDAO();
+		List<Cliente> lista_clientes = dao_cliente.getAll();
+		while(i<lista_clientes.size() && erros.size() == 0) { //verifica duplicação em cliente
+			if(lista_clientes.get(i).getEmail().equals(email)) {
+				erros.add("Email já cadastrado");
+				ver_cli = 1;
+			}
+			if(lista_clientes.get(i).getSenha().equals(senha)) {
+				if(ver_cli == 0)
+					erros.add("Senha já está sendo usada");
+			}
+			i++;
+		}
+
+   		int j = 0;
+		int ver_loja = 0;
+		LojaDAO dao_loja = new LojaDAO();
+		List<Loja> lista_lojas = dao_loja.getAll();
+		while(j<lista_lojas.size() && erros.size() == 0) { //verifica duplicação de loja
+			if(lista_lojas.get(j).getEmail().equals(email)) {
+				erros.add("Email já cadastrado");
+				ver_loja = 1;
+			}
+			if(lista_lojas.get(j).getSenha().equals(senha)) {
+				if(ver_loja == 0)
+					erros.add("Senha já está sendo usada");
+			}
+			j++;
+		}
+		return erros;
+    	
+    }
+    
     private void insereLoja(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");
@@ -146,12 +184,20 @@ public class AdminController extends HttpServlet {
     	String CNPJ = request.getParameter("CNPJ");
     	String nome = request.getParameter("nome");
     	String descricao_loja = request.getParameter("descricao");
-    	
+    	Erro erros = new Erro();
+    	erros = verifica_duplicado(email,senha);
     	Loja loja = new Loja(email, senha, CNPJ, nome, descricao_loja);
-    	daoLoja.insert(loja);
+    	if(erros.isExisteErros()) {
+			request.setAttribute("mensagens", erros);
+			String URL = "/logado/admin/formularioLojas.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);
+    	}else {
+        	daoLoja.insert(loja);
+        	// Retorna para a página do CRUD:
+        	response.sendRedirect("listaLojas");
+    	}
     	
-    	// Retorna para a página do CRUD:
-    	response.sendRedirect("listaLojas");
     }
     
     private void atualizaLoja(HttpServletRequest request, HttpServletResponse response)
@@ -208,6 +254,9 @@ public class AdminController extends HttpServlet {
 
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
+
+    	Erro erros = new Erro();
+    	erros = verifica_duplicado(email,senha);
         String CPF = request.getParameter("CPF");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
@@ -216,9 +265,16 @@ public class AdminController extends HttpServlet {
         //Date nascimento = request.getParameter("nascimento");
         String papel = request.getParameter("papel");
         Cliente cliente = new Cliente(email, senha, CPF, nome, telefone, sexo, nascimento, papel);
-
-        daoCliente.insert(cliente);
-        response.sendRedirect("listaClientes");
+        if(erros.isExisteErros()) {
+        	System.out.println(erros.getErros().get(0));
+			request.setAttribute("mensagens", erros);
+			String URL = "/logado/admin/formularioClientes.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(URL);
+			rd.forward(request, response);
+    	}else {    	
+	        daoCliente.insert(cliente);
+	        response.sendRedirect("listaClientes");
+		}
     }
     
     private void atualizaCliente(HttpServletRequest request, HttpServletResponse response)

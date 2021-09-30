@@ -33,6 +33,7 @@ public class LoginController extends HttpServlet {
 			if (senha == null || senha.isEmpty()) {
 				erros.add("Senha não informada!");
 			}
+
 			if (!erros.isExisteErros()) {
 				ClienteDAO dao1 = new ClienteDAO();
 				Cliente usuario = dao1.getbyLogin(login);

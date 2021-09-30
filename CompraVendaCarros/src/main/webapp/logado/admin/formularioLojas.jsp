@@ -31,12 +31,14 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<c:if test="${!empty requestScope.mensagens}">
-				<ul class="erro">
-					<c:forEach items="${requestScope.mensagens}" var="mensagem">
-						<li>${mensagem}</li>
+			<c:if test="${mensagens.existeErros}">
+				<div id="erro">
+					<ul>
+					<c:forEach items="${mensagens.erros}" var="erro">
+						<li>${erro}</li>
 					</c:forEach>
-				</ul>
+					</ul>
+				</div>
 			</c:if>
 		</body>
 	</fmt:bundle>
