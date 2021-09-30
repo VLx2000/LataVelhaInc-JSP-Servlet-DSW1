@@ -55,6 +55,14 @@ quit
 5. Em um navegador acesse http://localhost:8080/CompraVendaCarros/
 6. E, por fim, compre seu Corsa turbinado ou Uno com escada!
 
+#### Envio de email ####
+Para testar o envio de email acesse o arquivo EmailService.java localizado em
+```
+CompraVendaCarros/src/main/java/br/ufscar/dc/dsw/util/EmailService.java
+```
+e adicione sua senha e usuário do https://mailtrap.io/ nos parâmetros da linha 42.
+Então, se logue como loja e envie uma mensagem para alguma proposta em aberto.
+
 ### Integrantes ###
 
 - Lucas Vinícius Domingues 769699
