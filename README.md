@@ -1,5 +1,7 @@
 # LataVelhaInc. (Site de compra e venda de carros)
 
+![Página Inicial](/CompraVendaCarros/src/main/webapp/imagens/TelaInicial.png "Página Inicial")
+
 ### Dependências ###
 - mysql
 - tomcat
