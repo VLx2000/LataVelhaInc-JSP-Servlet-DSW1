@@ -43,6 +43,7 @@
 	            <table class="propostas">
 	                <thead>
 						<tr>
+							<th><fmt:message key="bids.client"/></th>
 	                        <th><fmt:message key="bids.date"/></th>
 	                        <th><fmt:message key="bids.photo"/></th>
 	                        <th><fmt:message key="bids.vehicle"/></th>
@@ -57,6 +58,7 @@
 					<tbody>
 						<c:forEach var="proposta" items="${requestScope.listaPropostas}">
 							<tr class="proposta">
+								<td>${proposta.cliente.email}</td>
 	                            <td>${proposta.data}</td>
 	                            <td><img src="../imagens/${proposta.veiculo.modelo}.jpg" alt="Carro" height="80px" width="80px"></td>
 	                            <td>${proposta.veiculo.modelo}</td>
