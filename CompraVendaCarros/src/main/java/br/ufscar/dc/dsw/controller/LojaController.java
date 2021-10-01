@@ -220,17 +220,18 @@ public class LojaController extends HttpServlet {
 			try {
 				List<FileItem> formItems = upload.parseRequest(request);
 
-				if (formItems != null && formItems.size() > 0) {
+				int cont = 1;
+				if (formItems != null && formItems.size() > 0 && formItems.size() <= 10) {
 					for (FileItem item : formItems) {
+						String cont_s = String.format("%d", cont);
 						if (!item.isFormField()) {
-							String fileName = new File(item.getName()).getName();
-                            //cont[id-1] += 1;
-                            //String fileName = cont[id-1] + ".jpg";
+                            String fileName = cont_s + ".jpg";
 							String filePath = uploadPath + File.separator + fileName;
 							File storeFile = new File(filePath);
 							item.write(storeFile);
 							request.setAttribute("mensagens", "File " + fileName + " has uploaded successfully!");
 						}
+						cont++;
 					}
 				}
 			} catch (Exception ex) {

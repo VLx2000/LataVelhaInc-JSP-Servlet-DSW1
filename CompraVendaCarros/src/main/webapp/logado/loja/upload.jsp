@@ -3,7 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -21,7 +21,7 @@
 	<div align="center">
 		<h1>File Upload</h1>
 		<form method="post" action="uploadFile?id=${id}" enctype="multipart/form-data">
-			Choose a file: <input type="file" name="uploadFile" /><input
+			Choose a file: <input type="file" name="uploadFile" multiple/><input
 				type="submit" value="Upload" />
 		</form>
 	</div>
