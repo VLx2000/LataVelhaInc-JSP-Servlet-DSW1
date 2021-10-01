@@ -199,6 +199,8 @@ public class LojaController extends HttpServlet {
     
     private void upload(HttpServletRequest request, HttpServletResponse response) 
     	throws ServletException, IOException{
+
+        //Long id = Long.parseLong(request.getParameter("id"));
     	
     	if (ServletFileUpload.isMultipartContent(request)) {
 
@@ -222,6 +224,8 @@ public class LojaController extends HttpServlet {
 					for (FileItem item : formItems) {
 						if (!item.isFormField()) {
 							String fileName = new File(item.getName()).getName();
+                            //cont[id-1] += 1;
+                            //String fileName = cont[id-1] + ".jpg";
 							String filePath = uploadPath + File.separator + fileName;
 							File storeFile = new File(filePath);
 							item.write(storeFile);

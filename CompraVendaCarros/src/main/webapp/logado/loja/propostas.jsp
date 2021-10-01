@@ -60,7 +60,7 @@
 							<tr class="proposta">
 								<td>${proposta.cliente.email}</td>
 	                            <td>${proposta.data}</td>
-	                            <td><img src="../imagens/${proposta.veiculo.id}/1.jpg" alt="Carro" height="80px" width="80px"></td>
+	                            <td><img src="../imagens/${proposta.veiculo.id}/1.jpg" alt="Carro" height="80px" width="120px"></td>
 	                            <td>${proposta.veiculo.modelo}</td>
 	                            <td>R$${proposta.veiculo.valor}</td>
 	                            <td>${proposta.parcelamento} <fmt:message key="bids.installments"/></td>

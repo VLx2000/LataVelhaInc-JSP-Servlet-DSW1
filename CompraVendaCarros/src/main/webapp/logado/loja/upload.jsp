@@ -18,25 +18,30 @@
 	<%
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
-	<div>File Upload Demo</div>
-	<form method="post" action="uploadFile?id=${id}" enctype="multipart/form-data">
-		Choose a file: <input type="file" name="uploadFile" /><input
-			type="submit" value="Upload" />
-	</form>
-	
+	<div align="center">
+		<h1>File Upload</h1>
+		<form method="post" action="uploadFile?id=${id}" enctype="multipart/form-data">
+			Choose a file: <input type="file" name="uploadFile" /><input
+				type="submit" value="Upload" />
+		</form>
+	</div>
 	<br />
 	
 	${requestScope.message}
 	
 	<br/>
-	
-	<h1>Files</h1>
+	<div align="center">
+		<h2>Files</h2>
 
-	<ul>
-		<c:forEach var="file" items="${requestScope.filelist}">
-			<li><a href="/<%=contextPath%>/imagens/${id}/${file}">${file}</a></li>
-		</c:forEach>
-	</ul>
+		<ul>
+			<!--<c:forEach var="file" items="${requestScope.filelist}">
+				<li><a href="/<%=contextPath%>/imagens/${id}/${file}">${file}</a></li>
+			</c:forEach>-->
+			<c:forEach var = "i" begin = "1" end = "10">
+				<li><a href="/<%=contextPath%>/imagens/${id}/${i}.jpg">${i}.jpg</a></li>
+			</c:forEach>
+		</ul>
+	</div>
 </body>
 
 </html>
