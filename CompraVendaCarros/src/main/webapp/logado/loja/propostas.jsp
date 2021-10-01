@@ -18,7 +18,7 @@
 	            <ul id="links">
 	                <li class="linkTopoEsquerda">
 	                    <a href="${pageContext.request.contextPath}/lojas">
-	                        <span id="titulo"><fmt:message key="topbar.title"/></span><span id="corporativo">Corporativo</span>
+	                        <span id="titulo"><fmt:message key="topbar.title"/></span><span id="corporativo"><fmt:message key="store.link"/></span>
 	                    </a>
 	                </li>
 	                <li class="nomeTopoDireita">
@@ -43,7 +43,7 @@
 	            <table class="propostas">
 	                <thead>
 						<tr>
-							<th><fmt:message key="bids.client"/></th>
+							<th><fmt:message key="bids.customer"/></th>
 	                        <th><fmt:message key="bids.date"/></th>
 	                        <th><fmt:message key="bids.photo"/></th>
 	                        <th><fmt:message key="bids.vehicle"/></th>
