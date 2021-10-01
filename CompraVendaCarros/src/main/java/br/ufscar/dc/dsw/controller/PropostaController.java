@@ -170,7 +170,11 @@ public class PropostaController extends HttpServlet {
         
         List<Proposta> lista = dao.getAllbyLoja(id);
         for(int i = 0; i < lista.size();i++) {
-        	if(lista.get(i).getId() != id && lista.get(i).getVeiculo().getId() == proposta.getVeiculo().getId()) {
+    		System.out.println((lista.get(i).getId() != id));
+    		System.out.println((lista.get(i).getVeiculo().getId()) == (proposta.getVeiculo().getId()));
+    		System.out.println(lista.get(i).getEstado().equals("ABERTO"));
+    		System.out.println("_----------------------------");
+        	if((lista.get(i).getId() != id) && (lista.get(i).getVeiculo().getId()) == (proposta.getVeiculo().getId()) && (lista.get(i).getEstado().equals("ABERTO"))) {
         		Proposta new_proposta = new PropostaDAO().getById(lista.get(i).getId());
         		dao.updateEstado(new_proposta, "RECUSADO");
         	}
@@ -220,7 +224,6 @@ public class PropostaController extends HttpServlet {
     }
     private void remover(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-		System.out.println("PROOPOSSSSSSSSSSSSTAAAAAAAAAAAAaa");
     	Long id = Long.parseLong(request.getParameter("id"));
 		Proposta proposta = new PropostaDAO().getById(id);
 		dao.delete(proposta);
