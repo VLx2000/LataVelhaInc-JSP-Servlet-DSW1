@@ -82,7 +82,7 @@
 	                                <td class="box_mensagem">
 	                                    <h5><fmt:message key="store.send.message"/></h5>
 	                                    <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
-										<input value="Salvar" type="button" id="salvar_mensagem" onclick="msg_email()">
+										<input value='<fmt:message key="bids.save"/>' type="button" id="salvar_mensagem" onclick="msg_email()">
 	                                </td>
 	                                <td class="acao">
 	                                    <a id="aceitar" href="aceitarProposta?id=${proposta.id}&id_cliente=${proposta.cliente.id}&msg="><fmt:message key="store.accept"/></a>

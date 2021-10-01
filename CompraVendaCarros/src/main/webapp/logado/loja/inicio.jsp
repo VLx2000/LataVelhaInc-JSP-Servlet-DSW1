@@ -52,7 +52,7 @@
 	                            <li class="modelo">${veiculo.modelo}</li>
 	                            <a href="lojas/edicao?id=${veiculo.id}"><fmt:message key="object.update"/></a>
 								<a href="lojas/remocao?id=${veiculo.id}" onclick="return confirm('<fmt:message key="confirm.message"/>');"><fmt:message key="object.delete"/> </a>
-	                            <a href="lojas/upload?id=${veiculo.id}">Adicionar/Editar Fotos</a>
+	                            <a href="lojas/upload?id=${veiculo.id}"><fmt:message key="object.photo"/></a>
 	                        </ul>
 	                    </div>
 	                </section>
