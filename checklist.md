@@ -17,7 +17,7 @@ Divisão na implementação da funcionalidade: Lucas (10%), Rafael (80%) e Victo
 
 ### R3:
 
-#### ( ) Implementado (X) Parcialmente implementado
+#### (X) Implementado
 Divisão na implementação da funcionalidade: Lucas (60%), Rafael (20%) e Victor (20%)
 
 ### R4:
