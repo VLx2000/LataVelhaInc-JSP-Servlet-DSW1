@@ -200,7 +200,7 @@ public class LojaController extends HttpServlet {
     private void upload(HttpServletRequest request, HttpServletResponse response) 
     	throws ServletException, IOException{
 
-        //Long id = Long.parseLong(request.getParameter("id"));
+        
     	
     	if (ServletFileUpload.isMultipartContent(request)) {
 
@@ -219,8 +219,16 @@ public class LojaController extends HttpServlet {
 
 			try {
 				List<FileItem> formItems = upload.parseRequest(request);
+				File dir = new File(uploadPath);
+			    File[] directoryListing = dir.listFiles();
+			    int cont;
+				if (directoryListing != null) {
+					cont = directoryListing.length +1;
+				}else {
+					System.out.println(uploadPath);
+					cont = 1;
+				}
 
-				int cont = 1;
 				if (formItems != null && formItems.size() > 0 && formItems.size() <= 10) {
 					for (FileItem item : formItems) {
 						String cont_s = String.format("%d", cont);
