@@ -14,21 +14,23 @@
 		    <link rel="stylesheet" href="../css/global.css">
 			<link rel="stylesheet" href="../css/inicio.css">
 			<link rel="stylesheet" href="../css/lojas.css">
+			<link rel="stylesheet" href="../css/upload.css">
 		</head>
 		
 		<body>
 			<%
 				String contextPath = request.getContextPath().replace("/", "");
 			%>
-			<div align="center">
-				<h1><fmt:message key="upload.header"/></h1>
+			<section id="fundo">
+			<div align="center" id="div-titulo">
+				<h1 id="titulo"><fmt:message key="upload.header"/></h1>
 				<form method="post" action="uploadFile?id=${id}" enctype="multipart/form-data">
 					<fmt:message key="upload.choose"/>: <input type="file" name="uploadFile" accept=".jpg" multiple/><input
 						type="submit" value="Upload" />
 				</form>
 			</div>
 
-			<div align="center">
+			<div align="center" id="div-fotos">
 				<h2><fmt:message key="upload.files"/></h2>
 		
 				<ul>
@@ -37,6 +39,7 @@
 					</c:forEach>
 				</ul>
 			</div>
+			</section>
 		</body>
 	</fmt:bundle>
 
