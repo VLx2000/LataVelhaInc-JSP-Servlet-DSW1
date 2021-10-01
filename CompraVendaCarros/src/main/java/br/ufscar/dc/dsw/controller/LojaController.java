@@ -1,22 +1,28 @@
 package br.ufscar.dc.dsw.controller;
 
+import static br.ufscar.dc.dsw.util.Constants.MAX_FILE_SIZE;
+import static br.ufscar.dc.dsw.util.Constants.MAX_REQUEST_SIZE;
+import static br.ufscar.dc.dsw.util.Constants.MEMORY_THRESHOLD;
+import static br.ufscar.dc.dsw.util.Constants.UPLOAD_DIRECTORY;
+
+import java.io.File;
 import java.io.IOException;
-//import java.util.HashMap;
 import java.util.List;
-//import java.util.Map;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.RequestDispatcher; 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import br.ufscar.dc.dsw.dao.LojaDAO;
 import br.ufscar.dc.dsw.domain.Loja;
 import br.ufscar.dc.dsw.dao.VeiculoDAO;
 import br.ufscar.dc.dsw.domain.Veiculo;
 import br.ufscar.dc.dsw.util.Erro;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 @WebServlet(urlPatterns = "/lojas/*")
 public class LojaController extends HttpServlet {
@@ -58,7 +64,6 @@ public class LojaController extends HttpServlet {
 
             try {
                 switch (action) {
-
                     case "/cadastro":
                         apresentaFormCadastroVeiculos(request, response);
                         break;
@@ -77,6 +82,12 @@ public class LojaController extends HttpServlet {
                     case "/listarPropostas":
                         listaPropostas(request, response);
                         break;
+                    case "/upload":
+                		apresentaFormUpload(request, response);
+                		break;
+                    case "/uploadFile":
+                		upload(request, response);
+                		break;
                     default:
                         listaVeiculos(request, response);
                         break;
@@ -174,4 +185,56 @@ public class LojaController extends HttpServlet {
     	// Retorna para a página do CRUD:
     	response.sendRedirect("../lojas");
     }
+    
+    private void apresentaFormUpload(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Veiculo veiculo = dao.getById(id);
+        request.setAttribute("veiculo", veiculo);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/upload.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void upload(HttpServletRequest request, HttpServletResponse response) 
+    	throws ServletException, IOException{
+    	
+    	if (ServletFileUpload.isMultipartContent(request)) {
+
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+			factory.setSizeThreshold(MEMORY_THRESHOLD);
+			factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+			ServletFileUpload upload = new ServletFileUpload(factory);
+			upload.setFileSizeMax(MAX_FILE_SIZE);
+			upload.setSizeMax(MAX_REQUEST_SIZE);
+			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+			File uploadDir = new File(uploadPath);
+			if (!uploadDir.exists()) {
+				uploadDir.mkdir();
+			}
+
+			try {
+				List<FileItem> formItems = upload.parseRequest(request);
+
+				if (formItems != null && formItems.size() > 0) {
+					for (FileItem item : formItems) {
+						if (!item.isFormField()) {
+							String fileName = new File(item.getName()).getName();
+							String filePath = uploadPath + File.separator + fileName;
+							File storeFile = new File(filePath);
+							item.write(storeFile);
+							request.setAttribute("mensagens", "File " + fileName + " has uploaded successfully!");
+						}
+					}
+				}
+			} catch (Exception ex) {
+				request.setAttribute("mensagem", "There was an error: " + ex.getMessage());
+			}
+			response.sendRedirect("../lojas");
+			
+			
+		}
+	}
+    
 }
