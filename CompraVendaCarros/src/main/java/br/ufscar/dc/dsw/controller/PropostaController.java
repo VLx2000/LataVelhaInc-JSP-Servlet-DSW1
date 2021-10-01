@@ -29,6 +29,7 @@ import java.io.UnsupportedEncodingException;*/
 import javax.mail.internet.InternetAddress;
 import br.ufscar.dc.dsw.util.EmailService;
 //import br.ufscar.dc.dsw.util.Erro;
+import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(urlPatterns = "/proposta/*")
 public class PropostaController extends HttpServlet {
@@ -87,6 +88,14 @@ public class PropostaController extends HttpServlet {
 
     private void lista_por_cliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
+    	if(cliente == null) {
+        	Erro erros = new Erro();
+            erros.add("Acesso não autorizado!");
+            erros.add("Apenas Clientes tem acesso a essa página");
+            request.setAttribute("mensagens", erros);
+            RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+            rd.forward(request, response);
+    	}
         List<Proposta> listaPropostas = dao.getAllbyCliente(cliente.getId());
         request.setAttribute("listaPropostas", listaPropostas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/propostas.jsp");
@@ -96,12 +105,20 @@ public class PropostaController extends HttpServlet {
     
     private void lista_por_loja(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
-        List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
-        request.setAttribute("listaPropostas", listaPropostas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
-        dispatcher.forward(request, response);
+    	if(loja == null) {
+        	Erro erros = new Erro();
+            erros.add("Acesso não autorizado!");
+            erros.add("Apenas LOJAS tem acesso a essa página");
+            request.setAttribute("mensagens", erros);
+            RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
+            rd.forward(request, response);
+    	}else {
+	        List<Proposta> listaPropostas = dao.getAllbyLoja(loja.getId());
+	        request.setAttribute("listaPropostas", listaPropostas);
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/propostas.jsp");
+	        dispatcher.forward(request, response);
+    	}
     }
-
     private Map<Long, Veiculo> getVeiculos() {
         Map<Long, Veiculo> veiculos = new HashMap<>();
         for (Veiculo veiculo: new VeiculoDAO().getAll()) {

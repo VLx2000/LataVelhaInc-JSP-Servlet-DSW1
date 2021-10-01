@@ -95,7 +95,7 @@
 	        </section>
 	        </div>
 	        <script src="../js/cor.js"></script>
-			<script src="../js/msg_email.js"></script>
+				<script src="../js/msg_email.js"></script>
 	    </body>
     </fmt:bundle>
 </html>
