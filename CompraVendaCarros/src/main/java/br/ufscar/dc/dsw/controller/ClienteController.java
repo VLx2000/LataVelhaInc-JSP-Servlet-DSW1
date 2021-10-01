@@ -1,5 +1,8 @@
 package br.ufscar.dc.dsw.controller;
 
+import static br.ufscar.dc.dsw.util.Constants.UPLOAD_DIRECTORY;
+
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -83,7 +86,8 @@ public class ClienteController extends HttpServlet {
     private void comprar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	Cliente cliente = (Cliente) request.getSession().getAttribute("usuarioLogado");
-		Long id = Long.parseLong(request.getParameter("id"));
+    	String id_s = request.getParameter("id");
+		Long id = Long.parseLong(id_s);
 		VeiculoDAO dao = new VeiculoDAO();
 		Veiculo veiculo = dao.getById(id);
 		PropostaDAO dao_proposta = new PropostaDAO();
@@ -91,6 +95,13 @@ public class ClienteController extends HttpServlet {
 		
         request.setAttribute("veiculo", veiculo);
         request.setAttribute("listaPropostas", listaPropostas);
+        
+        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY +  id_s;
+		File dir = new File(uploadPath);
+	    File[] directoryListing = dir.listFiles();
+	    int num_files = directoryListing.length;
+	    
+	    request.setAttribute("num_files", num_files);
 		
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/cliente/comprar.jsp");
         dispatcher.forward(request, response);

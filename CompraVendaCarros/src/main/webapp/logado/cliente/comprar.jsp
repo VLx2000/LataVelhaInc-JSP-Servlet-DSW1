@@ -38,7 +38,7 @@
 	        <section class="carro">
 	                <div class="fotos">                
 	                        <ul class="slider">
-	                            <c:forEach var = "i" begin = "1" end = "10">    
+	                            <c:forEach var = "i" begin = "1" end = "${requestScope.num_files}">    
 	                            <li>
 	                                <img src="../imagens/${veiculo.id}/${i}.jpg" alt="Carro" />
 	                            </li>

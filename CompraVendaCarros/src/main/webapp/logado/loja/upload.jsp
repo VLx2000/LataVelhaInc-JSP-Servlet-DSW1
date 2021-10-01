@@ -37,7 +37,7 @@
 			<!--<c:forEach var="file" items="${requestScope.filelist}">
 				<li><a href="/<%=contextPath%>/imagens/${id}/${file}">${file}</a></li>
 			</c:forEach>-->
-			<c:forEach var = "i" begin = "1" end = "10">
+			<c:forEach var = "i" begin = "1" end = "${requestScope.num_files}">
 				<li><a href="/<%=contextPath%>/imagens/${id}/${i}.jpg">${i}.jpg</a></li>
 			</c:forEach>
 		</ul>

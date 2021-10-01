@@ -120,7 +120,7 @@ public class LojaController extends HttpServlet {
     	request.setCharacterEncoding("UTF-8");
     	
         Loja loja = (Loja) request.getSession().getAttribute("lojaLogada");
-
+        
     	String placa = request.getParameter("placa");
     	String modelo = request.getParameter("modelo");
     	String chassi = request.getParameter("chassi");
@@ -188,10 +188,19 @@ public class LojaController extends HttpServlet {
     
     private void apresentaFormUpload(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("id"));
+        String id_s = request.getParameter("id");
+        Long id = Long.parseLong(id_s);
         Veiculo veiculo = dao.getById(id);
         request.setAttribute("veiculo", veiculo);
         request.setAttribute("id", id);
+        
+        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY +  id_s;
+		File dir = new File(uploadPath);
+	    File[] directoryListing = dir.listFiles();
+	    int num_files = directoryListing.length;
+	    
+	    request.setAttribute("num_files", num_files);
+
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/upload.jsp");
         dispatcher.forward(request, response);
