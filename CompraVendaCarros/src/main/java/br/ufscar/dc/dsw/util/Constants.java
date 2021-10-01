@@ -2,7 +2,7 @@ package br.ufscar.dc.dsw.util;
 
 public class Constants {
 
-	public static final String UPLOAD_DIRECTORY = "imagens";
+	public static final String UPLOAD_DIRECTORY = "imagens/";
 	public static final String DEFAULT_FILENAME = "default.file";
 
 	public static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;

@@ -40,7 +40,7 @@
 	                        <ul class="slider">
 	                            <c:forEach var = "i" begin = "1" end = "10">    
 	                            <li>
-	                                <img src="../imagens/fotos/${veiculo.modelo}/${i}.jpg" alt="Carro" />
+	                                <img src="../imagens/${veiculo.id}/${i}.jpg" alt="Carro" />
 	                            </li>
 	                            </c:forEach>
 	                        </ul>

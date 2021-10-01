@@ -42,7 +42,7 @@
 	                <section class="box" onclick="location.href='clientes/comprar?id=${veiculo.id}'">
 	                    <div class="card">
 	                        <div class="container">
-	                            <img src="imagens/${veiculo.modelo}.jpg" alt="Carro">
+	                            <img src="imagens/${veiculo.id}/1.jpg" alt="Carro">
 	                        </div>
 	                        <ul class="dadosCarro">
 	                            <li class="modelo">${veiculo.modelo}</li>

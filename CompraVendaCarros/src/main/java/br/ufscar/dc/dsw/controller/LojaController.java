@@ -191,6 +191,7 @@ public class LojaController extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
         Veiculo veiculo = dao.getById(id);
         request.setAttribute("veiculo", veiculo);
+        request.setAttribute("id", id);
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/loja/upload.jsp");
         dispatcher.forward(request, response);
@@ -208,7 +209,7 @@ public class LojaController extends HttpServlet {
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			upload.setFileSizeMax(MAX_FILE_SIZE);
 			upload.setSizeMax(MAX_REQUEST_SIZE);
-			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY + request.getParameter("id");
 			File uploadDir = new File(uploadPath);
 			if (!uploadDir.exists()) {
 				uploadDir.mkdir();
