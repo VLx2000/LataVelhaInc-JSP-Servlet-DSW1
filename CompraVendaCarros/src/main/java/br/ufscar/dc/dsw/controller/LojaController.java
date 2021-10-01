@@ -196,8 +196,14 @@ public class LojaController extends HttpServlet {
         
         String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY +  id_s;
 		File dir = new File(uploadPath);
+	    int num_files;
 	    File[] directoryListing = dir.listFiles();
-	    int num_files = directoryListing.length;
+		if (directoryListing != null){
+	    	num_files = directoryListing.length;
+		}
+		else {
+			num_files = 0;
+		}
 	    
 	    request.setAttribute("num_files", num_files);
 
