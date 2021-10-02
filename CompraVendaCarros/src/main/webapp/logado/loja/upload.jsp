@@ -26,7 +26,7 @@
 				<h1 id="titulo"><fmt:message key="upload.header"/></h1>
 				<c:if test="${requestScope.num_files < 10}">
 					<form method="post" action="uploadFile?id=${id}" enctype="multipart/form-data">
-						<fmt:message key="upload.choose"/>: <input type="file" name="uploadFile" accept=".jpg" required multiple/><input
+						<fmt:message key="upload.choose"/>: <input type="file" name="uploadFile" accept=".jpg" required/><input
 							type="submit" value="Upload" />
 					</form>
 				</c:if>
